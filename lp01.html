@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>衛生福利部</title>
+  <link rel="stylesheet" href="slick/slick.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="slick/slick.min.js"></script>
+  <script src="js/jquery.touchSwipe.min.js"></script>
+  <script src="js/uieffect.js"></script>
+</head>
+<body>
+  <a class="goCenter" href="#aC" tabindex="0">按 Enter 到主內容區</a>
+  <header class="webHeader">
+    <a class="accesskey" href="#aU" id="aU" accesskey="U" title="版頭區">:::</a>
+    <h1 aria-label="衛生福利部"><a href="mp.html"><img src="publicData/h1.png" alt=""></a></h1>
+
+    <nav class="headNav">
+      <ul>
+        <li><a href="mp.html">回首頁</a></li>
+        <li><a href="#">RSS</a></li>
+        <li><a href="#">雙語詞彙</a></li>
+        <li><a href="#">部長信箱</a></li>
+        <li><a href="#">網站導覽</a></li>
+        <li class="langEN"><a href="#" aria-label="English Version">En</a></li>
+        <li class="fontSize compound">
+          <button type="button" aria-label="文字大小">Aa</button>
+          <ul>
+            <li><button class="smallFont" type="button">小</button></li>
+            <li><button class="mediumFont" type="button">中</button></li>
+            <li><button class="largeFont" type="button">大</button></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <button type="button" class="sidebarCtrl" aria-label="開啟側欄"></button>
+    <button type="button" class="searchCtrl" aria-label="開啟查詢區"></button>
+    <section class="search">
+      <form action="">
+        <input type="text" placeholder="請輸入關鍵字">
+        <input type="button" value="查詢">
+      </form>
+      <a class="adv" href="#">進階</a>
+      <div class="hotKeywords">
+        <span class="label">熱門關鍵字</span>
+        <ul>
+          <li><a href="#">國民年金</a></li>
+          <li><a href="#">血壓</a></li>
+          <li><a href="#">家暴</a></li>
+          <li><a href="#">健保</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <nav class="menu">
+      <ul>
+        <li><a href="#">本部簡介</a>
+          <ul>
+            <li><a href="#">部長</a></li>
+            <li><a href="#">次長</a></li>
+            <li><a href="#">主任秘書</a></li>
+            <li><a href="#">行政組織</a></li>
+            <li><a href="#">本部單位及所屬機關</a></li>
+            <li><a href="#">使命與遠景</a></li>
+            <li><a href="#">政策報導</a></li>
+            <li><a href="#">部徽設計說明</a></li>
+          </ul>
+        </li>
+        <li><a href="#">最新消息</a>
+          <ul>
+            <li><a href="#">焦點新聞</a></li>
+            <li><a href="#">真相說明</a></li>
+            <li><a href="#">公告訊息</a></li>
+            <li><a href="#">活動訊息</a></li>
+            <li><a href="#">招標資訊</a></li>
+            <li><a href="#">就業資訊</a></li>
+          </ul>
+        </li>
+        <li><a href="#">便民服務</a>
+          <ul>
+            <li><a href="#">部長信箱</a></li>
+            <li><a href="#">線上申辦服務專區</a></li>
+            <li><a href="#">表單下載</a></li>
+            <li><a href="#">諮詢服務專線</a></li>
+            <li><a href="#">政府出版品</a></li>
+            <li><a href="#">社政相關業務移撥對照表</a></li>
+          </ul>
+        </li>
+        <li><a href="#">法令規章</a>
+          <ul>
+            <li><a href="#">衛生福利法規檢索系統</a></li>
+            <li><a href="#">法規通報</a></li>
+            <li><a href="#">全國法規料庫</a></li>
+            <li><a href="#">行政院公報資訊網</a></li>
+            <li><a href="#">反貪資訊網</a></li>
+            <li><a href="#">遊說法專區</a></li>
+          </ul>
+        </li>
+        <li><a href="#">衛教視窗</a>
+          <ul>
+            <li><a href="#">宣導專區</a></li>
+            <li><a href="#">影音專區</a></li>
+          </ul>
+        </li>
+        <li><a href="#">重大事件</a>
+          <ul>
+            <li><a href="#">日本能登半島震災專案</a></li>
+            <li><a href="#">嚴重特殊傳染性肺炎專區</a></li>
+            <li><a href="#">0402臺鐵408次列車事故專區</a></li>
+            <li><a href="#">土耳其震災專案</a></li>
+            <li><a href="#">0206花蓮震災訊息彙整</a></li>
+            <li><a href="#">八仙樂園粉塵暴燃專區</a></li>
+          </ul>
+        </li>
+        <li class="we"><a href="#">本部各單位及所屬機關</a>
+          <ul>
+            <li><a href="#">主任秘書室</a></li>
+            <li><a href="#">社會保險司</a></li>
+            <li><a href="#">社會救助及社工司</a></li>
+            <li><a href="#">長期照顧司</a></li>
+            <li><a href="#">護理及健康照護司</a></li>
+            <li><a href="#">保護服務司</a></li>
+            <li><a href="#">醫事司</a></li>
+            <li><a href="#">心理健康司</a></li>
+            <li><a href="#">口腔健康司</a></li>
+            <li><a href="#">中醫藥司</a></li>
+            <li><a href="#">秘書處</a></li>
+            <li><a href="#">人事處</a></li>
+            <li><a href="#">政風處</a></li>
+            <li><a href="#">會計處</a></li>
+            <li><a href="#">統計處</a></li>
+            <li><a href="#">資訊處</a></li>
+            <li><a href="#">法規會</a></li>
+            <li class="sub"><a href="#">附屬醫療及社會福利機構管理會</a></li>
+            <li><a href="#">全民健康保險會</a></li>
+            <li><a href="#">全民健康保險爭議審議會</a></li>
+            <li class="sub"><a href="#">衛生福利人員訓練中心</a></li>
+            <li><a href="#">國民年金監理會</a></li>
+            <li><a href="#">國際合作組</a></li>
+            <li><a href="#">公共關係室</a></li>
+            <li><a href="#">科技發展組</a></li>
+            <li><a href="#">國會聯絡組</a></li>
+            <li class="sub"><a href="#">社會及家庭署</a></li>
+            <li class="sub"><a href="#">疾病管制署</a></li>
+            <li class="sub"><a href="#">食品藥物管理署</a></li>
+            <li class="sub"><a href="#">國民健康署</a></li>
+            <li class="sub"><a href="#">中央健康保險署</a></li>
+            <!-- <li class="sub"><a href="#">中醫藥研究所</a></li> -->
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 行動版側欄 -->
+  <aside class="sidebar">
+  </aside>
+
+  <main class="main">
+    <a class="accesskey" href="#aC" id="aC" accesskey="C" title="主要內容區">:::</a>
+
+    <div class="mainRow">
+      <!-- 內頁左欄 Left Left Left -->
+      <div class="columnLeft">
+        <div class="head">113年衛生福利部新聞</div>
+        <section class="npShortcut">
+          <ul>
+            <li><a href="#">4月新聞</a></li>
+            <li><a href="#">3月新聞</a></li>
+            <li><a href="#">2月新聞</a></li>
+            <li><a href="#">1月新聞</a></li>
+          </ul>
+        </section>
+      </div>
+  
+      <!-- 內頁右欄 Right Right Right -->    
+      <div class="columnRight">
+        <div class="breadcrumb" title="瀏覽路徑">
+          <ul>
+            <li><a href="mp.html">首頁</a></li>
+            <li><a href="#">便民服務</a>
+            <li><a href="#">表單下載</a>
+            <li><a href="#">中醫藥</a>
+          </ul>
+        </div>
+  
+        <div class="pageHeader">
+          <h2>4月新聞</h2>
+          <section class="funcBar">
+            <ul>
+              <li class="print"><button type="button" aria-label="列印"></button></li>
+              <li class="share compound"><button type="button" aria-label="分享"></button>
+                <ul>
+                  <li><a target="_blank" title="分享在 Facebook（開新視窗）" href="https://www.facebook.com/"><img src="images/icon_fb.svg" alt="Facebook"></a></li>
+                  <li><a target="_blank" title="分享在 Twitter（開新視窗）" href="https://twitter.com/"><img src="images/icon_X.svg" alt="Twitter"></a></li>
+                  <li><a target="_blank" title="分享在 LINE（開新視窗）" href="https://access.line.me/"><img src="images/icon_line.svg" alt="LINE"></a></li>
+                </ul>
+              </li>
+              <li class="back"><a href="javascript:;" aria-label="回前頁"></a></li>
+            </ul>
+          </section>
+        </div>
+
+        <section class="searchOnLp drawer">
+          <button class="handle" type="button" data-altText="展開條件查詢">關閉條件查詢</button>
+          <div class="tray">
+            <form action="">
+              <table class="layout">
+                <tbody>
+                  <tr>
+                    <td>關鍵字</td>
+                    <td><input class="fullWidth" type="text" placeholder="請輸入關鍵字"></td>
+                  </tr>
+                  <tr>
+                    <td>資料大類</td>
+                    <td>
+                      <select class="fullWidth">
+                        <option value="0" selected>請選擇分類</option>
+                        <option value="新聞訊息">新聞訊息</option>
+                        <option value="政策宣導">政策宣導</option>
+                        <option value="其他資訊">其他資訊</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>發表日期</td>
+                    <td>
+                      <div class="duration">
+                        <input type="date" placeholder="請選擇日期">
+                        <input type="date" placeholder="請選擇日期">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>單選項目</td>
+                    <td>
+                      <div class="optionPool">
+                        <label><input type="radio" name="aaa" id="">單選項目1</label>
+                        <label><input type="radio" name="aaa" id="">單選項目2</label>
+                        <label><input type="radio" name="aaa" id="">知成多</label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>複選項目</td>
+                    <td>
+                      <div class="optionPool">
+                        <label><input type="checkbox" name="" id="">單選項目1</label>
+                        <label><input type="checkbox" name="" id="">單選項目2</label>
+                        <label><input type="checkbox" name="" id="">知成多</label>
+                        <label><input type="checkbox" name="" id="">選項4</label>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="btnDv">
+                <input type="button" class="submit" value="搜尋">
+                <input type="reset" value="清除">
+              </div>
+            </form>
+          </div>
+        </section>
+    
+
+        <section class="category">
+          <ul>
+            <li class="active"><a href="#">全部</a></li>
+            <li><a href="#">分類一</a></li>
+            <li><a href="#">分類二</a></li>
+            <li><a href="#">分類三</a></li>
+            <li><a href="#">分類四</a></li>
+            <li><a href="#">分類五</a></li>
+          </ul>
+        </section>
+        
+        <section class="pagination">
+          <form action="">
+            <div class="total">
+              共<em>173</em>筆資料，第<em>1/18</em>頁，
+              <div class="items">每頁顯示 <a class="active" href="#">20</a> <a href="#">40</a> <a href="#">60</a> 筆 </div>
+            </div>
+          </form>
+          <ul class="page">
+            <li class="first"><a title="第一頁" href="?">第一頁</a></li>
+            <li class="prev"><a title="上一頁" href="?">上一頁</a></li>
+            <li><a title="1" href="?">1</a></li>
+            <li><a title="2" href="?">2</a></li>
+            <li class="active"><a title="3" href="?">3</a></li>
+            <li><a title="4" href="?">4</a></li>
+            <li><a title="5" href="?">5</a></li>
+            <li><a title="6" href="?">6</a></li>
+            <li><a title="7" href="?">7</a></li>
+            <li><a title="8" href="?">8</a></li>
+            <li><a title="9" href="?">9</a></li>
+            <li><a title="10" href="?">10</a></li>
+            <li class="next"><a title="下一頁" href="?">下一頁</a></li>
+            <li class="last"><a title="最後一頁" href="?">最後一頁</a></li>
+          </ul>
+        </section>
+    
+        <section class="list">
+          <ul>
+            <li><a href="#"><p>113年健康城市暨高齡友善城市獎項評選開跑</p><time>113-04-30</time></a></li>
+            <li><a href="#"><p>健保署提醒新公司成立 員工五人以下需辦理加保</p><time>113-04-30</time></a></li>
+            <li><a href="#"><p>預告修正動物用藥殘留標準，增訂指標性殘留物質清單</p><time>113-04-30</time></a></li>
+            <li><a href="#"><p>拒售菸品予未滿20歲之國人 近3成業者未查驗證件直接販售</p><time>113-04-30</time></a></li>
+            <li><a href="#"><p>「社會工作人員智慧決策行動平臺」啟動 應用科技帶來社會工作新轉變</p><time>113-04-30</time></a></li>
+            <li><a href="#"><p>MIT藥品接軌國際，藥向全球</p><time>113-04-30</time></a></li>
+            <li><a href="#"><p>學名藥，一樣有效</p><time>113-04-30</time></a></li>
+            <li><a href="#"><p>近期國內腹瀉疫情上升，群聚增加，民眾應注意手部衛生與飲食安全，請餐飲旅宿業者加強環境衛生</p><time>113-04-30</time></a></li>
+            <li><a href="#"><p>國內新冠及流感併發重症病例發生仍多，疫情傳播風險持續</p><time>113-04-30</time></a></li>
+            <li><a href="#"><p>腸病毒疫情持續上升，請家長及教托育機構保持警覺</p><time>113-04-30</time></a></li>
+          </ul>
+        </section>
+    
+        <section class="pagination">
+          <form action="">
+            <div class="total">
+              共<em>173</em>筆資料，第<em>1/18</em>頁，
+              <div class="items">每頁顯示 <a class="active" href="#">20</a> <a href="#">40</a> <a href="#">60</a> 筆 </div>
+            </div>
+          </form>
+          <ul class="page">
+            <li class="first"><a title="第一頁" href="?">第一頁</a></li>
+            <li class="prev"><a title="上一頁" href="?">上一頁</a></li>
+            <li><a title="1" href="?">1</a></li>
+            <li><a title="2" href="?">2</a></li>
+            <li class="active"><a title="3" href="?">3</a></li>
+            <li><a title="4" href="?">4</a></li>
+            <li><a title="5" href="?">5</a></li>
+            <li><a title="6" href="?">6</a></li>
+            <li><a title="7" href="?">7</a></li>
+            <li><a title="8" href="?">8</a></li>
+            <li><a title="9" href="?">9</a></li>
+            <li><a title="10" href="?">10</a></li>
+            <li class="next"><a title="下一頁" href="?">下一頁</a></li>
+            <li class="last"><a title="最後一頁" href="?">最後一頁</a></li>
+          </ul>
+        </section>
+      
+      </div>
+
+    </div>
+
+
+
+  </main>
+
+  <footer class="webFooter">
+    <a class="accesskey" href="#aZ" id="aZ" accesskey="Z" title="頁腳區">:::</a>
+
+    
+    <div class="fatFooter">
+      <button type="button" class="fatFootCtrl" data-altText="開啟">收合</button>
+      <nav class="siteTree">
+        <ul>
+          <li><a href="#">本部簡介</a>
+            <ul>
+              <li><a href="#">部長</a></li>
+              <li><a href="#">次長</a></li>
+              <li><a href="#">主任秘書</a></li>
+              <li><a href="#">行政組織</a></li>
+              <li><a href="#">本部單位及所屬機關</a></li>
+              <li><a href="#">使命與遠景</a></li>
+              <li><a href="#">政策報導</a></li>
+              <li><a href="#">部徽設計說明</a></li>
+            </ul>
+          </li>
+          <li><a href="#">最新消息</a>
+            <ul>
+              <li><a href="#">焦點新聞</a></li>
+              <li><a href="#">真相說明</a></li>
+              <li><a href="#">公告訊息</a></li>
+              <li><a href="#">活動訊息</a></li>
+              <li><a href="#">招標資訊</a></li>
+              <li><a href="#">就業資訊</a></li>
+            </ul>
+          </li>
+          <li><a href="#">便民服務</a>
+            <ul>
+              <li><a href="#">部長信箱</a></li>
+              <li><a href="#">線上申辦服務專區</a></li>
+              <li><a href="#">表單下載</a></li>
+              <li><a href="#">諮詢服務專線</a></li>
+              <li><a href="#">政府出版品</a></li>
+              <li><a href="#">社政相關業務移撥對照表</a></li>
+            </ul>
+          </li>
+          <li><a href="#">法令規章</a>
+            <ul>
+              <li><a href="#">衛生福利法規檢索系統</a></li>
+              <li><a href="#">法規通報</a></li>
+              <li><a href="#">全國法規料庫</a></li>
+              <li><a href="#">行政院公報資訊網</a></li>
+              <li><a href="#">反貪資訊網</a></li>
+              <li><a href="#">遊說法專區</a></li>
+            </ul>
+          </li>
+          <li><a href="#">衛教視窗</a>
+            <ul>
+              <li><a href="#">宣導專區</a></li>
+              <li><a href="#">影音專區</a></li>
+            </ul>
+          </li>
+          <li><a href="#">重大事件</a>
+            <ul>
+              <li><a href="#">日本能登半島震災專案</a></li>
+              <li><a href="#">嚴重特殊傳染性肺炎專區</a></li>
+              <li><a href="#">0402臺鐵408次列車事故專區</a></li>
+              <li><a href="#">土耳其震災專案</a></li>
+              <li><a href="#">0206花蓮震災訊息彙整</a></li>
+              <li><a href="#">八仙樂園粉塵暴燃專區</a></li>
+            </ul>
+          </li>
+          <li><a href="#">相關連結</a>
+            <ul>
+              <li><a href="#">員工入口網</a></li>
+            </ul>
+          </li>
+        </ul>  
+      </nav>
+    </div>
+
+    <div class="middle">
+      <div class="logo">
+        <img src="publicData/logo.png" alt="">
+      </div>
+
+      <div class="contactInfo">
+        <p>衛生福利部地址：115204 台北市南港區忠孝東路6段488號</p>
+        <p>總機電話：(02)8590-6666 傳真號碼：(02)8590-6000</p>
+      </div>
+
+      <ul class="imageLinks">
+        <li class="disk"><a href="#" aria-label="facebook"><img src="images/icon_fb.svg" alt="facebook"></a></li>
+        <li class="disk"><a href="#" aria-label="Line"><img src="images/icon_line.svg" alt="Line"></a></li>
+        <li class="disk"><a href="#" aria-label="X (舊稱 Twitter)"><img src="images/icon_x.svg" alt="X (Twiter)"></a></li>
+        <li class="disk"><a href="#" aria-label="X (舊稱 Twitter)"><img src="images/icon_youTube.svg" alt="YouTube"></a></li>
+        <li class="badge"><a href="#" aria-label="我的E政府"><img src="images/egov.png" alt="eGOV"></a></li>
+        <li class="badge"><a href="#" aria-label="無障礙2.0 AA 標章"><img src="images/aa.webp" alt=""></a></li>
+      </ul>
+    </div>
+
+    <div class="base">
+      <ul class="textLinks">
+        <li><a href="#">位置圖</a></li>
+        <li><a href="#">資訊安全政策</a></li>
+        <li><a href="#">隱私權政策</a></li>
+        <li><a href="#">無障礙宣告</a></li>
+        <li><a href="#">政府網站資料開放宣告</a></li>
+      </ul>
+      <div class="visiters">瀏覽人次：987654321</div>
+    </div>
+
+
+  </footer>
+
+  <button type="button" title="回到頁面頂端" class="goTop">TOP</button>
+
+</body>
+</html>

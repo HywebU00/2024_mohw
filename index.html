@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>衛生福利部中文網 gui 清單</title>
+
+  <style>
+    body {margin: 0;font-family: 'Source Code Pro', Arial, Helvetica, sans-serif;font-size: 16px;background: #fff;}
+
+    h1 {
+      margin: 0 0 10px;padding: 10px;text-align: center;
+      font-size: 22px;font-family: Georgia, 'Times New Roman', Times, serif;
+      background-image: linear-gradient(90deg, #005ea2 0%, #008480 100%);
+      color: #fff;
+    }
+
+    table {counter-reset: item;border-collapse: collapse;margin: 20px auto;max-width: 1220px;width: 96%;line-height: 1.5;border-bottom: 2px solid #bbb;color: #456;}
+
+    td,
+    th {position: relative;padding: .5em .9em;border-bottom: 1px solid #d6d6d6;}
+
+    th {border-bottom: 3px solid #bbb;white-space: nowrap;}
+
+    tr.new{background: #f1fad0;}
+
+    th:after,
+    td:after {content: '';position: absolute;top: 4px;bottom: 4px;right: 0;width: 1px;background: #ddd;}
+
+    th:last-child:after,
+    td:last-child:after {display: none}
+
+    td:first-child {text-align: center;font-size: .9em;}
+
+    td:first-child:before {content: counter(item);counter-increment: item;}
+
+    td[colspan] {font-size: 13px;padding: 3px 0 2px;}
+    td[colspan]::before{display: none}
+
+
+    td ul,
+    td ol {margin: 0;padding-left: 1.25em;line-height: 1.4;}
+
+    td ul,
+    td ol {display: none}
+
+    td li+li {margin-top: .6em;}
+
+    a {text-decoration: none;color: #084099;}
+
+    a:hover {text-decoration: underline;color: #0199eb;}
+
+
+    /* tr.hidden, tr.hidden ~ tr{display: none} */
+    @media screen and (max-width: 700px) {
+
+      tr,td,th {display: block;}
+
+      td:after {display: none;}
+
+      td {min-height: 1em;}
+
+      tr:first-child {display: none}
+
+      tr {border: 1px solid #999;margin: 0 0 10px;}
+
+      tr:nth-child(5n+1) td {border-bottom-color: #d6d6d6}
+
+      td:first-child,
+      td:nth-child(2) {float: left;padding: 8px;height: 16px;background: #eee;border: none;}
+
+      td:nth-child(2) {float: right;}
+
+      td:nth-child(3) {clear: both;}
+
+      td:last-child {border: none;}
+
+      .seperator td:nth-child(2) {float: none;background: transparent;padding: 0;}
+
+      .seperator td:first-child {display: none}
+    }
+  </style>
+
+</head>
+<body>
+  <h1>2024《衛生福利部中文網》 gui 清單</h1>
+  <table>
+    <tr>
+      <th style="width: 2em;">序號</th>
+      <th>功能、頁面名稱</th>
+      <th>檔名／連結</th>
+      <th>備註</th>
+    </tr>
+    <tr>
+      <td></td>
+      <td>首頁</td>
+      <td><a href="mp.html" target="_Blank">mp.html</a></td>
+      <td>缺「衛生福利e寶箱」動畫</td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td>LP01_預設條列頁【焦點新聞】</td>
+      <td><a href="lp01.html" target="_Blank">lp01.html</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>LP02_表格條列下載頁【中醫藥表單下載】</td>
+      <td><a href="lp02.html" target="_Blank">lp02.html</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>LP03_影音專區頁【宣傳影片】</td>
+      <td><a href="lp03.html" target="_Blank">lp03.html</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>LP04_雙語詞彙頁【雙語詞彙】</td>
+      <!-- <td><a href="xxx.html" target="_Blank">xxx.html</a></td> -->
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>LP05_本部單位【常用查詢】</td>
+      <!-- <td><a href="xxx.html" target="_Blank">xxx.html</a></td> -->
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>LP06_點閱次數條列頁【地方政府】</td>
+      <td><a href="lp06.html" target="_Blank">lp06.html</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>CP01_一般內容頁</td>
+      <!-- <td><a href="xxx.html" target="_Blank">xxx.html</a></td> -->
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>CP02_諮詢服務專線</td>
+      <!-- <td><a href="xxx.html" target="_Blank">xxx.html</a></td> -->
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>NP01_預設節點</td>
+      <td><a href="np.html" target="_Blank">np.html</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>SP01_E寶箱</td>
+      <!-- <td><a href="xxx.html" target="_Blank">xxx.html</a></td> -->
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Step0.就業資訊列表</td>
+      <!-- <td><a href="xxx.html" target="_Blank">xxx.html</a></td> -->
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Step1.職缺內容</td>
+      <!-- <td><a href="xxx.html" target="_Blank">xxx.html</a></td> -->
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Step2.資料填寫</td>
+      <!-- <td><a href="xxx.html" target="_Blank">xxx.html</a></td> -->
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Step3.資料送出</td>
+      <!-- <td><a href="xxx.html" target="_Blank">xxx.html</a></td> -->
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Sitemap網站導覽</td>
+      <!-- <td><a href="xxx.html" target="_Blank">xxx.html</a></td> -->
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>404錯誤頁</td>
+      <!-- <td><a href="xxx.html" target="_Blank">xxx.html</a></td> -->
+      <td></td>
+      <td></td>
+    </tr>
+
+
+    <!-- 
+      <tr>
+        <td></td>
+        <td>ＸＸＸＸＸ</td>
+        <td><a href="xxx.html" target="_Blank">xxx.html</a></td>
+        <td></td>
+      </tr> 
+    -->
+
+  </table>
+
+</body>
+</html>

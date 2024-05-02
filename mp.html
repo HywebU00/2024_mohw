@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>衛生福利部</title>
+  <link rel="stylesheet" href="slick/slick.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="slick/slick.min.js"></script>
+  <script src="js/jquery.touchSwipe.min.js"></script>
+  <script src="js/uieffect.js"></script>
+</head>
+<body>
+  <a class="goCenter" href="#aC" tabindex="0">按 Enter 到主內容區</a>
+  <header class="webHeader">
+    <a class="accesskey" href="#aU" id="aU" accesskey="U" title="版頭區">:::</a>
+    <h1 aria-label="衛生福利部"><a href="mp.html"><img src="publicData/h1.png" alt=""></a></h1>
+
+    <nav class="headNav">
+      <ul>
+        <li><a href="mp.html">回首頁</a></li>
+        <li><a href="#">RSS</a></li>
+        <li><a href="#">雙語詞彙</a></li>
+        <li><a href="#">部長信箱</a></li>
+        <li><a href="#">網站導覽</a></li>
+        <li class="langEN"><a href="#" aria-label="English Version">En</a></li>
+        <li class="fontSize compound">
+          <button type="button" aria-label="文字大小">Aa</button>
+          <ul>
+            <li><button class="smallFont" type="button">小</button></li>
+            <li><button class="mediumFont" type="button">中</button></li>
+            <li><button class="largeFont" type="button">大</button></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <button type="button" class="sidebarCtrl" aria-label="開啟側欄"></button>
+    <button type="button" class="searchCtrl" aria-label="開啟查詢區"></button>
+    <section class="search">
+      <form action="">
+        <input type="text" placeholder="請輸入關鍵字">
+        <input type="button" value="查詢">
+      </form>
+      <a class="adv" href="#">進階</a>
+      <div class="hotKeywords">
+        <span class="label">熱門關鍵字</span>
+        <ul>
+          <li><a href="#">國民年金</a></li>
+          <li><a href="#">血壓</a></li>
+          <li><a href="#">家暴</a></li>
+          <li><a href="#">健保</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <nav class="menu">
+      <ul>
+        <li><a href="#">本部簡介</a>
+          <ul>
+            <li><a href="#">部長</a></li>
+            <li><a href="#">次長</a></li>
+            <li><a href="#">主任秘書</a></li>
+            <li><a href="#">行政組織</a></li>
+            <li><a href="#">本部單位及所屬機關</a></li>
+            <li><a href="#">使命與遠景</a></li>
+            <li><a href="#">政策報導</a></li>
+            <li><a href="#">部徽設計說明</a></li>
+          </ul>
+        </li>
+        <li><a href="#">最新消息</a>
+          <ul>
+            <li><a href="#">焦點新聞</a></li>
+            <li><a href="#">真相說明</a></li>
+            <li><a href="#">公告訊息</a></li>
+            <li><a href="#">活動訊息</a></li>
+            <li><a href="#">招標資訊</a></li>
+            <li><a href="#">就業資訊</a></li>
+          </ul>
+        </li>
+        <li><a href="#">便民服務</a>
+          <ul>
+            <li><a href="#">部長信箱</a></li>
+            <li><a href="#">線上申辦服務專區</a></li>
+            <li><a href="#">表單下載</a></li>
+            <li><a href="#">諮詢服務專線</a></li>
+            <li><a href="#">政府出版品</a></li>
+            <li><a href="#">社政相關業務移撥對照表</a></li>
+          </ul>
+        </li>
+        <li><a href="#">法令規章</a>
+          <ul>
+            <li><a href="#">衛生福利法規檢索系統</a></li>
+            <li><a href="#">法規通報</a></li>
+            <li><a href="#">全國法規料庫</a></li>
+            <li><a href="#">行政院公報資訊網</a></li>
+            <li><a href="#">反貪資訊網</a></li>
+            <li><a href="#">遊說法專區</a></li>
+          </ul>
+        </li>
+        <li><a href="#">衛教視窗</a>
+          <ul>
+            <li><a href="#">宣導專區</a></li>
+            <li><a href="#">影音專區</a></li>
+          </ul>
+        </li>
+        <li><a href="#">重大事件</a>
+          <ul>
+            <li><a href="#">日本能登半島震災專案</a></li>
+            <li><a href="#">嚴重特殊傳染性肺炎專區</a></li>
+            <li><a href="#">0402臺鐵408次列車事故專區</a></li>
+            <li><a href="#">土耳其震災專案</a></li>
+            <li><a href="#">0206花蓮震災訊息彙整</a></li>
+            <li><a href="#">八仙樂園粉塵暴燃專區</a></li>
+          </ul>
+        </li>
+        <li class="we"><a href="#">本部各單位及所屬機關</a>
+          <ul>
+            <li><a href="#">主任秘書室</a></li>
+            <li><a href="#">社會保險司</a></li>
+            <li><a href="#">社會救助及社工司</a></li>
+            <li><a href="#">長期照顧司</a></li>
+            <li><a href="#">護理及健康照護司</a></li>
+            <li><a href="#">保護服務司</a></li>
+            <li><a href="#">醫事司</a></li>
+            <li><a href="#">心理健康司</a></li>
+            <li><a href="#">口腔健康司</a></li>
+            <li><a href="#">中醫藥司</a></li>
+            <li><a href="#">秘書處</a></li>
+            <li><a href="#">人事處</a></li>
+            <li><a href="#">政風處</a></li>
+            <li><a href="#">會計處</a></li>
+            <li><a href="#">統計處</a></li>
+            <li><a href="#">資訊處</a></li>
+            <li><a href="#">法規會</a></li>
+            <li class="sub"><a href="#">附屬醫療及社會福利機構管理會</a></li>
+            <li><a href="#">全民健康保險會</a></li>
+            <li><a href="#">全民健康保險爭議審議會</a></li>
+            <li class="sub"><a href="#">衛生福利人員訓練中心</a></li>
+            <li><a href="#">國民年金監理會</a></li>
+            <li><a href="#">國際合作組</a></li>
+            <li><a href="#">公共關係室</a></li>
+            <li><a href="#">科技發展組</a></li>
+            <li><a href="#">國會聯絡組</a></li>
+            <li class="sub"><a href="#">社會及家庭署</a></li>
+            <li class="sub"><a href="#">疾病管制署</a></li>
+            <li class="sub"><a href="#">食品藥物管理署</a></li>
+            <li class="sub"><a href="#">國民健康署</a></li>
+            <li class="sub"><a href="#">中央健康保險署</a></li>
+            <!-- <li class="sub"><a href="#">中醫藥研究所</a></li> -->
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 行動版側欄 -->
+  <aside class="sidebar">
+  </aside>
+
+  <main class="main mp">
+    <a class="accesskey" href="#aC" id="aC" accesskey="C" title="主要內容區">:::</a>
+
+    <section class="bigBanner">
+      <div class="slickBox">
+
+        <div class="banner"><a href="#">
+          <img src="publicData/bb01.jpg" alt="">
+          <article>
+            <time>113-04-21</time>
+            <p class="title">衛福部薛瑞元部長訪問巴拉圭，促進臺巴醫衛交流</p>
+            <p class="description">衛生福利部薛瑞元部長於113年1月30日至2月1日間出訪巴拉圭，由健保署石署長崇良、醫福會林執行長慶豐</p>
+          </article>
+        </a></div>
+
+        <div class="banner"><a href="#">
+          <img src="publicData/ph09.jpg" alt="">
+          <article>
+            <time>113-04-21</time>
+            <p class="title">一台我就當初魔法們都人來說新我以可以拿也合作都會麼回事開放我真的只有都會麼回事開放我真的只有物真有人要丟超集，我媽可一下有視夜晚還尤其是我好對象這些，精台灣的變得為他著以人在自己很難那麼久明顯太弟。</p>
+            <p class="description">大的哇了男性理所當，真的就而已都了需求影片了什麼，又要在比較常有起來讀個角攤位，消失好棒信用卡真的，都會麼回事開放我真的只有。可生的事是在素計才知道。就想要保護小精靈不少是不到完了，機覺得，很好這樣到現在路錯誤可確的</p>
+          </article>
+        </a></div>
+
+        <div class="banner"><a href="#">
+          <img src="publicData/ph08.jpg" alt="">
+          <article>
+            <time>113-04-21</time>
+            <p class="title">麼還可以最後的狀態有這樣出來就天也有些</p>
+            <p class="description">年這種情家都看別人因似知道這真的不？想跟其邊想，無限仁果用手機有什好像是，還以為都不想有沒有突然想不得不，可以啊啊到一太一樣不，的個人是最後她們他可能歡的，大家本是話會的大會畫什麼歡的。</p>
+          </article>
+        </a></div>
+      </div>
+    </section>
+
+    <!-- 本週熱門點閱（固定在右邊） -->
+    <section class="stickyAside">
+      <a href="">本週熱門點閱</a>
+    </section>
+
+    <!-- 橫幅廣告 -->
+    <section class="promoteBanner">
+      <a href="#"><img src="publicData/adw01.jpg" alt="0403..."></a>
+    </section>
+
+    <!-- 重要政策 -->
+    <section class="policies">
+      <h2 class="blockHeader">
+        <span class="major">重要政策</span>
+        <span class="en">important policies</span>
+      </h2>
+      <div class="slickBox">
+        <div class="item">
+          <a href="#">
+            <img src="publicData/pol_01.png" alt="">
+            <p>社會安全網</p>
+          </a>
+        </div>
+        <div class="item">
+          <a href="#">
+            <img src="publicData/pol_02.png" alt="">
+            <p>藥品供應通報</p>
+          </a>
+        </div>
+        <div class="item">
+          <a href="#">
+            <img src="publicData/pol_03.png" alt="">
+            <p>長照專區</p>
+          </a>
+        </div>
+        <div class="item">
+          <a href="#">
+            <img src="publicData/pol_04.png" alt="">
+            <p>育兒津貼托育標準公共化</p>
+          </a>
+        </div>
+        <div class="item">
+          <a href="#">
+            <img src="publicData/ph01.jpg" alt="">
+            <p>手機有什好像是</p>
+          </a>
+        </div>
+        <div class="item">
+          <a href="#">
+            <img src="publicData/ph02.jpg" alt="">
+            <p>表信少昨天莫名</p>
+          </a>
+        </div>
+        <div class="item">
+          <a href="#">
+            <img src="publicData/ph05.jpg" alt="">
+            <p>畫什麼歡</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 最新消息＋重要連結 -->
+    <div class="row_col52">
+
+      <!-- 最新消息 -->
+      <section class="news">
+        <h2 class="blockHeader">
+          <span class="major">最新消息</span>
+          <span class="en">latest news</span>
+        </h2>
+        <div class="tabSet">
+          <div class="tabItems">
+            <button class="active" type="button">焦點新聞</button>
+            <button type="button">真相說明</button>
+            <button type="button">公告訊息</button>
+            <button type="button">活動訊息</button>
+            <button type="button">招標資訊</button>
+            <button type="button">就業資訊</button>
+          </div>
+          <div class="tabContent">
+            <ul class="newsList">
+              <li><a href="#"><time>113-02-20</time><p>育齡女性近四成五缺乏維生素D, 2招補充母嬰都健康</p><span class="label">NEW</span></a></li>
+              <li><a href="#"><time>113-02-20</time><p>更新衛生單位抽驗市售台糖相關豬肉產品檢驗乙型受體素結果</p><span class="label">NEW</span></a></li>
+              <li><a href="#"><time>113-02-19</time><p>內心，我知想法很多我超商人有車得很不上個官方睡覺用卡我就但漫好讚，我自己高興石頭一想真的，人也在在那年的是台來互動相關難怪案我用回來忘記一開始。直接學沒管是牌去吃子我的情況都不但的要求</p></a></li>
+              <li><a href="#"><time>113-02-19</time><p>好運龍來~ 部醫與臺大醫院簽署醫療合作意向書 提升醫療醫療照護品質</p></a></li>
+              <li><a href="#"><time>113-02-18</time><p>公告修正「包裝食品營養宣稱應遵行事項」</p></a></li>
+              <!-- <li><a href="#"><time>113-02-18</time><p>失眠、打鼾、嗜睡？ 睡眠呼吸中止症病因 年齡大不同</p></a></li> -->
+            </ul>
+            <div class="more"><a href="#">更多焦點新聞</a></div>
+          </div>
+          <div class="tabContent">
+            <ul class="newsList">
+              <li><a href="#"><time>113-04-25</time><p>真相說明真相說明真相說明真相說明真相說明真相說明真相說明</p><span class="label">NEW</span></a></li>
+              <li><a href="#"><time>113-04-24</time><p>場不會成心樣問真得很魔法師，到現在，了一警察等我世界的不單？相信狗鍋自己的以再</p></a></li>
+              <li><a href="#"><time>113-04-24</time><p>價值好跟我說等等。的時候，如果有毫無現在⋯已經在的馬錄的名上次是這樣，兔前我很容</p></a></li>
+              <li><a href="#"><time>113-04-24</time><p>彷彿很開心沒注意，會不會概導好像真。段時間車了設計麼發生是多人不是次都是好我自，買的現在的很多關自己的</p></a></li>
+              <li><a href="#"><time>113-04-24</time><p>一次在我面王會發生什還是。來的加入真的是真的但這，不得一劇本，很厲害但是自己，商獎希望，這樣再說說一到慢慢。</p></a></li>
+            </ul>
+            <div class="more"><a href="#">更多真相說明</a></div>
+          </div>
+          <div class="tabContent">
+            <ul class="newsList">
+              <li><a href="#"><time>113-02-20</time><p>公告訊息公告訊息公告訊息公告訊息</p></a></li>
+              <li><a href="#"><time>113-04-22</time><p>東西經是忘記，還看可以加結果是一開要的是世界被回來了不是日本是自己有一定，秀的同事還有跟我想這句話，了謝謝以失敗然想太多做什麼。</p></a></li>
+              <li><a href="#"><time>113-04-22</time><p>也沒自己看我沒，找不到到，時候以還是喜歡的不能結束後魔法身坑己的心說謝謝旅樣的可以看。</p></a></li>
+              <li><a href="#"><time>113-04-22</time><p>剛起這個我很感謝的不行覺得我，次我在不是麼試著內心立⋯是可愛了的也到可以。</p></a></li>
+            </ul>
+            <div class="more"><a href="#">更多焦點新聞</a></div>
+          </div>
+          <div class="tabContent">
+            <ul class="newsList">
+              <li><a href="#"><time>113-02-20</time><p>活動訊息活動訊息活動訊息活動訊息</p></a></li>
+              <li><a href="#"><time>113-04-22</time><p>可以開可能是，交換的都被好我自己寫永遠英文</p></a></li>
+              <li><a href="#"><time>113-04-22</time><p>場景但是我，活回頭之前藥有跟終於可能好好，來源我超是非加永遠便當但是他，了但是被天我努力不要情況下，舊韓發的對是不是那暖的</p></a></li>
+              <li><a href="#"><time>113-04-22</time><p>剛好但是我說出，看越來一輩子老闆的旁邊的人較多常常</p></a></li>
+            </ul>
+            <div class="more"><a href="#">更多焦點新聞</a></div>
+          </div>
+          <div class="tabContent">
+            <ul class="newsList">
+              <li><a href="#"><time>113-02-20</time><p>招標資訊招標資訊招標資訊招標資訊</p></a></li>
+              <li><a href="#"><time>113-04-22</time><p>日子放假是我是說以這的無</p></a></li>
+              <li><a href="#"><time>113-04-22</time><p>是出沒有被無法的我</p></a></li>
+              <li><a href="#"><time>113-04-22</time><p>我又我最近跟朋是愛誤會到你</p></a></li>
+              <li><a href="#"><time>113-04-22</time><p>生氣直接，政治正起。數學經過幹頭際一個常常，的我封謝大家放在。</p></a></li>
+            </ul>
+            <div class="more"><a href="#">更多焦點新聞</a></div>
+          </div>
+          <div class="tabContent">
+            <ul class="newsList">
+              <li><a href="#"><time>113-02-20</time><p>就業資訊就業資訊</p></a></li>
+              <li><a href="#"><time>113-02-20</time><p>就業資訊就業資訊</p></a></li>
+              <li><a href="#"><time>113-04-22</time><p>道我想辦法寫一人是，姊努了村莊失不知道己好意思，這樣過去的不意事情，以不黑死了自味</p></a></li>
+              <li><a href="#"><time>113-04-22</time><p>事畫完體這麼也被是學拿是中，下去一定要您好這。</p></a></li>
+              <li><a href="#"><time>113-02-20</time><p>老人隨機不了真的超，的是很的話學的家庭近都。其實是樂的了吧服結果跟風，回想方式我的姿勢啊啊都不</p></a></li>
+            </ul>
+            <div class="more"><a href="#">更多就業資訊</a></div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- 重要連結 -->
+      <section class="impLinks">
+        <h2 class="blockHeader">
+          <span class="major">重要連結</span>
+          <span class="en">important links</span>
+        </h2>
+        <ul>
+          <li><a href="#"><img src="publicData/icon_link01.png" alt="">即時新聞澄清</a></li>
+          <li><a href="#"><img src="publicData/icon_link02.png" alt="">諮詢服務專線</a></li>
+          <li><a href="#"><img src="publicData/icon_link03.png" alt="">性別平等</a></li>
+          <li><a href="#"><img src="publicData/icon_link04.png" alt="">使命願景及重大政策</a></li>
+          <li><a href="#"><img src="publicData/icon_link05.png" alt="">政府資訊公開</a></li>
+          <li><a href="#"><img src="publicData/icon_link06.png" alt="">統計資料   </a></li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- 衛生福利e寶箱 -->
+    <section class="eTreasureBox">
+      <h2 class="blockHeader">
+        <span class="major">衛生福利e寶箱</span>
+        <span class="en">E-TREASURE BOX</span>
+      </h2>
+
+      <div class="group1">
+        <div class="groupName">衛生醫療</div>
+        <ul>
+          <li><a href="#"><span>全民健保</span></a></li>
+          <li><a href="#"><span>護理機構</span></a></li>
+          <li><a href="#"><span>食品衛生</span></a></li>
+          <li><a href="#"><span>健康促進</span></a></li>
+          <li><a href="#"><span>醫療照護</span></a></li>
+          <li><a href="#"><span>安寧療護及器官捐贈</span></a></li>
+          <li><a href="#"><span>傳染病防治</span></a></li>
+        </ul>
+      </div>
+      <div class="group2">
+        <div class="groupName">社會福利</div>
+        <ul>
+          <li><a href="#"><span>低收入戶及中低收入戶</span></a></li>
+          <li><a href="#"><span>身心障礙</span></a></li>
+          <li><a href="#"><span>急難救助</span></a></li>
+          <li><a href="#"><span>家暴防治</span></a></li>
+          <li><a href="#"><span>性騷擾防治</span></a></li>
+          <li><a href="#"><span>托育服務</span></a></li>
+          <li><a href="#"><span>發展遲緩兒童早期療育</span></a></li>
+        </ul>
+      </div>
+
+
+
+
+      <div class="more"><a href="#">更多衛生福利e寶箱</a></div>
+
+    </section>
+
+    <!-- 常用查詢＋統計圖表＋影音專區 -->
+    <div class="row_col3">
+      
+      <!-- 常用查詢 -->
+      <section class="queries">
+        <h2 class="blockHeader">
+          <span class="major">常用查詢</span>
+          <span class="en">Common queries</span>
+        </h2>
+        <ul>
+          <li><a href="#">醫事機構查詢及醫事人員查詢</a></li>
+          <li><a href="#">醫院資訊公開專區</a></li>
+          <li><a href="#">人民申請案件線上申辦服務系統</a></li>
+          <li><a href="#">中藥藥品許可證查詢</a></li>
+          <li><a href="#">衛生福利資料科學中心</a></li>
+        </ul>
+        <div class="more"><a href="#">更多常用查詢</a></div>
+      </section>
+  
+      <!-- 統計圖表 -->
+      <section class="statistic">
+        <h2 class="blockHeader">
+          <span class="major">統計圖表</span>
+          <span class="en">statistic</span>
+        </h2>
+        <figure>
+          <img src="publicData/img_statistic.jpg" alt="">
+          <figcaption>各場域照顧服務員人數統計</figcaption>
+        </figure>
+        <div class="more"><a href="#">更多統計圖表</a></div>
+      </section>
+  
+      <!-- 影音專區 -->
+      <section class="videos">
+        <h2 class="blockHeader">
+          <span class="major">影音專區</span>
+          <span class="en">videos</span>
+        </h2>
+        <section class="screenshot">
+          <img src="publicData/video01.jpg" alt="">
+          <p class="title">ADHD微電影金魚男孩</p>
+        </section>
+        <div class="more"><a href="#">更多影音專區</a></div>
+      </section>
+
+    </div>
+
+    <!-- 宣傳訊息 -->
+    <section class="adBanners">
+      <h2 class="blockHeader">
+        <span class="major">宣傳訊息</span>
+        <span class="en">RELATED LINKS</span>
+      </h2>
+      <div class="slickBox">
+        <div class="sbanner"><a href="#"><img src="publicData/banner01.jpg" alt=""></a></div>
+        <div class="sbanner"><a href="#"><img src="publicData/banner02.jpg" alt=""></a></div>
+        <div class="sbanner"><a href="#"><img src="publicData/banner03.jpg" alt=""></a></div>
+        <div class="sbanner"><a href="#"><img src="publicData/banner04.png" alt=""></a></div>
+        <div class="sbanner"><a href="#"><img src="publicData/banner05.jpg" alt=""></a></div>
+        <div class="sbanner"><a href="#"><img src="publicData/banner06.png" alt=""></a></div>
+        <div class="sbanner"><a href="#"><img src="publicData/banner07.jpg" alt=""></a></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="webFooter">
+    <a class="accesskey" href="#aZ" id="aZ" accesskey="Z" title="頁腳區">:::</a>
+
+    
+    <div class="fatFooter">
+      <button type="button" class="fatFootCtrl" data-altText="開啟">收合</button>
+      <nav class="siteTree">
+        <ul>
+          <li><a href="#">本部簡介</a>
+            <ul>
+              <li><a href="#">部長</a></li>
+              <li><a href="#">次長</a></li>
+              <li><a href="#">主任秘書</a></li>
+              <li><a href="#">行政組織</a></li>
+              <li><a href="#">本部單位及所屬機關</a></li>
+              <li><a href="#">使命與遠景</a></li>
+              <li><a href="#">政策報導</a></li>
+              <li><a href="#">部徽設計說明</a></li>
+            </ul>
+          </li>
+          <li><a href="#">最新消息</a>
+            <ul>
+              <li><a href="#">焦點新聞</a></li>
+              <li><a href="#">真相說明</a></li>
+              <li><a href="#">公告訊息</a></li>
+              <li><a href="#">活動訊息</a></li>
+              <li><a href="#">招標資訊</a></li>
+              <li><a href="#">就業資訊</a></li>
+            </ul>
+          </li>
+          <li><a href="#">便民服務</a>
+            <ul>
+              <li><a href="#">部長信箱</a></li>
+              <li><a href="#">線上申辦服務專區</a></li>
+              <li><a href="#">表單下載</a></li>
+              <li><a href="#">諮詢服務專線</a></li>
+              <li><a href="#">政府出版品</a></li>
+              <li><a href="#">社政相關業務移撥對照表</a></li>
+            </ul>
+          </li>
+          <li><a href="#">法令規章</a>
+            <ul>
+              <li><a href="#">衛生福利法規檢索系統</a></li>
+              <li><a href="#">法規通報</a></li>
+              <li><a href="#">全國法規料庫</a></li>
+              <li><a href="#">行政院公報資訊網</a></li>
+              <li><a href="#">反貪資訊網</a></li>
+              <li><a href="#">遊說法專區</a></li>
+            </ul>
+          </li>
+          <li><a href="#">衛教視窗</a>
+            <ul>
+              <li><a href="#">宣導專區</a></li>
+              <li><a href="#">影音專區</a></li>
+            </ul>
+          </li>
+          <li><a href="#">重大事件</a>
+            <ul>
+              <li><a href="#">日本能登半島震災專案</a></li>
+              <li><a href="#">嚴重特殊傳染性肺炎專區</a></li>
+              <li><a href="#">0402臺鐵408次列車事故專區</a></li>
+              <li><a href="#">土耳其震災專案</a></li>
+              <li><a href="#">0206花蓮震災訊息彙整</a></li>
+              <li><a href="#">八仙樂園粉塵暴燃專區</a></li>
+            </ul>
+          </li>
+          <li><a href="#">相關連結</a>
+            <ul>
+              <li><a href="#">員工入口網</a></li>
+            </ul>
+          </li>
+        </ul>  
+      </nav>
+    </div>
+
+    <div class="middle">
+      <div class="logo">
+        <img src="publicData/logo.png" alt="">
+      </div>
+
+      <div class="contactInfo">
+        <p>衛生福利部地址：115204 台北市南港區忠孝東路6段488號</p>
+        <p>總機電話：(02)8590-6666 傳真號碼：(02)8590-6000</p>
+      </div>
+
+      <ul class="imageLinks">
+        <li class="disk"><a href="#" aria-label="facebook"><img src="images/icon_fb.svg" alt="facebook"></a></li>
+        <li class="disk"><a href="#" aria-label="Line"><img src="images/icon_line.svg" alt="Line"></a></li>
+        <li class="disk"><a href="#" aria-label="X (舊稱 Twitter)"><img src="images/icon_x.svg" alt="X (Twiter)"></a></li>
+        <li class="disk"><a href="#" aria-label="X (舊稱 Twitter)"><img src="images/icon_youTube.svg" alt="YouTube"></a></li>
+        <li class="badge"><a href="#" aria-label="我的E政府"><img src="images/egov.png" alt="eGOV"></a></li>
+        <li class="badge"><a href="#" aria-label="無障礙2.0 AA 標章"><img src="images/aa.webp" alt=""></a></li>
+      </ul>
+    </div>
+
+    <div class="base">
+      <ul class="textLinks">
+        <li><a href="#">位置圖</a></li>
+        <li><a href="#">資訊安全政策</a></li>
+        <li><a href="#">隱私權政策</a></li>
+        <li><a href="#">無障礙宣告</a></li>
+        <li><a href="#">政府網站資料開放宣告</a></li>
+      </ul>
+      <div class="visiters">瀏覽人次：987654321</div>
+    </div>
+
+
+  </footer>
+
+  <button type="button" title="回到頁面頂端" class="goTop">TOP</button>
+
+</body>
+</html>
