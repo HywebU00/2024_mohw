@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "../2024_mohw"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5504,
+		"liveSassCompile.settings.formats": [
+			{
+				"format": "compressed",
+				"extensionName": ".css",
+				"savePath": "/css"
+			}
+		],
+		"liveSassCompile.settings.includeItems": [
+			"/scss/style.scss",
+			// "/scss/pageNotFound.scss"
+		],
+		"liveSassCompile.settings.showOutputWindowOn": "Warning",
+		"liveSassCompile.settings.autoprefix": [],
+	}
+}

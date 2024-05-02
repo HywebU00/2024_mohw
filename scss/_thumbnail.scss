@@ -1,6 +1,5 @@
 .thumbnail{
   // @extend %primSecWidth;
-  --ratioP: 1.41379; // 海報 w:h = 1:1.41379（A系列紙張）
 
   ul{list-style: none; margin: 0; padding: 0;}
   &>ul{
@@ -9,10 +8,9 @@
       margin: 0 0 20px;padding: 0;
       &>a{
         position: relative; display: block;height: 100%;
-        padding: 10px;
+        padding: 0 0 10px;
         box-shadow:$borderColor 0 0 0 0, $shadow1 0 2px 8px;
-        color: $fontColor; text-decoration: none;
-        // @extend %gradient1;
+        color: $linkColor; text-decoration: none;
         transition: .3s;
         &:hover, &:focus{
           outline: none;
@@ -32,15 +30,14 @@
       }
       .frame{
         // youTube 影片截圖寬高比例 560x315
-        position: relative;
-        margin: -10px -10px 16px;width: calc(100% + 20px);
-        height: calc($mobileWidthV * .5625);
+        position: relative;margin: 0 0 16px; 
+        width: 100%; height: calc($mobileWidthV * .5625);
         img{object-fit: cover; }
         &::before, &::after{content: ''; position: absolute;}
         &::before{
           left: calc(50% - 32px); top: calc(50% - 32px);
           width: 64px; height: 64px; border-radius: 50%;
-          background-color: rgb(0 0 0 / .3);
+          background-color: rgb(0 0 0 / .5);
         }
         &::after {
           width: 0;height: 0;
@@ -51,26 +48,25 @@
         }
       }
 
-      .label{ 
-        position: absolute; right: 5px; top: -4px; 
-        border-radius: 2px 2px 6px 6px;
-        box-shadow: #0004 0 2px 3px; z-index: 9;
-      }
+      // .label{ 
+      //   position: absolute; right: 5px; top: -4px; 
+      //   border-radius: 2px 2px 6px 6px;
+      //   box-shadow: #0004 0 2px 3px; z-index: 9;
+      // }
 
       p{ 
-        margin: 0 6px 20px;
+        margin: 0 12px 20px;
         &.title{ 
-          font-size: 1.2em; font-weight: bold; 
+          font-size: 1.125em; font-weight: bold; 
           overflow: hidden;
           display: -webkit-box; 
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 4;
         }
-        // &.description{
-        // }
+
       }
      
-      time{ margin:6px 6px 5px;}
+      time{ margin:6px 12px 5px;}
     }
   }
 
@@ -89,19 +85,11 @@
           flex-shrink: 0; flex-grow: 0;
           &.cover{
             // 書籍封面 w:h = 1:1
-            height: calc($mobileWidthV*.5 - 30px);
-          }
-          &.poster{
-            // 海報 w:h = 1:1.41379（A系列紙張）
-            height: calc( ($mobileWidthV*.5 - 30px) * var(--ratioP));
+            height: calc($mobileWidthV*.5 - 10px);
           }
           &.frame {
             // youTube w:h = 1:.5625
             height: calc( ($mobileWidthV*.5 - 10px) * .5625 );
-          }
-          &.website {
-            // 相關網站 logo w:h = 20:7
-            height: calc(($mobileWidthV*.5 - 30px) * .35);
           }
         }
       }
@@ -109,38 +97,21 @@
   }
 
   @media screen and (min-width: $wwNormal){
+
     &>ul{ 
       &>li{ 
         flex-basis: calc(33.3333% - 10px); width: calc(33.3333% - 10px);
-        margin-right: 15px;margin-bottom: 15px;
+        margin-bottom: 15px;
         transition: .3s;
         &:nth-child(n){margin-right: 15px;}
         &:nth-child(3n){margin-right: 0;}
         .image{
-          &.cover{height: calc($normalWidthV/3 - 34px); }
-          &.poster{height: calc(($normalWidthV/3 - 34px) * var(--ratioP) ); }
-          &.frame {height: calc( ($normalWidthV/3 - 14px ) * .5625 ); }
-          &.website {height: calc(($normalWidthV/3 - 34px) * .35 ); }
+          &.cover{height: calc(var(--colRWidth)/3 - 10px); }
+          &.frame {height: calc((var(--colRWidth)/3 - 10px ) * .5625 ); }
         }
       }
     }
-  }
 
-  @media screen and (min-width: $wwMaximum){
-    &>ul{ 
-      &>li{
-        flex-basis: calc(25% - 15px); width: calc(25% - 15px);
-        margin-bottom: 20px;
-        &:nth-child(n){margin-right: 20px;}
-        &:nth-child(4n){margin-right: 0;}
-        .image {
-          &.cover{height: calc($maximumWidth/4 - 35px);}
-          &.poster{height: calc(($maximumWidth/4 - 35px) * var(--ratioP));}
-          &.frame {height: calc( ($maximumWidth/4 - 15px ) * .5625 ); }
-          &.website{height: calc(($maximumWidth/4 - 35px) * .35);}
-        }
-      }
-    }
   }
 
 }
