@@ -1,0 +1,152 @@
+  // headNav
+  // ------------------------------------------------------ //
+  .headNav{
+    ul{ list-style: none; margin: 0; padding: 0; line-height: 1.2;
+      a{display: block;text-decoration: none;}
+    }
+  }
+  
+  
+
+  // 寬螢幕版在 header 內
+  // -------------------------------------------- //
+  .webHeader .headNav {
+    display: none;
+    
+    @media screen and (min-width: $wwNormal){
+      display: block;
+      position: absolute; top: 44px; right: 2%; z-index: 99;
+      margin-left: 320px; margin-right: 50px;
+
+      &>ul{
+        display: inline-block; vertical-align: middle;
+        line-height: 1; font-size: 1.125em;
+
+        &>li{
+          position: relative; float: left;
+          margin: 14px 18px 0 0; padding: 0 0 0 18px;
+          a{ position: relative; display: block; }
+
+          &:not(.langEN, .fontSize) {
+            &::before{
+              content: ''; position: absolute;
+              left: 0;bottom: 0; top: 0;
+              width: 1px; height: 1em;
+              background-color: $fontColor;
+              transition: .2s;
+            }
+            &>a{
+              padding-bottom: 4px;
+              color: $fontColor;
+              &::after{
+                content: ''; position: absolute;
+                bottom: 0; left: 50%; right: 50%;height: 3px; 
+                transition: .3s;
+              }
+              &:hover, &:focus {
+                &::after{ left: 0; right: 0;background-color: $primaryColor;}
+              }
+  
+            }
+          }
+          &:first-child::before {display: none;}
+
+
+          &.langEN, &.fontSize {
+            margin: 0 6px; padding: 0;
+            &>a, &>button{
+              display: block; width: 44px; height: 44px; 
+              border-radius: 50%;text-align: center;
+              padding: 0; margin: 0; outline: none;
+              color: $white;
+              transition: .2s;
+            }
+          
+          }
+
+          &.langEN{
+            &>a{ 
+              line-height: 44px; background-color: $secondaryColor;
+              &:hover {
+                box-shadow:transparent 0 0 0 0, $secondaryColor 0 0 0 3px;
+              }
+              &:focus {
+                box-shadow:$white 0 0 0 1px, $secondaryColor 0 0 0 4px;
+              }
+            }
+          }
+          &.fontSize{
+            --bgc: #007191;
+
+            &>button{
+              border: none; box-shadow: none;font-size: inherit;
+              background-color: var(--bgc);
+              &:hover {box-shadow:transparent 0 0 0 0, var(--bgc) 0 0 0 3px;}
+              &:focus {box-shadow:$white 0 0 0 1px, var(--bgc) 0 0 0 4px;}
+
+              &.smallFont{ font-size: .9rem;}
+              &.mediumFont{ font-size: 1.125rem;}
+              &.largeFont{ font-size: 1.4rem;}
+            }
+          }
+
+        }
+      }
+    }
+
+    @media screen and (min-width: 1167px){
+      // h1{ margin-left: calc(50% - 560px);}
+      right: calc(50% - 560px);
+    }
+  
+    // @media screen and (min-width: $wwMaximum){
+    //   right: calc(50vw - $wwMaximum*.48);
+    // }
+  }
+
+
+  // 文字大小 
+// --------------------------------------------------------------- //
+.fontSize{
+  --btnSize: 44px;
+  --bgc: #007191;
+
+
+  // .smallFont{ font-size: .875rem;}
+  .smallFont{ font-size: 1rem;}
+  .mediumFont{ font-size: 1.125rem;}
+  .largeFont{ font-size: 1.25rem;}
+
+  // &>.smallFont::before{content: '小'; }
+  // &>.mediumFont::before{content: '中'; }
+  // &>.largeFont::before{content: '大'; }
+
+  position: relative;
+
+
+
+
+  &>ul{
+    display: none; position: absolute; top: 0; left: 0;
+    // width: var(--btnSize); 
+    &>li{
+      position: absolute; top: 0; left: 0;
+      margin: 3px 0; padding: 0;
+      &>button{
+        display: block;padding: 0; margin:0;
+        width: var(--btnSize); height: var(--btnSize);
+        background-color: var(--bgc); color: $white;
+        border-radius: 50%; border: none;
+        box-shadow:$white 0 0 0 1px;
+        outline: none; cursor: pointer;
+        transition: .2s;
+        &:hover, &:focus{
+          box-shadow:$white 0 0 0 1px, var(--bgc) 0 0 0 4px;
+        }
+      }
+    }
+  }
+
+
+}
+// --------------------------------------------------------------- //

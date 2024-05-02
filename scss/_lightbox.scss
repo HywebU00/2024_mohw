@@ -1,0 +1,46 @@
+// 燈箱（.lightbox）
+// 燈箱模組：需要燈箱效果的區塊可在原 class name 之後加 lightbox 即可有燈箱效果
+// 原來的 class name 只用來控制樣式
+.lightbox{ 
+  display: none;
+  position:fixed; top:3vw; left:3vw;
+  width:94vw; height: calc(100vh - 6vw); z-index:999;
+  padding:50px 0 0; margin:0 auto; overflow: auto; overflow-y: auto;
+  background-color: $white;
+  box-shadow:rgba(0,0,0,.6) 0 0 28px;
+
+  &.bigPhotos{ background-color: $black;}
+
+  button.closeThis{
+    position: absolute; right:0; top: 0; z-index:99;
+  }
+
+  .header {
+    padding: 0 0 .2em; margin:0 auto 15px; width: 90%;
+    font-size: 1.5rem;
+    border-bottom: 3px solid $borderColorLight; color: $fontColor;
+  }
+
+  .skip{
+    position: absolute; right: 0; bottom: 0;
+    width: 1px; height: 1px; padding: 0;overflow: hidden;
+    background-color: transparent; border: none; box-shadow: none;
+  }
+ 
+  @media screen and (min-width:$wwNormal){
+    top: $wwNormal*.03; height: auto; max-height: calc(100vh - #{$wwNormal}*.06);
+  }
+  
+  @media screen and (min-width: $wwMaximum){
+    width: $maximumWidth; left:calc(50vw - #{$wwMaximum}*.47);
+  }
+
+}
+
+
+// ---------- 燈箱遮罩
+.coverAll{ 
+  display: none; z-index: 995;
+  position: fixed; left: 0;right: 0;top: 0;bottom: 0;
+  background: rgba(0,0,0,.6);
+}

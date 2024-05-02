@@ -1,0 +1,222 @@
+// 自製左右 flow ( .flowBox ) 的箭頭和點點
+// --------------------------------------------------------------- //
+
+// 左右箭頭 button
+button.arrowBtn {
+  --diameter: 56px; // 直徑、長寬等值
+  --color: #{$white};
+  --btnBg: #{$shadow1};
+
+  position: absolute;top: 50%; z-index: 9;
+  transform: translateY(-50%);
+  width: var(--diameter); height: var(--diameter); 
+  margin: 0; padding: 0; border: none;
+  border-radius: 50%;
+  text-indent: -10em; overflow: hidden;
+  background-color: var(--btnBg);
+  transition: .2s;
+
+  &::before {
+    content: ''; position: absolute;
+    top: calc(50% - 8px);
+    width: 12px; height: 12px;
+    border: 3px solid var(--color); 
+    transform: rotate(45deg);
+  }
+  &.prev {
+    left: 4px; 
+    &::before{
+      left: calc(50% - 5px);
+      border-top: none; border-right: none;
+    }
+  }
+  &.next {
+    right: 4px;
+    &::before{
+      right: calc(50% - 5px);
+      border-bottom: none; border-left: none;
+    }
+  }
+
+  &:hover, &:focus{
+    --btnBg: #{$assistant1};
+    --color: #{$primaryColor};
+    box-shadow: var(--btnBg) 0 0 0 4px;
+  }
+
+}
+
+
+// 點點、數字
+.flowNav{
+  font-family: Arial, Helvetica, sans-serif;
+
+  margin: 20px auto 5px; z-index: 19;
+  ul{
+    display: flex; flex-flow: row nowrap; justify-content: center;
+    list-style: none; margin: 0 auto; padding: 0;
+    text-align: center; font-weight: normal;font-size: 0;
+    line-height: 1.1;
+  }
+  li{ 
+    position: relative; flex: 0 0 auto; 
+    margin: 0 6px; padding: 3px 0;
+    transition: .2s;
+
+    &::after {
+      content: ''; display: block; margin: 0;
+      height: 8px; width: 8px; border-radius: 5px;
+      background-color: $gray;
+      transition: .2s;
+    }
+
+    &.active{
+      &::after { background-color: $primaryColor;
+        box-shadow: $primaryColor 0 0 0 2px;
+      }
+    }
+  }
+}
+// --------------------------------------------------------------- //
+
+
+
+
+
+
+// --------------------------------------------------------------- //
+// --------------------------------------------------------------- //
+// --------------------------------------------------------------- //
+
+
+
+
+// 相關圖檔（cp 頁）
+//（點擊左右箭頭滑動）photoflow
+// ------------------------------------------------------ //
+.photoflow{
+  position: relative; margin:60px 0;
+
+  // h3 樣式設定在 _cpAttachments.scss
+
+  ul{margin: 0; padding: 0; list-style: none;}
+  a{text-decoration: none; }
+
+  .flowBox{
+    position: relative; width:100%;
+    padding-bottom: 20px; margin-top: 20px;
+
+    // 此元件由 js 產生
+    .flowShow{
+      position: relative; width:100%; overflow: hidden;
+    }
+  }
+
+  .flowList{
+    list-style: none; margin: 0 0 10px; padding: 0;
+    display: flex; flex-flow: row nowrap;
+    &>li{
+      flex: 0 0 $mobileWidthV; height: $mobileWidthV;
+      margin: 0 10px 0 0; padding: 0;
+      background-color: $white;
+      &>a{
+        position: relative; display: block; width: 100%; height: 100%;
+        overflow: hidden;transition: .5s; 
+        &::before{
+          content: ''; z-index: 9;
+          position: absolute; left: 0; right: 0; top: 0; bottom: 0;
+          box-shadow: $borderColor 0 0 0 1px inset; 
+        }
+        &:hover, &:focus {
+          p{ transform:  translateY(0); }
+          img{ transform: scale(1.1);}
+        }
+        &:focus {
+          p{ transition: none;}
+          &::before{ box-shadow: $primaryColor 0 0 0 2px inset;}
+        }
+      }
+      img{
+        display: block;
+        width: 100%; height: 100%; object-fit: contain;
+        transition: .3s;
+      }
+      p{
+        position: absolute; left: 0; right: 0; bottom: 0;
+        padding:90px 10px 8px; margin: 0;
+        color: $white; 
+        background-image: linear-gradient(0deg, rgb(0 0 0 / .9) .6em, rgb(0 0 0 / .7) 40%, rgb(0 0 0 / 0) 100%);
+        transform: translateY(110%); transition: .5s;
+      }
+    }
+  }
+
+
+  // 左右箭頭
+  .arrowBtn{
+    top: $mobileWidthV*.5; z-index: 99;
+    &.prev{ left: -8px;}
+    &.next { right: -8px;}
+  }
+
+  @media screen and (min-width: $wwSlim){
+    .flowList{ // 顯示兩張
+      &>li{
+        flex-basis: calc( $mobileWidthV/2 - 5px );
+        height: calc( $mobileWidthV/2 - 5px );
+      }
+    }
+
+    .arrowBtn{top: calc( #{$mobileWidthV}/4 - 3px );}
+  }
+
+  @media screen and (min-width: $wwMedium){
+    .flowList{
+      // 顯示三張
+      &>li{
+        margin-right:9px;
+        flex-basis: calc($mobileWidthV/3 - 6px);
+        height: calc($mobileWidthV/3 - 6px);
+      }
+    }
+
+    .flowNav{ margin-left: 0;margin-right: 0;}
+
+    // 左右箭頭 button
+    .arrowBtn{top: calc($mobileWidthV/6 - 3px); }
+
+  }
+
+  @media screen and (min-width: $wwNormal){
+    .flowList{
+      // 顯示四張
+      &>li{
+        margin-right: 12px; 
+        flex-basis: calc($normalWidthV/4 - 9px);
+        height: calc($normalWidthV/4 - 9px);
+      }
+    }
+
+    .flowNav{ margin-left: 0;margin-right: 0;}
+
+    // 左右箭頭 button
+    .arrowBtn{ top: calc($mobileWidthV/8 - 5px); 
+      &.prev{ left: -28px;}
+      &.next { right: -28px;}  
+    }
+
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    .flowList{
+      &>li{
+        flex-basis: calc($maximumWidth/4 - 9px);
+        height: calc($maximumWidth/4 - 9px);
+      }
+    }
+    .arrowBtn{
+      top:calc($maximumWidth/8 - 5px);
+    }
+  }
+
+}

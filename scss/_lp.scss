@@ -1,0 +1,319 @@
+// 項目與表格條列
+// ------------------------------------------------------ //
+.list {
+  // 項目條列
+  &>ul{
+    list-style: none; margin: 0; padding: 0; 
+    line-height: 1.6;
+    border-top: 3px solid $assistant3;
+    border-bottom: 3px solid $assistant3;
+    
+    &>li{
+      margin: 0;padding: 0;
+      border-top: 1px solid $borderColor;
+      &:first-child {border: none;}
+      &:nth-child(even) {background-color: $grayLight;}
+      &>a {
+        
+        display: block; padding: 1em 5px;
+        text-decoration: none; color: $linkColor;
+
+        display: flex; flex-flow: row nowrap;
+  
+
+        &::after {content: '';display: block; clear: both;}
+        &:hover, &:focus {
+          background-color: $assistant1;
+          p{
+            text-decoration: underline;
+            &::before{ box-shadow: $assistant3 0 0 0 3px;}
+          }
+        }
+
+      }
+
+      // .number{ 
+      //   float: left;text-align: right;
+      //   margin-right: 1em; margin-left: -3em;min-width: 2em; 
+      // }
+      p{
+        flex: 1 1 60%;
+        position: relative; font-size: 1.2em; margin: 0 1em 0 0; padding-left:32px;
+        &::before {
+          content: ''; position: absolute; left: 10px; top: .5em;
+          width: 8px; height: 8px; border-radius: 50%;
+          background-color: $assistant3;
+          transition: .2s;
+        }
+      }
+      time{ 
+        flex: 0 0 5.8em; white-space: nowrap;
+        margin-left: 5px; text-align: center;
+      }
+      .count{ 
+        flex: 0 1 auto;white-space: nowrap;
+        margin: 0 8px; padding: 0 .8em; 
+        height: 1.8em; line-height: 1.9; border-radius: 1.5em;
+        background-color: $assistant3; color: $white; 
+      }
+    }
+  
+  }
+
+
+  @media screen and (min-width: $wwNormal){
+    ul.list{
+      &>li{
+        a {padding-right: 7em;}
+        time {float: none; position: absolute; right: 16px; top: 1em;}
+      }
+    }
+  }
+
+}
+// ------------------------------------------------------ //
+
+
+// ------------------------------------------------------ //
+// ------------------------------------------------------ //
+// ------------------------------------------------------ //
+
+
+// 表格 table 條列
+// ------------------------------------------------------ //
+.listTb>table { 
+  border-collapse: collapse; 
+  line-height: 1.6; 
+  width: 100%; margin:20px auto;
+  border-bottom: 3px solid $secondaryColor;
+
+  caption{padding: 0 0 .4em;}
+
+  thead{
+    background-color: $assistant3; color: $white;
+    th{ white-space: nowrap; font-weight: normal;font-size: 1.2em;}
+  }
+
+  // 固定表頭
+  &.stickyHead {
+    thead{ 
+      position: sticky; top: 96px; z-index: 9;
+      tr{ border-bottom: none;}
+    }
+  }
+
+  tbody{
+    tr{
+      border-top: $borderColor 1px solid;
+      transition: background-color .2s;
+      &:nth-child(even) { background-color: $grayLight;}
+      &:hover{ background-color: $assistant1;}
+    }
+  }
+
+  th, td{padding:16px 15px 15px;}
+
+  td{
+    text-align: center;
+    a{
+      color: $linkColor; text-decoration: underline; transition: .2s;
+      &:hover, &:focus{text-decoration: none;}
+      &:focus{ outline: 1px dotted $linkColor;}
+      
+      // 檔案格式圖示
+      // &.fileType{ 
+      //   text-decoration: none !important; color: $white;
+      //   &:hover, &:focus {
+      //     box-shadow: var(--color) 0 0 0 1px inset, var(--bg) 0 0 0 2px;
+      //     color: $white;
+      //   }
+      //   &:only-child { margin: 0 auto;}
+      // }
+    }
+
+    &.aLeft{ text-align: left;}
+    &.aRight{ text-align: right;}
+
+    &.number{ text-align: right;}
+    &.title { 
+      text-align: left; font-weight: bold; font-size: 1.2em;
+      a{ 
+        position: relative; padding-left: 1em;
+        display: inline-block;
+        &::before { 
+          content: ''; position: absolute; left: .4em; top: .6em;
+          width: 4px;height: 4px; border-radius: 2px;
+          background-color: $fontColor;
+        }
+      }
+    }
+    time{ display: inline-block; white-space: nowrap; }
+
+    ul.downloadFiles{
+      list-style: none; margin: 0 auto; padding: 0; line-height: 1; 
+      display: inline-block;overflow: hidden;
+      li{
+        float: left;padding: 0; margin: 2px;
+        a{ text-decoration: none; outline: none; display: block; padding: 0;}
+      }
+    }
+  }
+
+  @media screen and (max-width: calc($wwNormal - 1px)){
+    &.stickyHead {
+      thead{ top: 60px;}
+    }
+  }
+
+  @media screen and (max-width: calc($wwMedium + 100px)){
+
+    width: calc(100% - 10px); margin: 0 auto;
+
+    &.rwdTable{
+      thead{ display: none;}
+      tbody{ border: none;
+        tr{
+          &:nth-child(even) { background-color: transparent;}
+          &:hover{ background-color: $assistant1;
+            td:before{ background-color: $white;}
+          }
+        }
+      }
+      tr, th, td{ display: block;}
+      tr{ 
+        position: relative; overflow: hidden;
+        padding: .5em 12px .4em; margin:0 0 10px;
+        border: none; box-shadow: $borderColor 0 0 0 1px;
+        transition: .2s;
+      }
+      th, td{
+        position: static; padding: 0;margin: 0; text-align: left;
+        border: none;
+      }
+      td{
+        padding:.35em 0; text-align: left;
+        border-bottom: 1px dotted $borderColor;
+        &:last-child{ border: none;}
+        &.title{
+          a, a:only-child{display: inline;}
+        }
+        &::before {
+          content: attr(data-th); display: inline-block; margin-right: .5em;
+          font-size: .92em; line-height: 1.7; height: 1.6em;
+          background-color: $grayLight;color: $fontColor;
+          padding: 0 .6em 1px 5px; border-radius: 3px 1em 1em 3px
+        }
+        &>a{ 
+          text-decoration: underline; text-underline-offset: 3px;
+          text-decoration-color: $linkColor;
+          &:hover{
+            text-decoration: none; color: $linkColor;
+          }
+          // &.fileType {
+          //   display: inline-block;margin: 2px;
+          //   &:only-child{ margin: 2px; }
+          // }
+        }
+
+        .downloadFiles {display: inline; }
+      }
+    }
+  
+  }
+
+
+}
+// ------------------------------------------------------ //
+// ------------------------------------------------------ //
+
+
+// ------------------------------------------------------ //
+// .preface{
+
+//   @extend %primSecWidth; padding: 30px;
+//   line-height: 1.6;
+
+//   background: linear-gradient(180deg, #F6F6F6 0%, #F9F9F9 9.38%, #FFFFFF 100%);
+//   box-shadow: 0 0 4px 0 $shadow1;
+
+//   a{ text-decoration: underline; color: $linkColor;
+//     &:hover {text-decoration: none;}
+//     &:focus { text-decoration: none; outline: 1px solid $linkColor;}
+//   }
+
+//   strong{ color: $warning;}
+
+//   h3{margin-top: 0;}
+//   li+li{ margin-top: .5em;}
+
+//   .btnDv{ font-size: 1.1em;
+//     button:only-child{ min-width: 12em;}
+//   }
+// }
+
+
+// 條列上方節點
+// ------------------------------------------------------ //
+// .nodes{
+//   @extend %primSecWidth; 
+//   &>ul{
+//     list-style: none; margin: 0 -6px; padding: 0;
+//     font-size: 1.11em; line-height: 1.4;
+//     display: flex; flex-wrap: wrap;
+//     &>li{
+//       flex: 0 0 50%; padding: 6px;
+//       &>a {
+//         display: block; text-decoration: none;
+//         padding: .7em 16px .6em 22px; height: 100%;
+//         box-shadow: $borderColor 0 0 0 1px;
+//         color: $primaryColor;
+//         transition: .2s;
+//         &:hover, &:focus {
+//           box-shadow: $white 0 0 0 1px, $primaryColor 0 0 0 3px;
+//         }
+//       }
+
+//       &.here{
+//         a{
+//           position: relative;
+//           background-color: $primaryColor; color: $white;
+//           box-shadow: $primaryColor 0 0 0 1px;
+//           &:hover, &:focus {
+//             box-shadow: $white 0 0 0 1px, $primaryColor 0 0 0 4px;
+//           }
+
+//           &::before{
+//             content: ''; position: absolute; left: 1px;
+//             top: calc(50% - 14px);
+//             width: 0; height: 0;
+//             border-style: solid;
+//             border-width: 14px 0 14px 14px;
+//             border-color: transparent transparent transparent $assistant1;
+//           }
+  
+//         }
+//       }
+//     }
+//   }
+
+//   @media screen and (min-width: $wwNormal){
+//     margin-top: 40px; margin-bottom: 40px;
+//     &>ul{
+//       margin: 0 -10px; 
+//       &>li{
+//         padding: 10px;
+//         flex-basis: 33.33%;
+//       }
+//     }
+//   }
+
+//   @media screen and (min-width: $wwMaximum){
+//     // &>ul{
+//     //   &>li{
+//     //     flex-basis: 25%;
+//     //   }
+//     // }
+
+//   }
+
+// }

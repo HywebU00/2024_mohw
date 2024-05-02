@@ -1,0 +1,238 @@
+// 頁尾
+
+// webFooter 內的元件、模組
+// --------------------------------------------------------------- //
+// 開關
+.fatFootCtrl{
+  --ting: #fff;
+  --bg: transparent;
+  --size: 44px;
+  --arrowSize: 16px;
+
+  position: absolute; z-index: 9; 
+  left: calc(50% - var(--size)/2); 
+  top: 4px; 
+  width: calc(var(--size) + 16px); height:  var(--size); 
+  padding: 0; margin:0;
+  text-indent: -10em; overflow: hidden;
+  border: none; box-shadow: none;
+  background-color: var(--bg);
+  border-radius: 6px;
+  cursor: pointer;
+
+  &::before {
+    content: ''; position: absolute; 
+    width: var(--arrowSize);height: var(--arrowSize);
+    left: calc( var(--size)/2 - var(--arrowSize)/2 - 2px + 8px); 
+    top: calc( var(--size)/2 - var(--arrowSize)/2 + 2px);
+    transform: rotate(45deg);
+    border: 4px solid var(--ting);
+    border-right: none; border-bottom: none;
+    transition: .3s;
+  }
+
+  &:hover, &:focus {
+    --bg:#{$assistant1};
+    box-shadow: none; 
+    &::before{ border-color: $primaryColor;}
+  }
+
+
+  &.closed{
+    &::before{
+      top: calc( var(--size)/2 - var(--arrowSize) );
+      transform: rotate(225deg);
+    }
+  }
+}
+
+// fat footer
+// --------------------------------------------------------------- //
+// 可開合區
+.fatFooter {
+  display: none;
+  @media screen and (min-width: $wwNormal){
+    display: block;
+    position: relative; padding: 60px 0 20px;
+  }
+}
+
+// 頁腳選單
+.siteTree{
+  @media screen and (min-width: $wwNormal){
+    width: $mobileWidthP;margin: 0 auto;
+    ul{ list-style: none; margin: 0 auto; padding: 0; line-height: 1.5; }
+    li{ 
+      margin: 0 0 .6em;padding: 0;
+      a{display: block; color: $white; text-decoration: none;transition: .2s;}
+    }
+  
+    &>ul{
+      display: flex; flex-flow: row wrap;
+      &>li{
+        padding: 4px 0; margin: 0 2% 0 0;
+        // outline: 1px dashed #ff05;
+
+        flex-basis:18.4%;
+        &:nth-child(5n){ margin-right: 0;}
+ 
+        &>a {
+          font-size: 1.1em; color: $assistant1;
+          margin-bottom: 13px;
+          border-bottom: transparent solid 2px;
+          
+          &:hover, &:focus {
+            border-bottom-color: $assistant1;
+          }
+        }
+        &>ul{ padding-bottom: 35px;}
+
+        li{
+          a{
+            border-bottom: transparent solid 1px;
+            &:hover, &:focus {
+              border-bottom-color: $assistant1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    width:calc($wwMaximum - 24px);
+    &>ul{
+      &>li{
+        flex-basis:15%;
+        &:nth-child(n){ margin-right: 2%;}
+        &:nth-child(6n){ margin-right: 0;}
+      }
+    }
+  }
+
+}
+
+// --------------------------------------------------------------- //
+
+
+
+
+// --------------------------------------------------------------- //
+.webFooter {
+  position: relative;
+  color: $white;
+  @extend %gradient1;
+
+  // logo 圖
+  .logo {
+    position: absolute; left: $mgDocMP; top: 30px;
+    margin: 0 15px 5px 0; width: 82px; height: 82px;
+    img{ display: block; width: 100%; height: 100%;}
+  }
+
+  // 地址、電話
+  .contactInfo{
+    line-height: 1.5; margin-left: 100px; min-height: 90px;
+    p{ margin: 0 0 .8em;}
+  }
+
+  // 社群連結圖示等
+  .imageLinks{
+    clear: both;
+    list-style: none; margin:0 auto; padding:10px 0;
+    text-align: center;
+    &>li{
+      display: inline-block; margin:8px 2px; padding: 0;
+      a, img{display: block;transition: .2s;}
+      &.disk{
+        img{ width: 44px; height: 44px; border-radius: 50%; }
+      }
+      &.badge{
+        img{ height: 44px; width: auto;}
+      }
+      a{
+        &:hover, &:focus{ 
+          img{
+            box-shadow: $white 0 0 0 1px, $fontColor 0 0 0 4px;
+          }
+        }
+      }
+    }
+
+
+  }
+
+  // 隱私權政策、資訊安全政策 ... ...
+  .textLinks{
+    list-style: none; margin: 0; padding: 0; line-height: 1;
+    text-align: center;
+    &>li{
+      position: relative;
+      display: inline-block; margin: 5px 13px 15px 0; padding: 0 0 0 16px;
+      border-left: 1px solid $borderColorDark;
+      &:first-child{ padding-left: 0; border: none;}
+      a{
+        display: block; margin: 0;
+        white-space: nowrap;
+        text-decoration: none; color: $assistant2;
+        border-bottom: transparent solid 2px;
+        &:hover, &:focus{border-bottom-color: $assistant2;}
+        &:focus{ outline: 1px solid  $assistant2; outline-offset: 2px;}
+      }
+    }
+  }
+
+  // 瀏覽人次
+  .visiters{
+    margin: 20px 0 0; text-align: center;
+  }
+
+
+  // 排版div
+  .middle{
+    position: relative; padding: 40px $mgDocMP 10px;
+    background-color: #ddd; color: #000;
+    // border: 2px dotted red;
+  }
+
+
+  .base {
+    padding: 10px $mgDocMP 30px;
+    background-color: #ddd; color: #000;
+    ul{ list-style: none; margin: 0; padding: 0; line-height: 1; }
+
+  }
+  
+ 
+  @media screen and (min-width: $wwNormal){
+    
+    .middle{
+      display: flex; align-items: center;
+      padding-bottom: 0;
+    
+      .logo {flex: 0 0 100px;}
+      // .imageLinks, .contactInfo {outline: 1px dashed #999;}
+      .contactInfo{ flex: 1 1 auto; }
+      .imageLinks {  flex: 1 0 auto;padding: 0; margin-left: 20px; min-width: 388px; text-align: right;}
+
+    }
+    
+    .base{
+      overflow: hidden; padding-top: 20px;
+      .textLinks{ float: left;}
+      .visiters{ float: right; margin:2px 0;}
+    }
+
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    .logo {left: $mgDocPMax;}
+    .middle, .base {
+      padding-left: $mgDocPMax;
+      padding-right: $mgDocPMax;
+    }
+
+  }
+
+}
+// --------------------------------------------------------------- //

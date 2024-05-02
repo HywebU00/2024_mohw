@@ -1,0 +1,141 @@
+// 行動版側欄
+// --------------------------------------------------------------- //
+.sidebar{
+  --color:#{$white};
+  --menuHover: rgb(0 30 60 / .4) ;
+  --border: rgb(255 255 255 / .2); 
+
+  // display: none;
+  overflow: hidden; overflow-y: scroll;
+
+  --deg : 180deg;
+  @extend %gradient1;
+
+  position: fixed; z-index: 998;
+  width: $sideBarWidth; height: 100vh;
+  top: 100px; left: $sideBarWidth * (-1); overflow: auto;
+  transition: .5s;
+
+  &.reveal{ left:0; }
+
+  // display: block; left: 0;
+
+
+
+  // 行動版側欄主選單
+  // ------------------------------------------------------ //
+  .menu {
+    ul{ 
+      list-style: none; margin: 0;padding: 0; line-height: 1.4;
+      a{ 
+        display: block;
+        color: var(--color); text-decoration: none; 
+        transition: .2s;
+        &:hover, &:focus{
+          background-color: var(--menuHover); 
+        }
+      }
+    }
+    
+    &>ul{
+      font-size: 1.12em; color: var(--color);
+      li.hasChild{
+        &>a{
+          position: relative;
+          &::after{
+            content: ''; 
+            position: absolute; right: 14px; top: calc(.9em + 3px);
+            width: 8px;height: 8px;
+            border: var(--color) solid 2px; 
+            border-top: none; border-left: none;
+            transform: rotate(45deg); transition: .3s;
+          }
+        }
+        &.closeIt{
+          &>a{
+            &:after{ transform: rotate(225deg);top: calc(.8em + 6px)}
+          }
+        }
+      }
+
+      // 第一層選單項
+      &>li{
+        border-bottom: 1px solid var(--border);
+        a{ padding:.8em 12px .7em;}
+      }
+
+      // 第二、三 ...層選單項
+      ul{ 
+        display: none; font-size: 1rem;
+        margin: 10px 8px 12px 12px;
+        &>li{
+          // border-bottom: var(--border) solid 1px;
+          a{border-radius: 6px;}
+          &.hasChild{
+            a{ padding-right: 40px;  }
+          }
+        }
+      }
+    }
+ 
+  }
+
+
+  // 行動版 headNav
+  // ------------------------------------------------------ //
+  .headNav {
+    --color : #{$white};
+  
+    margin:30px 10px 10px;
+  
+    &>ul{
+      display: flex; flex-flow: row wrap; 
+      justify-content: center;
+      &>li{
+        flex: 0 1 calc(50% - 10px);margin: 5px;
+        border: none;text-align: center;
+        &>a{
+          position: relative;
+          padding: .7em .5em ;
+          color: var(--color); background-color: var(--menuHover);
+          border-radius: 2em;
+          transition: .2s;
+          &:hover,
+          &:focus{box-shadow: $white 0 0 0 2px;}
+        }
+
+        &:nth-child(odd):last-child{
+          flex-basis: 100%;
+        }
+
+        &.langEN{
+          &>a{
+            width: 2.8em; height: 2.8em; line-height: 1.5; margin: 0  auto;
+            background-color: $white; color: $primaryColor;
+            font-weight: bold; font-size: 1.125em;
+              &:hover, &:focus{
+                box-shadow: $white 0 0 0 3px;
+              }
+              &:focus{color: $white; background-color: var(--menuHover);}
+
+          }
+        }
+      }
+
+      &.disks{
+        margin-top: 20px; text-align: center;
+        display: flex; flex-flow: row wrap; justify-content: center;
+      }
+
+      li.fontSize{display: none;}
+
+    }
+
+  }
+
+  @media screen and (min-width: $wwNormal){
+    display: none;
+  }
+
+}
+// --------------------------------------------------------------- //

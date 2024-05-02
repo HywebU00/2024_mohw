@@ -1,0 +1,65 @@
+// 資料表格
+.meta{
+  padding:20px;
+  font-size: 1.1em;
+  box-shadow: 0 0 4px 0 $shadow1;
+
+
+  @media screen and (max-width: $wwMedium){
+    padding:12px 8px;
+  }
+}
+
+
+// 資料表格
+table.metaTable{
+  width: 100%; margin: 0 auto;
+  border-collapse: collapse; line-height: 1.8;
+  th, td {padding: .7em 1em .6em;}
+  tr{
+    border-bottom: 1px solid $borderColor;
+    transition: .25s;
+    &:last-child{border: none;}
+    &:hover{background-color: $hover;}
+  }
+  th{ 
+    width: 22%; position: relative;
+    color: $primaryColor; vertical-align: top; text-align: right;
+    &::after{
+      content: ''; position: absolute; top: 3px; bottom: 3px; right: 0;
+      width: 3px; background-color: $borderColor;
+    }
+  }
+  td{
+    ol, ul{ margin-top: 0; margin-bottom: 0;}
+    a{ color: $linkColor;
+      &:hover, &:focus { text-decoration: none; outline: 1px solid $linkColor;}
+    }
+  }
+
+  @media screen and (max-width: $wwMedium){
+    tr{
+      display: block;
+    }
+    th, td{ padding: .5em 0; display: inline-block;}
+    th{
+      display: inline-block; width: auto;
+      padding-left: 8px; padding-bottom: 0;
+      text-align: left; border-right: none;
+      &::after{
+        content: '：'; position: static; background: none;
+      }
+    }
+    td{ padding-left: 8px; padding-right: 8px;}
+  
+  }
+
+}
+
+
+.uploadFileList{
+  .fileName, .fileSize {
+    display: inline-block;
+  }
+  .fileSize{ margin-left: 1em;}
+}

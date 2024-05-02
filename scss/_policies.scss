@@ -1,0 +1,77 @@
+//  首頁：重要政策
+.policies{
+  --imgWidth: 60vw;
+
+  .item{
+    padding: 20px 0 5px;
+    a {
+      display: block; 
+      margin: 0;text-decoration: none;outline: none;
+      color: $fontColor;
+      transition: .3s;
+      &:hover, &:focus {
+        transform: translateY(-5px);
+      }
+      &:focus{
+        img{ box-shadow:$primaryColor 0 0 0 2px, $white 0 0 0 5px;}
+      }
+    }
+    img{
+      display: block; margin: 0 auto;
+      width: var(--imgWidth); height: var(--imgWidth);
+      border-radius: $radius3; 
+      background-color: $white;
+      box-shadow: 0 4px 16px rgb(0 0 0 / .35);
+      transition: .2s;
+    }
+    p {
+      margin: 24px auto 0;width: var(--imgWidth);
+      line-height: 1.2;text-align: center;
+      font-size: 1.375em; font-weight: bold;
+      color: $white;
+    }
+
+  }
+  
+
+  .slickBox{
+    --deg: 270deg;
+    @extend %gradient1;
+    padding:50px 0; margin: 0;
+  }
+  .slick-dots { 
+    --tinge: rgb(255 255 255 / .2);
+
+    margin-top: 20px;
+    li.slick-active{--tinge: rgb(255 255 255 / 1);}
+  }
+  .slick-arrow {
+    --gap:5vw;
+    top: calc(70px + var(--imgWidth)*.5);
+  }
+
+  @media screen and (min-width: $wwMedium){
+    --imgWidth: 36vw;
+    .slick-arrow {--gap:2vw;}
+  }
+
+  @media screen and (min-width: $wwNormal){
+    --imgWidth: 25vw;
+    .slickBox{padding-left: 6vw; padding-right: 6vw;}
+    .slick-arrow {--gap:8px;}
+  }
+
+  @media screen and (min-width: 1120px){
+    --imgWidth: 220px;
+    .slickBox{padding-left: 60px; padding-right: 60px;}
+    .slick-list{ width: 1000px; margin: 0 auto;}
+  }
+  
+  @media screen and (min-width: $wwMaximum){
+    .slick-arrow{
+      &.slick-prev{ left: calc(50% - 580px);}
+      &.slick-next{ right: calc(50% - 580px);}
+    }
+  }
+
+}

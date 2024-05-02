@@ -1,0 +1,166 @@
+.news {
+  .tabSet{ 
+    padding: 60px 0 40px;
+    border-radius:0 $radius4 $radius4 0;
+    background-image: linear-gradient( 270deg, rgb(0,112,146) 0%, rgb(0,94,162) 0%, rgb(0,132,128) 100%);
+  }
+  .tabItems{
+    width: $mobileWidthP; margin: 0 auto;
+    display: flex; flex-flow: row wrap; justify-content: flex-start;
+    button{
+      flex: 0 0 auto;height: auto; position: relative;
+      font-size: 1.4em;line-height: 1.3;word-break: break-all;
+      padding: .85em 16px .8em; margin:1px; border-radius: $radius1;
+      border: none; box-shadow: none; outline: none;
+      background-color: transparent; color: $white;
+      transition: .2s;
+      &::after{
+        content: ''; position: absolute; left: 50%; bottom: -12px;
+        width: 2px; height: 0; transition: height .2s;
+      }
+      &:hover, &:focus{
+        background-color: rgb(0 20 40 / .3);
+      }
+      &.active{
+        background-color: $assistant2;
+        &:focus { box-shadow: rgb(255 255 255 / .5) 0 0 0 3px;}
+        &::after{height: 24px;background-color: $white;}
+      }
+    }
+  }
+  .tabContent{display: none;}
+
+
+  // 訊息條列
+  .newsList{
+    list-style: none; margin:20px auto 0; padding: 0;
+    line-height: 1.5; font-size: 1.25em;
+    width: calc($mobileWidthP - 40px);
+    &>li{
+      margin: 0 0 4px; padding: 0;
+      a {
+        position: relative;
+        display: block; text-decoration: none;
+        padding: 15px 4px 17px;
+        color: $white;
+        border-bottom: rgb(255 255 255 / .2) solid 1px;
+        transition: .2s;
+        &:hover {
+          border-bottom-color: rgb(255 255 255 / 1);
+        }
+        &:focus {
+          outline: 2px solid $focus;outline-offset: -1px;
+          border-radius: $radius;
+        }
+      }
+
+      .label{
+        display: inline-block; position: absolute; left: 6.2em; top: 20px;
+        font-size: .9em; line-height: 1.6; height: 1.5em;
+        padding: 0 6px; border-radius: $radius;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: bold;
+        background-color: $assistant1; color: $primaryColor;
+      }
+      time{ 
+        display: inline-block; white-space: nowrap; color: $assistant1;
+        &+.label{margin-left: 10px;}
+      }
+      p{ margin: .2em 0 0;}
+    }
+  }
+
+  .more{
+    margin: 30px calc($mgDocMP + 45px) 0 auto; text-align: right;
+    a::after{ border-color: $focus;}
+  }
+
+  @media screen and (min-width: $wwNormal){
+    position: relative;
+    padding-bottom: 90px;
+
+    &::after{
+      // 雙圓餅裝飾圖
+      content: ''; position: absolute; bottom: 0; left: 6%;
+      width: 120px; height: 90px;
+      background: url(../images/twoDisks.svg) no-repeat right 0  bottom 0,
+      url(../images/twoDisks.svg) no-repeat right 43px bottom 43px ;
+      background-size: auto 46px;
+      transform: rotate(135deg);
+    }
+
+    .tabItems{ width: 90%; margin: 0 auto 20px;}
+    .tabContent{width: 90%; margin: 0 auto;}
+
+    .newsList {
+      width: 100%; margin: 0;
+      &>li{
+        a{ display: flex;}
+        p{ margin-top: 0;white-space: nowrap; text-overflow: ellipsis;overflow: hidden;}
+        time{ flex: 0 0 5em; margin-right: 1em;}
+        .label{ position: static; margin-left: 9px;}
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    &::after{ left: calc(50vw - $wwMaximum*.47);}
+    .blockHeader{ margin-left: calc(50vw - $wwMaximum*.5);}
+    .tabSet{
+      padding-left: calc(50vw - $wwMaximum*.5);
+
+      // 背景漸層兩個圓餅
+      position: relative; overflow: hidden;
+      &::before, &::after {
+        content: ''; position: absolute;
+        width: 184px; height: 184px;border-radius: 50%;
+        background: linear-gradient(45deg, rgb(255 255 255 / .4) 10%, rgb(255 255 255 / .1));
+      }
+      &::before{left:calc(50vw - $wwMaximum*.5 - 260px); top: -30px;}
+      &::after {left: calc(50vw - $wwMaximum*.5 - 340px); top: 50px;}
+    }
+    .tabItems, .tabContent { 
+      width: $wwMaximum*.7*.9;
+      margin-right: $wwMaximum*.7*.06;
+     
+    }
+  }
+
+
+}
+
+
+
+
+// ------------------------------------------------------ //
+// ------------------------------------------------------ //
+// ------------------------------------------------------ //
+
+//  首頁兩欄排版：最新消息＋重要連結
+.row_col52{
+  background-color: #f3f9e4;
+  @media screen and (min-width: $wwNormal){
+    display: flex; 
+    overflow: hidden;
+    background-color: transparent;
+    background-image: linear-gradient(0deg, rgb(255 255 255 / 1) 0%, rgb(255 255 255 / 0) 80%);
+    &>section{
+      &.news{flex: 0 0 70%; width: 70%;}
+      &.impLinks{flex: 0 0 30%; width: 30%;}
+    }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    &>section{
+      &.news{
+        flex-basis: calc($wwMaximum*.2 + 50vw);
+        width: calc($wwMaximum*.2 + 50vw);
+      }
+      &.impLinks{
+        flex-basis: calc( 50vw - $wwMaximum*.2);
+        width: calc( 50vw - $wwMaximum*.2);
+      }
+    }
+  }
+
+}

@@ -1,0 +1,93 @@
+// 版頭
+// --------------------------------------------------------------- //
+.webHeader {
+  position: relative; z-index: 880; 
+  height: 100px; margin: 0 auto;
+  background-color: $white;
+  h1{ 
+    margin: 0 100px; padding: 9px 0; text-align: center;
+    font-size: 1.5em; line-height: 1;
+    a{
+      display: block;text-decoration: none;
+      &:focus{
+        img{outline: 1px solid $focus; outline-offset: 3px;}
+      }
+    }
+    img{
+      display: block;margin: 0 auto; 
+      height: 82px; width: 100%; object-fit: contain;
+    }
+  }
+
+  .sidebarCtrl, .searchCtrl {
+    position: absolute; top: calc(50% - 32px);
+  }
+  .sidebarCtrl {  left: 13px; }
+  .searchCtrl{  right: 13px;}
+
+
+  &.fixed{
+    position: fixed; left: 0; top: 0;right: 0;
+    box-shadow: rgb(0 0 0 / .3) 0 2px 8px;
+  }
+  
+  @media screen and (min-width: $wwNormal){
+    height: auto;
+
+    h1 {
+      padding: 25px 0; margin: 0 6px 0 2%;
+      line-height: 1; height: auto; width: 320px;
+      a{ overflow: hidden;
+        &:focus img {outline-offset: -1px;}
+      }
+      img{ float: left;width: auto; height: 82px; }
+    }
+    .sidebarCtrl { display: none;}
+    .searchCtrl {right: 12px; top: 44px; right: 2%;}
+
+    // 固定版頭
+    &.fixed {
+      z-index: 980;
+      position: fixed;left: 0; right: 0; top: 0;
+      animation: fixHeadAni .5s 1 ease-out;
+      h1, .searchCtrl, .headNav { display: none; }
+      .menu{ 
+        &>ul{
+          &>li{
+            &>a{}
+          }
+        }
+      }
+    }
+
+  }
+
+  @media screen and (min-width: 1167px){
+    h1{ margin-left: calc(50% - 560px);}
+    .searchCtrl{ right:calc(50% - 560px); }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+
+    // .searchCtrl{ right: calc(50vw - $wwMaximum*.48 );}
+    
+    // 固定版頭
+    // &.fixed{ 
+    //   width: 100%;
+    //   h1{}
+    //   .menu{
+    //     &>ul>li>a{
+    //     }
+    //   }
+    // }
+
+
+  }
+
+}
+// --------------------------------------------------------------- //
+
+@keyframes fixHeadAni {
+  0% {transform: translateY( -100% );}
+  100% {transform: translateY(0);}
+}

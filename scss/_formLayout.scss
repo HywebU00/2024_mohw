@@ -1,0 +1,427 @@
+.formA {
+  @extend %primSecWidth;
+  
+  padding: 24px 12px;
+  box-shadow: $shadow1 0 0 15px;
+
+  table.layout{ 
+    tr{border-bottom: 1px solid $borderColor;}
+  }
+
+  h3{
+    border-bottom: 2px solid $borderColor;
+    padding-bottom: 5px; margin-bottom: 40px;
+  }
+
+  @media screen and (min-width: $wwNormal){
+    padding: 24px;
+    table.layout{ width: 96%;}
+  }
+}
+
+
+// 表單排版表格 
+// ------------------------------------------------------ //
+table.layout {
+  width: 100%; margin: 0 auto; border-collapse: collapse;
+  font-size: 1.11em; line-height: 1.3;
+  // background-color: #fee;
+  td {
+    padding:4px 0; vertical-align: top;
+    &:nth-child(odd) {
+      width: 4.5em;
+      padding: 1.2em 5px 4px 1.5em; 
+      white-space: nowrap;text-align: right; font-weight: bold;
+    }
+    &:nth-child(even){ padding-right: 1.5em;}
+  }
+
+  // 表單中的 提示、警告、錯誤訊息；說明文字
+  // -------------------------- //
+  .msg{
+    --color-hint: #{$fontColor};
+    --color-warning: #{$hilight};
+    --color-error: #{$warning};
+
+    display: none; position: relative;
+    padding:5px 38px 5px 34px; margin: 6px 5px;
+    font-size: .88em; line-height: 1.4;
+    &::before{
+      content: ''; position: absolute; left: 4px; top: 5px;
+      width: 24px; height: 24px; border-radius: 50%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 20px;
+    }
+
+    &.hint{
+      color: var(--color-hint);
+      background-color: #cdeff3;
+      &::before{  
+        background-image:url(../images/icon_msg_hint.svg);
+        background-color:var(--color-hint);
+      }
+    }
+    &.warning{ 
+      color: var(--color-warning);
+      background-color: #fce8d4;
+      &::before{
+        background-image:url(../images/icon_msg_warning.svg);
+        background-color:var(--color-warning);
+      }
+    }
+    &.error{
+      color: var(--color-error);
+      background-color: #fae1eb;
+      &::before{
+        background-image:url(../images/icon_msg_error.svg);
+        background-color:var(--color-error);
+      }
+    }
+
+    button.closeThis{
+      --width:26px;
+      --bar-length:18px;
+      --bar-thick:3px;
+
+      background-color: transparent;
+    
+      position: absolute; right: 4px; top: 4px;
+      border-radius: 0;
+      &::before, &::after { background-color: $primaryColor}
+      &:hover, &:focus { 
+        background-color: $primaryColor;
+        &::before, &::after { background-color: $white;}
+      }
+    }
+  }
+
+  // 輸入欄位之外的說明或提示文字
+  p.note{
+    margin:9px 5px 12px; line-height: inherit;
+    font-size: .88em; color: $fontColorLight;
+    &::before {content: '❖'; margin-right: 6px; color: $fontColorDark;}
+    a{ color: $linkColor;
+      &:hover, &:focus{outline: 1px solid $linkColor; text-decoration: none;}
+    }
+  }
+
+  // &+.btnDv{ padding-top: 1.5em;}
+
+  @media screen and (max-width: $wwMedium){
+    tr, td {display: block;}
+    td{
+      &:nth-child(odd){
+        padding: .8em 6px 0; margin-bottom: -6px;
+      }
+      &:nth-child(even){padding-right: 0; padding-bottom: 12px;}
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    max-width: 1100px;
+  }
+}
+
+
+
+// 表單送出、清除等按鈕群
+.btnDv {
+  display: block;
+  font-size: 1.2em;
+  text-align: center; padding: 4px; margin: 0 auto;
+
+  input[type="button"], input[type="submit"], input[type="reset"], button{
+    --bg1: #{$white};
+    --bg2: #{$secondaryColor};
+
+    padding-left: 2em; padding-right: 2em; min-width: 8em;
+    height: 3em; line-height: 3;
+    border-radius: 1.5em;
+    background-color: var(--bg1);color: $fontColor;
+    box-shadow:transparent 0 0 0 0, rgb(0 0 0 / .25) 0 6px 8px -4px;
+
+    &:hover{
+      transform: translateY(-3px);
+      box-shadow:transparent 0 0 0 0, rgb(0 0 0 / .3) 0 16px 16px -8px;
+    }
+    &:focus{
+      transform: translateY(0);
+      box-shadow:var(--bg2) 0 0 0 3px, rgb(0 0 0 / .3) 0 6px 12px -4px;
+    }
+
+    &.submit {
+      --bg1: #{$secondaryColor};
+      --bg2: #{$white};
+      color: $white;
+    }
+  }
+}
+
+
+// 必填符號 *
+.required{
+  color: $warning; margin-right: 3px; text-decoration: none;
+  font-size: 1.2em;
+}
+
+
+
+// ------------------------------------------------------ //
+// 表單內的模組 ----------------------------------------- //
+// ------------------------------------------------------ //
+
+
+// 日期區間
+// -------------------------------------------------------------- //
+.duration{
+  position: relative;
+  display: flex; justify-content: space-between;
+  input{ 
+    flex: 0 1 calc(50% - 1em);
+    &:last-child{margin-left: 1.2em;}
+  }
+  input[type="date"]{cursor: pointer;}
+  &::before{
+    content: '～'; display: inline-block;  text-align: center;
+    line-height: 2.9; width: 1.3em;
+    position: absolute; left: calc(50% - .6em);
+  }
+}
+// -------------------------------------------------------------- //
+
+
+// 單選、複選 radio button & checkbox
+// ------------------------------------------------------ //
+.optionPool{ 
+  margin: 3px;
+  label{
+    display: inline-block;line-height: 1.4;
+    margin:3px .6em 3px 3px; padding: .6em .7em .5em .5em; 
+    border-radius: 6px;
+    &:hover, &:focus {box-shadow: $borderColor 0 0 0 1px;}
+    input[type="checkbox"], input[type="radio"]{ vertical-align: top; }
+    input[type="radio"]{margin-top: .08em;}
+    input[type="checkbox"]{margin-top: .18em;}
+  }
+  &.block {
+    label{ display: block;
+      &:hover, &:focus {box-shadow: none;}
+    }
+  }
+
+  &>.checkAndText{
+    padding-bottom: 1px;
+    border-bottom: 1px dashed $borderColor;
+    input[type="text"]{ 
+      margin-left: 1.8em;
+      width: calc(100% - 1.8em);
+    }
+  }
+
+  // 「其他」項目，含文字輸入
+  .addition{ 
+    display: flex; width: 100%;
+    input[type="text"] {flex: 1 1 auto; margin-left: -.45em; max-width: 20em;}
+  }
+
+  // 選項 check 後出現的附件或連結
+  .checkToShow {
+    display: none; 
+    margin: 0;padding: 0 0 .5em 2.2em;
+    line-height: 1.3;
+    li{
+      display: inline-block;padding: 0; margin:0 1.2em .4em 0;
+      &::before {content: '▸ ';}
+      a{ 
+        color: $linkColor;
+        &:hover, &:focus {
+          text-decoration: none;
+          outline: 1px solid $linkColor;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    &>.checkAndText {
+      display: flex; align-items: center;
+      min-height: 2.2em;
+      &>label{
+        flex: 0 0 48%;
+        padding-left: 2em; padding-right: 0;
+        text-indent: -1.7em;
+      }
+      &>input[type="text"] {
+        flex: 1 1 calc(50% - 12px); width: auto;
+        margin-left: 12px;
+      }
+    }
+  }
+}
+// -------------------------------------------------------------- //
+
+
+// 條件搜尋 
+// ------------------------------------------------------ //
+.searchBy{
+  @extend %primSecWidth;
+  margin-bottom: 0;
+  overflow: hidden;
+  a{
+    float: right; height: 2.8em; line-height: 2.8;
+    text-decoration: none;
+    padding: 0 1em;
+    // color: $white; background-color: $btnBg;
+  }
+
+  & + .formA {margin-top: 8px;}
+}
+// -------------------------------------------------------------- //
+
+
+// 信箱輸入與「發送驗證碼」
+// ------------------------------------------------------ //
+.inputButtonSet{
+ display: flex;
+ input{flex: 1 1 60%}
+  button{ flex: 0 1 auto; padding-left: .9em; padding-right: .9em;}
+}
+// ------------------------------------------------------ //
+
+
+
+// 電話號碼組
+// ------------------------------------------------------ //
+.mobilePhoneSet, .phoneSet{
+  display: flex;align-items: center; flex-wrap: wrap;
+  margin-bottom: .7em;
+  label{white-space: nowrap; flex: 0 0 auto;}
+
+  @media screen and (min-width: $wwMedium){
+    flex-wrap: nowrap;
+  }
+  @media screen and (min-width: $wwNormal){
+    margin-left: .6em; margin-bottom:0;
+  }
+}
+// 行動電話
+.mobilePhoneSet{
+  input{flex: 1 1 auto;}
+}
+//市內電話
+.phoneSet{
+  label{ flex: 1 1 100%;}
+  input.areaCode{ flex: 0 1 4em; width: 4em; }
+  input:last-child{ flex: 1 1 auto;}
+
+  @media screen and (min-width: $wwMedium){
+    label{ flex: 0 0 auto;}
+  }
+}
+// ------------------------------------------------------ //
+
+
+// 附件上傳
+// ------------------------------------------------------ //
+.uploadFile{
+  display: flex;flex-wrap: wrap;
+  input:first-child { flex: 1 1 100%}
+  button{ flex: 1 1 45%; padding-left: 0.5em; padding-right: 0.5em;}
+
+  @media screen and (min-width: $wwNormal){
+    flex-wrap: nowrap;
+    input:first-child { flex-basis: 42%}
+    button{ flex: 1 1 auto}
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    input:first-child { flex-basis: 52%}
+  }
+}
+// ------------------------------------------------------ //
+
+
+
+// 驗證碼
+// ------------------------------------------------------ //
+.captchaSet{
+  display: flex; align-items: center; flex-wrap: wrap;
+  img{flex: 0 0 auto; height: 50px; margin: 5px;}
+  input{ flex: 1 1 50%; width: auto;}
+
+  // a 或 button 元件排版
+  .refresh, .play{flex: 1 1 45%;}
+
+  // a 或 button 元件 樣式細節
+  a.refresh, a.play, 
+  button.refresh, button.play {
+    position: relative;
+    padding: 0 .5em; margin: 5px;
+    font-size: inherit; white-space: nowrap; text-align: center;
+    height: var(--inputHeight); line-height: var(--inputLineHeight);
+    border: 1px solid $primaryColor;
+    color: $white; background-color: $primaryColor;
+    text-decoration: none;
+    &::before{
+      content: ''; display: inline-block;
+      position: relative; top: calc(50% - 18px);
+      margin: 0 4px 0 0; width: 36px; height: 36px;
+      vertical-align: top;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100%;
+      filter: brightness(15);
+    }
+    &:hover, &:focus{
+      background-color: $assistant1;
+      color: $primaryColor;
+      &::before{filter: none;}
+    }
+  }
+  .refresh::before{background-image: url(../images/icon_refresh.png);}
+  .play::before{background-image: url(../images/icon_voice.png);}
+
+  @media screen and (min-width: calc($wwNormal + 100px)){
+    input{ flex: 0 1 25%; min-width: 9em;}
+    .refresh, .play{ flex: 1 1 20%; max-width: 10em}
+  }
+}
+// ------------------------------------------------------ //
+
+
+// 意見信箱: 預覽確認 + 查詢結果
+// ------------------------------------------------------ //
+.fieldConfirm{
+  @extend %primSecWidth;
+  padding: 40px 3vw;
+  box-shadow: $shadow1 0 0 15px;
+
+  .legent {
+    position: relative;
+    margin: 0; padding: 0 0 5px 18px;
+    font-size: 1.125em; font-weight: bold; line-height: 1.1;
+    border-bottom: 3px solid $primaryColor;
+    &::before {
+      content: '';
+      position: absolute; left: 0; top: 0;
+      width: 12px; height: 1.1em;
+      background-color: $primaryColor;
+    }
+    &+.fieldset{ border-top: none;}
+  }
+
+  .fieldset{
+    margin: 0 0 3.5em;
+    .metaTable{
+      border-top: 1px solid $primaryColor;
+      border-bottom: 1px solid $primaryColor;
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    padding: 50px 40px;
+  }
+
+}
+// ------------------------------------------------------ //

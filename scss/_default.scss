@@ -1,0 +1,116 @@
+:root{
+  font-size: 1em; // 16px
+}
+body{
+  margin: 0; padding: 0;
+  font-family: Arial, Helvetica, "Microsoft JhengHei", "微軟正黑體", sans-serif;
+  color: $fontColor;
+
+  *{box-sizing: border-box;}
+  a{ outline: none;}
+  figure{ display: block; margin: 0;}
+
+  &.noScroll{ overflow: hidden; overflow-y:hidden; }
+
+  &.smallFont .main{ font-size: .85em;}
+  &.largeFont .main{ font-size: 1.33em;}
+
+  @media screen and (min-width: $wwNormal){
+    background-position-y: 280px;
+  }
+
+}
+
+
+
+.main{
+  position: relative; margin: 0 auto;  clear: both;
+  &.mp{
+    background: url(../images/body_bg.jpg) repeat-y center 0;
+    background-size: 100% auto;
+  
+  }
+}
+
+// 內頁左右欄排版
+// ------------------------------------------------------ //
+.mainRow{
+  width: $mobileWidthP;margin: 0 auto;
+  // .columnRight, .columnLeft{ outline: 1px dashed red;}
+  .columnLeft { 
+    display: none;
+    &>.head { @extend %gradient1; color: $white; }
+  }
+  .columnRight { }
+  
+  @media screen and (min-width: $wwNormal){
+    padding: 32px 0;
+    width: 96%; max-width: $maximumWidth;
+    display: flex; flex-flow: row nowrap;
+
+    // 左側欄
+    .columnLeft { 
+      display: block;
+      flex: 0 0 280px;
+      width: 280px;
+      padding-right: 20px;
+    
+      &>.head {
+        margin: 0 0 5px;
+        text-align: center;
+        font-size: 1.25em; padding: 20px;
+        border-radius: 12px;
+      }
+    }
+
+    // 右欄
+    .columnRight{
+      flex: 1 1 auto;
+    }
+  
+  
+  }
+
+}
+
+// ------------------------------------------------------ //
+
+
+.npShortcut{
+  &>ul{ 
+    list-style: none; margin: 0; padding: 0;
+    font-size: 1.1875em; line-height: 1.5;
+    &>li {
+      margin: 5px 0;
+      a {
+        display: block; position: relative;
+        padding: 15px 40px 13px 13px;
+        text-decoration: none;
+        color: $fontColor;
+        border: 1px solid $borderColor;
+        border-radius: 12px;
+        &::before, &::after {
+          content: ''; position: absolute; right: 13px;
+        }
+        &::before{
+          top: calc(50% - 9px);
+          width: 18px;height: 18px; border-radius: 50%;
+          background-color: #939393;
+        }
+        &::after {
+          top: calc(50% - 4px); right: 19px;
+          width: 6px; height: 6px;
+          border: 2px solid $white; border-left: none; border-bottom: none;
+          transform: rotate(45deg);
+        }
+        &:hover,
+        &:focus { background-color: $assistant1;
+          &::before{background-color: #222;}
+        }
+      }
+    }
+  }
+
+
+
+}

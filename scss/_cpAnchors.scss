@@ -1,0 +1,25 @@
+// 內文錨點
+.cpAnchors{
+  margin: 0 0 30px;
+  font-size: 1.11em;
+  ul, ol{ list-style: none; overflow: hidden; margin: 0 -8px;padding: 0;}
+  li{
+    float: left; line-height: 1; margin:5px;
+    a{
+      display: block;padding: 1em 1.2em;
+      text-decoration: none;
+      @extend %gradient1;
+      color: $fontColor; font-weight: bold;
+      border: 1px solid #e2e2e2;
+      &:hover, &:focus {
+        border-color: #B9E7E5;
+        @extend %gradient2;
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    margin-bottom: 50px;
+    li{ margin:10px;}
+  }
+}

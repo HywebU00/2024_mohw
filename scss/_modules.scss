@@ -1,0 +1,223 @@
+// 首頁區塊標題字
+// ------------------------------------------------------ //
+.blockHeader{
+  position: relative;
+  font-size: 2em; font-weight: bold;
+  text-align: center; line-height: 1.1;
+  margin: 0; padding: 40px 0 20px;
+  .major, .en{ display: block;}
+  .major{ letter-spacing: 5px; color: #042047;}
+  .en{ 
+    margin-top: 4px; letter-spacing: .5px;
+    font-size: 1rem; color: #066f9c; 
+    font-variant: all-small-caps;
+  }
+  &::before {
+    content: ''; display: block; margin: 0 auto 15px;
+    width: 30px; height: 16px;
+    background: url(../images/twoDisks.svg) no-repeat center top;
+    background-size: auto 100%;
+  
+  }
+  // &::after{background-color: rgba(0, 83, 155, 0.9); margin-right: -8px;}
+
+
+  @media screen and (min-width: $wwNormal){
+  }
+}
+
+
+// 現在位置（麵包屑） //
+// ------------------------------------------------------ //
+.breadcrumb {
+  display: none;
+
+  @media screen and (min-width: $wwNormal){
+    display: block;
+    padding: 0 0 0 24px; margin:4px 0 0;
+    background: url(../images/icon_house.svg) no-repeat 0 2px;
+    background-size: 15px auto;
+    ul, li{ list-style: none; margin: 0;padding: 0;}
+    ul{line-height: 1.2; overflow: hidden;}
+    li{
+      float: left; margin-right: 8px;
+      &::after{content: '>'; display: inline-block; margin-left: 6px;}
+      &:last-child {
+        font-weight: bold; color: #002d6c;
+        &::after{display: none;}
+        a{ color: #002d6c;}
+      }
+      a{
+        display: inline-block; 
+        text-decoration: none; color: $fontColor;
+        border-bottom: 2px solid transparent;
+        transition: .2s;
+        &:hover, &:focus{ border-bottom-color: $fontColorLight;}
+      }
+    }
+  }
+}
+// ------------------------------------------------------ //
+
+
+// 內頁標題 //
+// ------------------------------------------------------ //
+.pageHeader{
+  position: relative;margin-top: 40px;
+  h2 {
+    padding: 0 0 0 30px;margin: 0; line-height: 1.3;
+    font-size: 2.18em; color: $assistant2;
+    &::before {
+      content: ''; position: absolute; left: -2px; top: 13px;
+      width: 28px; height: 18px;
+      background: url(../images/twoDisks.svg) no-repeat 0 0;
+      background-size: contain;
+      transform: rotate(-90deg);
+
+    
+    }
+  }
+
+}
+.main > .pageHeader {
+  @extend %primSecWidth;
+}
+// .columnRight .pageHeader {
+  
+//   @media screen and (min-width: $wwNormal){
+//   }
+// }
+// ------------------------------------------------------ //
+
+
+// 檔案類型圖示 //
+// ------------------------------------------------------ //
+.fileType{
+  --bg : #aaa;
+  --color : #fff;
+
+  display: block; position: relative; 
+  margin: 0; width: 28px; height: 32px; line-height:42px;
+  font-size: .6rem; text-decoration: none; text-align: center;
+  color: var(--color); 
+  background-image: linear-gradient(45deg, var(--bg) 86%, transparent 86%);
+  border-radius: 3px;
+  transition: .2s;
+
+  &::before, &::after{
+    content: ''; position: absolute;
+  }
+  &::before{
+    top: 5px; left: 5px; right: 5px; height: 1px;
+    background-color: rgba(255,255,255,.65);
+    box-shadow: rgba(255,255,255,.65) 0 3px 0, rgba(255,255,255,.65) 0 6px 0;
+  }
+  &::after{
+    right: 0; top: 0;
+    width: 8px; height: 8px; border-radius: 0 0 0 2px;
+    background-color: rgba(255,255,255,.65);
+  }
+  &.pdf { --bg : #d00; }
+  &.doc , &.docx, &.odt{ --bg:#0863a0; }
+  &.xls, &.xlsx, &.csv, &.ods { --bg:#48920f; }
+  &.ppt, &.pptx, &.odp{ --bg:#f75217; }
+  &.txt { --bg:#1d98e4; }
+  &.jpg,  &.jpeg,  &.png { --bg:#089c9f; }
+  &.mp3, &.mp4 { --bg:#9d3a89; }
+  &.mov, &.wmv{ --bg:#5843a9; }
+  &.zip { --bg:#333; }
+  &.other { --bg:#555;}
+}
+a .fileType, .fileType>a{ color: $white; text-decoration: none; }
+a:hover, a:focus{
+  .fileType{box-shadow:var(--color) 0 0 0 1px inset, var(--bg) 0 0 0 2px;}
+}
+// ------------------------------------------------------ //
+
+
+
+// ------------------------------------------------------ //
+// ------------------------------------------------------ //
+// ------------------------------------------------------ //
+
+
+// slick 套件用元件樣式
+// ------------------------------------------------------ //
+.slick-slider {
+  position: relative;
+  margin: 5px auto;
+
+  button {
+    border: none;outline: none;box-shadow: none;
+    background-color: transparent;
+    padding: 0; margin: 0;width: auto; 
+    overflow: hidden; cursor: pointer;
+  }
+
+  // 點點或數字
+  .slick-dots { 
+    --tinge: #{$gray};
+
+
+    list-style: none; margin: 0 auto;
+    line-height: 1; text-align: center;
+    li { 
+      display: inline-block; margin: 2px 6px;
+      button { 
+        width: 8px; height: 8px; border-radius: 4px;
+        font-size: 0;
+        background-color: var(--tinge);
+        transition: .3s;
+        &:hover, &:focus{box-shadow: var(--tinge) 0 0 0 2px;}
+      }
+
+      &.slick-active{
+        --tinge: #{$assistant2};
+        button{ width: 36px; 
+          &:focus{ box-shadow:$gray 0 0 0 1px,  var(--tinge) 0 0 0 3px; }
+        }
+      }
+
+    }
+  }
+
+  // 左右箭頭
+  .slick-arrow {
+    --tinge: #fff;
+    --bg: rgb(0 20 60 / 0);
+    --gap: 0;
+
+    position: absolute; z-index: 9; 
+    top: 50%; transform: translateY(-50%);
+    width: 80px; height: 80px;
+    font-size: 0; cursor: pointer;
+    border-radius: $radius1;
+    background-color: var(--bg);
+    transition: .25s;
+    &::before{
+      content: ''; display: block; margin: 0 auto ;
+      width: 32px; height: 32px;
+      transform:  rotate(45deg);
+      border: 4px solid var(--tinge);
+      filter: drop-shadow(rgb(0 0 0 / .5) 0 2px 4px);
+    }
+
+    &.slick-prev { 
+      left: var(--gap); padding-left: 14px;
+      &::before{border-top: none; border-right: none;}
+    }
+    &.slick-next { 
+      right: var(--gap); padding-right: 12px;
+      &::before{ border-bottom: none; border-left: none;}
+    }
+
+    &:hover, &:focus{
+      &:hover, &:focus {box-shadow: none;}
+      &.slick-prev{margin-left: -8px;}
+      &.slick-next { margin-right: -8px; }
+    }
+    &:hover{ --bg: rgba(0 20 60 / .2); }
+    &:focus{ --bg: #{$assistant2}; }
+  }
+}
+// --------------------------------------------------------------- //

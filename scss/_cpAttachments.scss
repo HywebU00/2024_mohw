@@ -1,0 +1,120 @@
+// 相關檔案, 相關連結 , 相關圖檔 共用區塊標題樣式
+.photoflow, .fileDownload, .seeAlso{
+  h3{
+    position: relative;padding:0 0 6px 24px; margin: 0;
+    font-size: 1.3em;  line-height: 1.2;
+    border-bottom: 3px solid $primaryColor;
+    &::before {
+      content: '';position: absolute; left: 0; top: 4px;
+      width: 9px; height: 1em;
+      background-color: $primaryColor;
+    }
+  }
+
+}
+
+// 相關檔案, 相關連結 
+// ------------------------------------------------------ //
+.fileDownload, .seeAlso{
+  clear: both; margin: 60px 0; font-size: 1.1em;
+  ul{list-style: none;  padding: 0; margin: 0;}
+  &>ul, &>ol{
+    line-height: 1.6;
+    &>li{ margin:3px 0 0; padding: 0;
+      a{ text-decoration: none; color: $fontColor; }
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    margin: 90px 0;
+  }
+}
+
+// h4{
+//   font-weight: bold; font-size: 1.3em; line-height: 1.4;
+//   margin: 2.5em 0 .8em; padding: 0 0 0 24px;
+//   position: relative;
+//   &::before{
+//     content: ''; position: absolute; left: 0; top: .15em;
+//     width: 9px; height: 1em;
+//     background-color: $primaryColor;
+//   }
+
+//   &+.tbStyle1, &+.tbStyle2{
+//     margin-top: 0;
+//   }
+// }
+// ------------------------------------------------------ //
+
+
+// 相關連結 
+// ------------------------------------------------------ //
+.seeAlso{
+  &>ol{ 
+    padding-left: 2em;margin: 12px 0 0;
+    &>li{
+      a{ position: relative; display: block; padding: .8em 0 .5em .7em;
+        &::after{
+          content: '';
+          position: absolute; left: -2em; bottom: 0; right: 0;
+          height: 1px;
+          background-color: $borderColorLight;
+          transition: .15s;
+        }
+        &:hover, &:focus{
+          color: $linkColor;
+          &::after{background-color: $primaryColor;}
+        }
+        &:focus{
+          &::after{height: 2px;}
+        }
+      }
+    }
+  }
+}
+// ------------------------------------------------------ //
+
+
+// 相關檔案 （附件下載）
+// ------------------------------------------------------ //
+.fileDownload{
+  &>ol{
+    margin: 12px 0 0; padding-left: 2em; list-style-type: decimal;
+    &>li{
+      position: relative; margin: 0;
+      padding: .8em 0 .5em .7em;
+      &::after{
+        content: ''; display: block; clear: both;
+        margin: 0 0 0 -2.8em; height: 1px;
+        background-color: $borderColorLight;
+        transition: .15s;
+      }
+    }
+  }
+
+  .fileName{ display: block;}
+
+  .downloadFiles{
+    float: right; overflow: hidden; font-size: .82em;
+    li{
+      display: inline-block;
+      margin:0 0 0 8px; padding:3px 0;
+    }
+    a{
+      padding: 5px;display: block;
+      &:hover, &:focus {
+        outline: none;
+        .fileSize{text-decoration: underline;}
+      }
+      &:focus{box-shadow: $linkColor 0 0 0 1px inset;outline: none;}
+    }
+    .fileType{ display: inline-block; vertical-align: middle; margin-right: 4px;}
+  }
+
+  @media screen and (min-width: $wwNormal){
+
+    .fileName{ display: inline-block; padding-top: .3em; }
+    .downloadFiles{ padding-left: 1em;}
+  }
+
+}

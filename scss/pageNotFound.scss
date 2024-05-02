@@ -1,0 +1,58 @@
+// 404頁專用 
+// ---------------------------------------------------------------- //
+@import "_variables"; // RWD 斷點、長度常數、顏色變數
+
+body{
+  position: relative;
+  margin: 0; padding: 0;
+  font-family:'Tenor Sans', Helvetica, Arial,'微軟正黑體', sans-serif;
+  background:$primaryColor; color: $white;
+  // @include gradient1(0deg);
+  background-size: auto 120vh;
+}
+
+// ---------------------------------------------------------------- //
+.pageNotFound{
+  margin: 0 auto;padding:30px 0 10px; width: 86vw;
+  box-sizing: border-box;
+
+  header{
+    display: flex; flex-flow: row wrap; align-items: flex-end; 
+    line-height: 1.4; margin: 0 auto;
+    h1{
+      flex: 0 0 auto; font-size: 8em;  line-height: .9;
+      padding: 0; margin: 0 0 20px;
+    }
+    h2{ font-size: 2.5em; margin: 0; padding: 0; }
+  }
+
+  .message{
+    font-size: 1.25rem; line-height: 1.6; margin: 2em auto;
+    p{ margin: 1em 0; }
+  }
+
+  .dirLinks{
+    list-style: none;margin: 4em auto 0; padding: 0;
+    font-size: 1.125rem; text-align: center;
+    display: flex; justify-content: space-between;
+    li{
+      flex:0 0 49%;
+      a{
+        display: block; height: 3em; line-height: 3;
+        box-shadow: rgba(255,255,255, .4) 0 0 0 1px; color: $white;
+        text-decoration: none; transition: .2s;
+        outline: none;
+        &:hover, &:focus{
+          box-shadow: $white 0 0 0 2px;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwMedium){
+    max-width: 602px; padding-top: 80px;
+    header h1 { margin: 0 40px 0 0; }
+  }
+  
+}
+// -----------------------------------------------------------------

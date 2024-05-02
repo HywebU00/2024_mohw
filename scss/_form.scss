@@ -1,0 +1,276 @@
+// ------------------------------------------------------ //
+// 表單元件基本樣式 ------------------------------------- //
+// ------------------------------------------------------ //
+
+form {margin: 0;padding: 0;}
+
+input, textarea, select, button, datalist, label {
+  font-size:inherit; font-family: inherit; outline: none;
+  &:focus{ outline: none;}
+}
+label {
+  display: inline-block; margin: 5px;
+  font-weight: normal; cursor: pointer;
+}
+
+
+
+// scss 變數
+// ------------------------------------------------------ //
+$inputBg: #fff;
+$inputColor: #{$fontColor};
+$inputBdr: #{$borderColor};
+$inputBgHover: #{$focus};
+// $inputBdrHover: #888;
+
+// disabled
+$disColor: #888;
+$disBg: #f0f0f0;
+$disBdr: #ddd;
+
+// readonly
+$roColor: #555;
+$roBg: #{$grayLight};
+$roBdr: #{$borderColor};
+
+
+// $btnBg: #188eac;
+$btnColor: #fff;
+$btnBgHover: #00c0d0;
+$btnBg2: #ae2783;
+$btnBg2Hover: #df33f0;
+
+// disabled
+$btnDisColor: #888;
+$btnDisBg: #cfcfcf;
+// ------------------------------------------------------ //
+
+
+// css 變數
+// ------------------------------------------------------ //
+:root {
+  --inputHeight : 2.7em;
+  --inputLineHeight : 2.8;
+
+  // color
+  --inputColor: #{$fontColor};
+  --inputBg: #fff;
+  --inputBgHover: #{$assistant1};
+  --inputBdr: #{$borderColor};
+
+  --btnBg: #{$white};
+  --btnColor: #{$primaryColor};
+}
+// ------------------------------------------------------ //
+
+
+
+// 文字輸入匡 input 樣式 
+// ------------------------------------------------------ //
+%textInput {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  height: var(--inputHeight); line-height: var(--inputLineHeight);
+  padding: 0 10px; margin: 5px;
+  vertical-align: middle;border-radius: 4px;
+
+  border: 1px solid $borderColor;
+  background-color: $white; color: $fontColor;
+  transition: .2s;
+
+
+  &:hover {border-color: $white; box-shadow: $focus 0 0 0 2px;}
+  &:focus {border-color: $assistant3; box-shadow: $focus 0 0 0 3px; }
+
+
+  &[disabled]{ 
+    // --inputColor: #{$disColor}; --inputBg:#{$disBg}; --inputBdr: #{$disBdr}; 
+    border-style: dashed;
+    cursor: not-allowed;
+  }
+  &[readonly]{ 
+    // --inputColor: #{$roColor}; 
+    // --inputBg:#{$roBg};
+    // --inputBdr: #{$roBdr};
+    box-shadow: none;
+    cursor: default;
+    &:hover, &:focus{ 
+      background-color: var(--inputBg);
+    }
+    &:focus{border-color:  $borderColorDark;}
+  }
+}
+// ------------------------------------------------------ //
+
+
+// 文字、數字型態的 input 樣式 
+// ------------------------------------------------------ //
+input[type="text"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="datetime"], // type="datetime" 已廢棄
+input[type="email"],
+input[type="file"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="week"] { 
+  @extend %textInput;
+
+  &.fullWidth{ width: calc(100% - 10px);}
+  &.halfWidth{ width: calc(50% - 10px);}
+  
+}
+// ------------------------------------------------------ //
+
+
+
+// 多行文字輸入
+// ------------------------------------------------------ //
+textarea {
+  @extend %textInput;
+  display: block;
+  padding:9px 10px 7px;line-height: 1.8;
+  height: 10em;width: calc(100% - 10px);
+  resize: vertical;
+// ------------------------------------------------------ //
+}
+
+
+// 下拉選單樣式 
+// ------------------------------------------------------ //
+%selectStyle {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  margin: 5px;
+  padding: 0 32px 0 10px;vertical-align: middle;border-radius: 4px;
+  height: var(--inputHeight); line-height: var(--inputLineHeight);
+
+  border: 1px solid var(--inputBdr);
+  color: $fontColor;
+  background: $white url(../images/selectArrow.svg) no-repeat right 6px top .8em;
+  background-size: 24px auto;
+  transition: .2s;
+
+  cursor: pointer;
+
+  &:hover {border-color: $white; box-shadow: $focus 0 0 0 2px;}
+  &:focus {border-color: $assistant3; box-shadow: $focus 0 0 0 3px; }
+
+  &[disabled]{ 
+    --inputColor: #{$disColor}; --inputBg:#{$inputBg}; --inputBdr: #{$disBdr};
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}
+// ------------------------------------------------------ //
+
+
+// 下拉選單 select
+// ------------------------------------------------------ //
+select {
+  @extend %selectStyle;
+  &.fullWidth{ width: calc(100% - 10px);}
+  &.halfWidth{ width: calc(50% - 10px);}
+}
+// ------------------------------------------------------ //
+
+
+
+// 按鈕元件樣式
+// ------------------------------------------------------ //
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+    
+  border: none;
+  padding:0 1em; margin:5px; border-radius: 1.5em;
+  vertical-align: middle;
+  cursor: pointer; transition: .2s;
+
+  height: var(--inputHeight); line-height: var(--inputHeight);
+
+  background-color: $primaryColor; color: $white;
+
+  &:hover, &:focus {
+    background-color: $assistant1;
+    border-color: $primaryColor;
+    color: $primaryColor;
+  }
+  &:focus{ box-shadow: $inputBdr 0 0 0 3px;}
+
+  &[disabled] { --btnBg: #{$btnDisBg}; --btnColor: #{$btnDisColor}; cursor: not-allowed;}
+}
+
+input[type="submit"]{ 
+  --btnBg: #{$btnBg2};
+  &:hover, &:focus { --btnBg: #{$btnBg2Hover}; }
+  &[disabled] { --btnBg: #{$btnDisBg}; --btnColor: #{$btnDisColor};}
+}
+// ------------------------------------------------------ //
+
+
+
+// radio 和 checkbox 
+// ------------------------------------------------------ //
+input[type="radio"],
+input[type="checkbox"] {
+  -webkit-appearance: none; -moz-appearance: none; appearance: none;
+
+  line-height: 1; vertical-align: middle; font-size: 1.125em;
+  margin:0 7px 0 4px; 
+  border: 1px solid $borderColor;
+  background-color: $white;
+  cursor: pointer;
+}
+
+// radio
+input[type="radio"] {
+  width: 1.2em; height: 1.2em; 
+  border-radius: 50%;
+  &:hover, &:focus { box-shadow: $primaryColor 0 0 0 1px; border-color: $primaryColor;}
+  &:checked{
+    border-width: 2px; border-color: $primaryColor;
+    box-shadow: $white 0 0 0 3px inset, $primaryColor 0 0 0 10px inset;
+    &:focus {
+      box-shadow: $white 0 0 0 5px inset, $primaryColor 0 0 0 10px inset;
+    }
+  }
+}
+
+// checkbox
+input[type="checkbox"] {
+  width: 1em; height: 1em; 
+  border-radius: 2px;
+  &:hover, &:focus { box-shadow: $primaryColor 0 0 0 1px; border-color: $primaryColor;}
+  &:checked{
+    background: var(--btnColor) url(../images/icon_check.svg) no-repeat center .06em;
+    background-size: 88%;
+    box-shadow: $primaryColor 0 0 0 2px; border-color: transparent;
+    &:focus {box-shadow: $primaryColor 0 0 0 3px;border-color: $white;}
+  }
+
+}
+// ------------------------------------------------------ //
+
+
+
+// 模擬文字輸入框
+// ------------------------------------------------------ //
+.mimicInput{
+  height: var(--inputHeight); line-height: var(--inputLineHeight);
+  vertical-align: middle;
+}
+// ------------------------------------------------------ //

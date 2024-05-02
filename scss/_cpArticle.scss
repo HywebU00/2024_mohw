@@ -1,0 +1,171 @@
+// 一般內容頁
+// ------------------------------------------------------ //
+.cpArticle{
+  padding: 0 0 50px;
+  line-height: 1.8; font-size: 1.11em;
+
+  a {
+    color: $linkColor; text-decoration: underline;
+    &:hover {text-decoration: none;outline: 1px solid $linkColor;}
+    &:focus{text-decoration: none;outline: 2px solid $linkColor;}
+  }
+  p{ margin: 0 0 1em;}
+  li{line-height: 1.5;
+    &+li{ margin-top: 0.8em;}
+  }
+
+  // 內文標題
+  h4{
+    font-weight: bold; font-size: 1.3em; line-height: 1.4;
+    margin: 2em 0 .8em; padding: 25px 0 0 24px;
+    position: relative;
+    &::before{
+      content: ''; position: absolute; left: 0; top: 30px;
+      width: 9px; height: 1em;
+      background-color: $primaryColor;
+    }
+
+    &+.tbStyle1, &+.tbStyle2{
+      margin-top: 0;
+    }
+  }
+
+  // 主圖
+  figure.prim{
+    margin:20px auto 30px; max-width: 560px;
+    box-shadow: $shadow1 0 0 8px;
+    img{display: block; width: 100%;}
+    figcaption{
+      display: block;padding: 8px 12px 7px;
+      font-size: .9em;
+    }
+    
+  }
+
+  // 引言
+  blockquote{
+    position: relative;
+    margin:50px 0; padding: 30px 30px 30px 40px;
+    background: linear-gradient(180deg, rgba(196, 216, 219, 0.34) 0%, rgba(196, 216, 219, 0.28) 100%);
+    &::before{
+      content: ''; 
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 9px;
+      background-color: $primaryColor;
+    }
+  }
+
+
+  @media screen and (min-width: $wwNormal){
+    figure.prim{ float: right; width: 40%; margin:0 0 15px 30px;}
+    blockquote{ margin: 70px 0;}
+  }
+
+}
+
+
+
+// 圖片區：一排個、一排兩個
+// ------------------------------------------------------ //
+.imageRow {
+  margin: 50px auto;
+  figure{
+    margin: 0;padding: 0; display: block;
+    background-color: #767676;
+    img{display: block; width: 100%;}
+  }
+  figcaption{
+    color: $white; padding: 24px;
+    line-height: 1.4;
+    p{
+      margin: 1em 0;
+      &:first-child{ font-size: 1.35em; margin-top: 0;}
+    }
+    dl{
+      margin: 24px 0 0;
+      div{ margin: 5px 0;}
+      dt, dd{ display: inline-block; margin: 0;}
+      dt{
+        &::after{content: '：';}
+      }
+    }
+  }
+
+  &.col2, &.col2a, &.col2b {
+    figure:last-child{ margin-top: 20px;}
+  }
+
+
+  @media screen and (min-width: $wwMedium){
+    margin: 70px auto; max-width: 1000px;
+    &.col2, &.col2a, &.col2b {
+      display: flex; justify-content: space-between;
+      max-width: 1250px;
+      figure:last-child{ margin-top: 0;}
+    }
+    &.col2{
+      figure{flex: 0 0 49%;}
+    }
+    &.col2a{
+      figure{
+        &:first-child{flex: 0 0 56%;}
+        &:last-child{ flex: 0 0 42%;}
+      }
+    }
+    &.col2b{
+      figure{
+        &:first-child{flex: 0 0 42%;}
+        &:last-child{ flex: 0 0 56%;}
+      }
+    }
+  }
+}
+
+
+
+
+// 內容頁表格
+// ------------------------------------------------------ //
+.tbStyle1, .tbStyle2{
+  --tdbg: #f2f2f2;
+
+  margin: 50px auto; width: 100%;
+  border-collapse: collapse; line-height: 1.5;
+  th, td{ padding: 15px;}
+  caption{ 
+    font-size: 1.15em; font-weight: bold; color: $primaryColor;
+    text-align: left; padding: 5px 12px;
+  }
+  th {background-color: $primaryColor; color: $white; text-align: center;}
+  td{
+    ol, ul{ margin: 0;
+      li+li{margin-top: .7em;}
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    margin: 70px auto;
+  }
+  
+}
+
+
+// th 在第一列
+table.tbStyle1{
+  tbody{
+    tr:nth-child(even){
+      background-color: var(--tdbg);
+    }
+  }
+}
+
+// th 在第一列和第一行
+table.tbStyle2{
+  th, td{border: 2px solid $white;}
+  tbody{
+    background-color: var(--tdbg--tdbg);
+    th:first-child, td:first-child{ background-color: $primaryColor; color: $white;}
+    td{ vertical-align: top; }
+  }
+}
+

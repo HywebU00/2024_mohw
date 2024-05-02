@@ -1,0 +1,82 @@
+// 首頁：宣傳訊息（小廣告圖輪播）
+// .main>*:not(.adBanners){display: none;}
+
+.adBanners{
+  margin: 0 auto; padding: 25px 0 50px;
+  background: #fff;
+
+  .sbanner {
+    margin:0; padding: 20px 0;
+    a {
+      display: block;width: 65vw;margin: 0 auto;
+      border-radius: $radius1;
+      box-shadow: rgb(0 0 0 / .3) 0 0 12px;
+      transition: .2s;
+      &:hover{
+        transform: translateY(-5px);
+        box-shadow: rgb(0 0 0 / .3) 0 8px 16px;
+      }
+      &:focus{
+        transform: translateY(-2px);
+        box-shadow: rgb(0 0 0 / .5) 0 5px 9px;
+        img{ box-shadow: $primaryColor 0 0 0 3px;}
+      }
+    }
+    img {
+      display: block; margin: 0 auto;
+      width: 100%;height: 26vw;
+      border-radius: $radius1;
+      transition: .2s;
+    }
+  }
+
+  .slickBox{
+    width: 100vw;
+    padding: 0 0 20px; margin: -10px auto 0;
+  }
+  .slick-list{ margin: 0 auto; }
+  .slick-arrow {
+    --tinge: #{$grayDark};
+    --bg: rgb(0 20 60 / 0);
+    --gap: 14px;
+
+    margin-top: -20px;
+    &::before { filter: none;}
+
+    &:focus{ --tinge: #{$white}; }
+  }
+
+  @media screen and (min-width: $wwMedium){
+    
+    .sbanner{
+      a{ width: 35vw; }
+      img{ height: 14vw;}
+    }
+
+    .slick-list{width: 80vw;}
+  }
+
+  @media screen and (min-width: $wwNormal){
+
+    .slickBox{ margin-top: -10px;}
+    .sbanner{
+      a{ width: 20vw; box-shadow: rgb(0 0 0 / .3) 0 1px 6px;
+        &:hover{box-shadow: rgb(0 0 0 / .3) 0 7px 10px -2px}
+      }
+      img{ height: 8vw;  }
+    }
+    .slick-list{ width: 86%; }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    .sbanner{
+      a{ width: 250px; }
+      img{ height: 100px;}
+    }
+    .slickBox{ width: $wwMaximum; }
+    .slick-list{ width: $wwMaximum*.86; }
+
+
+  }
+
+}

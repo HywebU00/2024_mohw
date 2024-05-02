@@ -1,0 +1,97 @@
+// 查詢：簡易查詢
+// ------------------------------------------------------ //
+.search{
+  display: none;
+  position: fixed; left: 0;width: 100%; top: auto;
+  padding:24px 20px 20px;
+  background-color: rgb(4 32 71 / .9); color: $white;
+
+  a{ color: $white; text-decoration: none;}
+
+  form {
+    position: relative; width: calc(100% - 4em - 6px);
+    float: left;  
+  }
+  // 進階
+  a.adv{ 
+    float: right; height: 3em; padding: 0 1em; line-height: 3;
+    background-color: $secondaryColor;
+    border-radius: 6px;
+    transition: .2s;
+    &:hover, &:focus{box-shadow: $assistant1 0 0 0 2px;}
+  }
+  input[type="text"], button, input[type="button"], input[type="submit"] {
+    background-color: $white;
+    border: none;  box-shadow: none; outline: none;
+    height: 2.8em;
+    font-size: inherit;
+  }
+  // 查詢文字輸入
+  input[type="text"]{
+    width: 100%;margin: 0; padding: 0 60px 0 16px;
+    border-radius: 6px;
+    height: 3em;
+    &:hover {box-shadow:$white 0 0 0 2px;}
+    &:focus{ box-shadow:$primaryColor 0 0 0 1px, $white 0 0 0 3px;}
+  }
+  //送出查詢按鈕
+  button, input[type="button"], input[type="submit"] {
+    position: absolute; right: 4px; top: 4px;
+    width: 40px;height: 40px; border-radius: 4px;
+    margin: 0;
+    background: url(../images/icon_search.svg) no-repeat center center;
+    background-size: 60%;
+    background-color: transparent;
+    text-indent: -5em; overflow: hidden;
+    &:hover, &:focus { box-shadow:none; background-color: $assistant1; }
+    &:focus{ box-shadow: $primaryColor 0 0 0 2px;}
+  }
+
+  .hotKeywords{
+    clear: both;
+    margin: 0 auto; padding-top: 8px;
+    .label{
+      padding: 0;
+      &::after{content: '：';}
+    }
+    ul{list-style: none; margin:0; padding: 0;line-height: 1.3; display: inline;}
+    li{ 
+      display: inline-block; margin: 0 .5em 0 0; 
+      a{
+        position: relative; display: block;text-decoration: none;
+        &::after{
+          content: ''; position: absolute; left: 50%; right: 50%;
+          bottom: 0; height: 2px;
+          background-color: $assistant1;
+          transition: .25s;
+        }
+        &:hover, &:focus { 
+          &::after { right: 0; left: 0; }
+        }
+      }
+    }
+
+  }
+
+  .skip{background: none;}
+
+  @media screen and (min-width: $wwNormal){
+    left: auto; right: 16px; top:88px; z-index: 888;
+    width: auto; min-width: 34em;
+    padding:36px; border-radius: 24px;
+    box-shadow: rgb(0 0 0 / .5) 0 5px 30px;
+
+    input[type="text"], button, input[type="button"], input[type="submit"] {
+      transition: .2s;
+    }
+
+    .hotKeywords{ margin: 6px 0 0;}
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    right: calc(50% - $wwMaximum*.5 + 16px);
+  }
+
+
+}
+// ------------------------------------------------------ //

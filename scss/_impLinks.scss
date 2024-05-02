@@ -1,0 +1,56 @@
+// 首頁：重要連結
+// .main>section:not(.impLinks) { display: none;}
+
+.impLinks{
+  padding: 30px 0;
+  ul {
+    position: relative; list-style: none;
+    margin: 0 0 0 14%;padding:40px 0;
+    font-size: 1.25em; line-height: 1.4;
+    background-image: linear-gradient(90deg, #005ea2 0%, #007490 100%);
+    border-radius: 52px 0 0 52px;
+  }
+  li{
+    margin: 8px 0 8px -50px; padding: 0;
+    a {
+      display: block; position: relative;
+      text-decoration: none;
+      padding: 18px 30px 15px 74px;
+      border-radius: 60px 0 0 60px;
+      color: $white;
+      background-image: linear-gradient(90deg, rgb(7 64 101) 60%, rgb(7 64 101 / 0) 100%);
+
+      &:hover, &:focus {
+      }
+    }
+    img{
+      position: absolute; top: calc(50% - 18px); left: 30px;
+      width: 36px;height: 36px; object-fit: contain;}
+  }
+
+  @media screen and (min-width: $wwNormal){
+    padding-left: 24px; padding-top:100px;
+    ul{
+      margin-left: 48px;
+
+      // 背景漸層兩個圓餅
+      &::before, &::after {
+        content: ''; position: absolute;
+        width: 184px; height: 184px;border-radius: 50%;
+        background: linear-gradient(45deg, rgb(255 255 255 / .4) 10%, rgb(255 255 255 / .1));
+      }
+      &::before{
+        right:calc(50vw - $wwMaximum*.5 - 260px); bottom: -50px;
+        clip-path: polygon( 0 0, 100% 0, 100% 134px, 0 134px);
+      }
+      &::after {right: calc(50vw - $wwMaximum*.5 - 340px); bottom: 30px;}
+    }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    .blockHeader{ margin-right: calc(50vw - $wwMaximum*.5);}
+    ul{padding-right: calc(50vw - $wwMaximum*.5);}
+    li{ width: $wwMaximum*.3;}
+  }
+}
+

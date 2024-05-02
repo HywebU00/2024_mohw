@@ -1,0 +1,36 @@
+// 首頁：常用查詢
+.queries{
+  margin: 0 auto;
+  ul{
+    list-style: none; margin: 0 auto 40px; padding: 0;
+    line-height: 1.4; font-size: 1.25em; text-align: center;
+    li{
+      margin: 0 0 8px; padding: 0;
+      &>a {
+        --bgc:#008282;
+
+        display: block; text-decoration: none;
+        color: $white; background-color: var(--bgc);
+        padding: .85em 20px .8em;
+        border-radius: 3em;
+        transition: .2s;
+        &:hover, &:focus {
+          box-shadow: $white 0 0 0 1px, var(--bgc) 0 0 0 4px;
+        }
+      }
+
+      &:nth-child(2)>a {--bgc: #007b8a;}
+      &:nth-child(3)>a {--bgc: #007193;}
+      &:nth-child(4)>a {--bgc: #006899;}
+      &:nth-child(5)>a {--bgc: #005fa1;}
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    ul{ margin-right: 15px;}
+    .blockHeader{margin-right: 8px;}
+  }
+}
+
+
+// ------------------------------------------------------ //

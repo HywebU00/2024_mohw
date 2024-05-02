@@ -1,0 +1,148 @@
+// 首頁：大圖輪播
+// .main>section:not(.bigBanner) { display: none;}
+
+.bigBanner{
+  margin: 0 auto 10px;padding: 0 0 20px;
+  &::before{@extend %gradient1;}
+
+  .banner{
+    padding: 0 0 10px;
+    a{ 
+      display: block; color: $fontColor; text-decoration: none;
+      position: relative;
+      &::before {
+        content: ''; position: absolute; z-index:-1;
+        left: 0; right: 0; top: 0; bottom: 0;
+      }
+      &:focus::before { z-index: 5; box-shadow: $primaryColor 0 0 0 2px inset;}
+    }
+    img{
+      display: block; margin: 0;
+      width: 100vw; height: 50vw;
+    }
+
+    article{
+      position: relative;
+      background: $white; border-radius: $radius2;
+      margin: -20px 4vw 0; padding: 3.5em 4vw 2em;
+      height: calc(21em + 30px); overflow: hidden;
+      box-shadow: rgb(0 0 0 / 0.15) 0 0 12px;
+      p{
+        margin: 0;
+        display: -webkit-box; -webkit-box-orient: vertical;
+        overflow: hidden;
+        &.title{
+          line-height: 1.5; 
+          -webkit-line-clamp: 4;
+          margin: 0 0 24px; max-height: 6.2em;
+          font-size: 1.5em; font-weight: bold;
+          color: $assistant2;
+        }
+        &.description{
+          margin: 0;
+          -webkit-line-clamp: 3; height: calc(5em + 30px);
+          line-height: 1.6; font-size: 1.125em;
+          &::before{
+            content: ''; display: block; left: 4vw; top: auto;
+            width: 72px; height: 6px; margin-bottom: 24px;
+            @extend %gradient1;
+          }
+        }
+      }
+      time{
+        position: absolute; top: 0; left: 4vw;
+        padding: 0 20px; height: 2.2em; line-height: 2.1;
+        font-weight: bold;
+        background: $assistant2; color: $white;
+        border-radius: 0 0  12px 12px;
+        box-shadow: 0 0 15px rgb(0 0 0 / .2);
+      }
+    }
+  }
+
+  .slickBox{ 
+    position: relative; margin: 0;
+    .slick-arrow {
+      --gap: 8px;
+      top: 25vw;
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    width: 96%; max-width: 1120px;
+    &::before{
+      content: '';
+      position: absolute; left: 0; right: 0;height: 80px; 
+    }
+    .slickBox{
+      &::after{
+        // 雙圓餅裝飾圖
+        content: ''; position: absolute; bottom: -6px; right: 30px;
+        width: 120px; height: 90px;
+        background: url(../images/twoDisks.svg) no-repeat right 0  bottom 0,
+        url(../images/twoDisks.svg) no-repeat right 43px bottom 43px ;
+        background-size: auto 46px;
+        transform: rotate(135deg);
+      }
+    }
+
+    .banner{
+      position: relative;
+      a{
+        border-radius: $radius2;
+        &::before {border-radius: $radius2;}
+      }
+      img{
+        width: 68.16vw; height:34.08vw;
+        border-radius: $radius2;
+      }
+
+      article{
+        position: absolute; left: 68.16vw; right: 0; top: 0; bottom: 0;
+        // width: 29vw;height: 35vw;
+        width: 27.84vw; height: 34.08vw;
+        margin: 0;padding:50px 30px 40px;
+        border-radius: $radius2;
+
+        p{
+          &.title{ }
+          &.description {}
+        }
+        time{left: 30px;}
+      }
+
+      
+    }
+
+    .slickBox{ 
+      .slick-arrow {top: 17.04vw;}
+    }
+  
+  }
+
+  @media screen and (min-width: 1167px){
+    .slickBox{ 
+      width: 1120px; 
+      .slick-arrow {top: 200px;}
+    }
+    .banner{
+      img{ width: 800px; height: 400px;}
+      article{ width: 320px; left: 800px; height: 400px; }
+    }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    .slickBox{ 
+      .slick-arrow {
+        --tinge: #{$assistant2};
+        --gap: -76px;
+        &::before{filter: none;}
+
+        // &:hover{ --bg: rgb(255 255 255); }
+        &:focus{ --tinge: #fff }
+    
+      }
+    }
+  }
+
+}

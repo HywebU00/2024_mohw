@@ -1,0 +1,154 @@
+// 網站地圖
+// --------------------------------------------------------------- //
+.sitemap {
+  @extend %primSecWidth; margin-top: 0;
+
+  // 快速鍵定義
+  .keyboardGuide{
+    background-color: $grayLight;
+    padding:1em 1.2em 2em;
+  }
+  .modifierKeys{
+    padding: 0 1.2em; margin: 0 0 1em;
+    background-color: rgb(255 255 255 / .75);
+    border: 1px dashed $borderColor;
+    .platform{
+      padding: 1.5em 0;
+      p{ margin: 0 0 .5em; font-weight: bold;}
+      &:nth-child(n+2){
+        border-top: 1px solid $borderColorLight;
+      }
+    }
+  }
+
+  kbd{ margin: 0 4px;}
+
+  ul{list-style: none; margin: 0; padding: 0;}
+
+  line-height: 1.8;
+  .accesskeyDefine{
+    padding: 1.5em 1.2em 1.2em; margin: 1.5em 0;
+    background-color: rgb(255 255 255 / .75);
+    border: 1px dashed $borderColor;
+  }
+  li+li{margin-top: .5em;}
+  
+  // 網站導覽
+  .cascading{
+    margin: 1em auto;
+    ul{
+      line-height: 1.5;
+      list-style: none; margin:2px 0; padding: 0;
+      a{
+        position: relative;
+        text-decoration: none;display: block; color: $fontColor;
+        padding: .6em 2px 0; margin: 0;
+        &:hover, &:focus{color: $linkColor;}
+        &:focus{ box-shadow:$primaryColor 0 0 0 1px inset ;}
+      }
+      .numb{ display: inline-block;}
+    }
+
+    // 第一層
+    &>ul{
+      display: flex; flex-flow: row wrap;
+      &>li{
+        flex: 0 0 48%; margin: 0 0 2em;
+        &:nth-child(2n){margin-left: 4%;}
+
+        &>a{ 
+          font-size: 1.125em; font-weight: bold;
+          padding-bottom: 5px;
+          transition: .15s;
+          .numb{ margin-right: 0.5em;}
+
+          &::after{
+            content: ''; 
+            position: absolute; bottom: 0; left: 0; right: 0;
+            height: 2px;
+            background-color: $fontColor;
+            transition: .15s;
+          }
+
+          &:hover, &:focus{
+            &::after{ height: 4px; background-color: $linkColor;}
+          }
+        }
+        li{margin:2px 0 2px;}
+
+        &>ul{
+          margin-top: .3em;
+          a{
+            transition: .2s;
+            &::after{
+              content: ''; position: absolute; 
+              left: 0; right: 0; bottom: 0; height: 1px;
+              background-color: $borderColorLight;
+              transition: .15s;
+            }
+            &:hover::after{background-color: $linkColor; bottom: 2px; }
+            &:focus::after{background-color: $linkColor; bottom: 0;}
+          }
+
+          // 第二層
+          &>li{
+            &>a{
+              padding-left: 2.4em; 
+              // &::before{ width: 6px;height: 6px; top: 1.2em;}
+              .numb{min-width: 2.4em;margin-left: -2.4em;}
+            }
+
+            // 第三層
+            &>ul>li>a{
+              padding-left: 3em;
+              .numb{ min-width: 3em; margin-left: -3em;}
+            }
+          }
+
+          ul{margin-left: 1em; margin-bottom: .8em;}
+        }
+      }
+    }
+  }
+
+
+  @media screen and (min-width: $wwMedium){
+    .cascading{
+      &>ul>li{
+        flex-basis:31%;
+        &:nth-child(n){ margin-left: 3.5%;}
+        &:nth-child(3n + 1){margin-left: 0;}
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    .keyboardGuide{
+      background-color: $grayLight;
+      padding:1.5em 2em 3em;
+    }
+    .modifierKeys{
+      display: flex; justify-content: space-between;
+      padding: 10px 0;
+      .platform{
+        flex: 1 1 50%; padding:.5em 1.5em 1em;
+        &:nth-child(n+2){
+          padding-left: 1.5em;
+          border-top: none; 
+          border-left: 1px solid $borderColorLight;
+        }
+      }
+    }
+    .cascading{
+      margin-top: 3em;
+      &>ul>li{
+        flex-basis: 22%; 
+        &:nth-child(n){margin-left: 4%;}
+        &:nth-child(4n + 1){margin-left: 0;}
+      }
+    }
+  }
+
+}
+
+// --------------------------------------------------------------- //

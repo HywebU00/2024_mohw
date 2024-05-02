@@ -1,0 +1,58 @@
+// 節點頁
+// ------------------------------------------------------ //
+.np{
+  // @extend %primSecWidth; 
+  margin: 0 auto;
+  padding-bottom: 60px;
+
+  ul{ list-style: none; margin: 0; padding: 0; }
+
+  &>ul{
+    line-height: 1.3; font-size: 1.2em;
+    &>li{
+      position: relative;
+      margin: 12px 0; padding: 0;
+      &>a{
+        position: relative;
+        padding: 20px 16px 19px 36px;
+        display: block; text-decoration: none;
+        color: $linkColor;
+        border: 1px solid $borderColor; border-radius: 10px;
+        transition: .2s;
+        &::before {content: ''; position: absolute;}
+        &::before {
+          left: 10px; top: 25px;
+          width: 20px;height: 12px; transform: rotate(1350deg);
+          background: url(../images/twoDisks.svg) no-repeat 0 0;
+          background-size: contain;
+        }
+
+        &:hover, &:focus {background-color: $assistant1;}
+        &:focus{border-color: transparent;box-shadow: $primaryColor 0 0 0 2px;}
+      }
+    }
+  }
+  
+  @media screen and (min-width: $wwMedium){
+    &>ul{
+      display: flex; flex-wrap: wrap;
+      &>li{
+        margin:6px 12px 6px 0;
+        flex: 0 0 calc(50% - 6px);
+        &:nth-child(2n){margin-right: 0;}
+        &>a{height: 100%;}
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    &>ul{
+      &>li{
+        // margin: 12px 24px 12px 0;
+        // flex: 0 0 calc(50% - 12px);
+      }
+    }
+  }
+
+}
+// ------------------------------------------------------ //
