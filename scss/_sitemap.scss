@@ -1,17 +1,18 @@
 // 網站地圖
 // --------------------------------------------------------------- //
 .sitemap {
-  @extend %primSecWidth; margin-top: 0;
+  @extend %primSecWidth; margin-top: 0; margin-bottom: 60px;
 
   // 快速鍵定義
   .keyboardGuide{
     background-color: $grayLight;
-    padding:1em 1.2em 2em;
+    padding:1em 1.2em 2em; border-radius: $radius3;
   }
   .modifierKeys{
     padding: 0 1.2em; margin: 0 0 1em;
     background-color: rgb(255 255 255 / .75);
-    border: 1px dashed $borderColor;
+    // border: 1px dashed $borderColor;
+    border-radius: $radius2;
     .platform{
       padding: 1.5em 0;
       p{ margin: 0 0 .5em; font-weight: bold;}
@@ -29,83 +30,100 @@
   .accesskeyDefine{
     padding: 1.5em 1.2em 1.2em; margin: 1.5em 0;
     background-color: rgb(255 255 255 / .75);
-    border: 1px dashed $borderColor;
+    // border: 1px dashed $borderColor;
+    border-radius: $radius2;
   }
   li+li{margin-top: .5em;}
   
   // 網站導覽
   .cascading{
-    margin: 1em auto;
+    margin: 1em auto 3em;
     ul{
       line-height: 1.5;
       list-style: none; margin:2px 0; padding: 0;
       a{
-        position: relative;
-        text-decoration: none;display: block; color: $fontColor;
+        position: relative;display: block;
         padding: .6em 2px 0; margin: 0;
+        text-decoration: none; color: $linkColor;
+        transition: .2s;
         &:hover, &:focus{color: $linkColor;}
         &:focus{ box-shadow:$primaryColor 0 0 0 1px inset ;}
       }
-      .numb{ display: inline-block;}
+      .numb {
+        display: inline-block;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold; font-size: .92em;
+      }
     }
 
     // 第一層
     &>ul{
-      display: flex; flex-flow: row wrap;
-      &>li{
-        flex: 0 0 48%; margin: 0 0 2em;
-        &:nth-child(2n){margin-left: 4%;}
+      ul{margin-left: 1em; margin-bottom: .8em;}
+      li{padding: 0; margin: 0;}
 
+      &>li{
+        margin: 0 0 2em;
         &>a{ 
-          font-size: 1.125em; font-weight: bold;
+          font-size: 1.3em; font-weight: bold;
           padding-bottom: 5px;
-          transition: .15s;
-          .numb{ margin-right: 0.5em;}
 
           &::after{
             content: ''; 
             position: absolute; bottom: 0; left: 0; right: 0;
-            height: 2px;
-            background-color: $fontColor;
+            height: 3px;
+            background-color: $secondaryColor;
             transition: .15s;
           }
 
           &:hover, &:focus{
-            &::after{ height: 4px; background-color: $linkColor;}
+            &::after{ height: 4px;}
           }
         }
         li{margin:2px 0 2px;}
 
+        // 第二層
         &>ul{
           margin-top: .3em;
+
+          // 共用 a 樣式
           a{
-            transition: .2s;
             &::after{
               content: ''; position: absolute; 
               left: 0; right: 0; bottom: 0; height: 1px;
-              background-color: $borderColorLight;
+              background-color: $borderColor;
               transition: .15s;
             }
-            &:hover::after{background-color: $linkColor; bottom: 2px; }
+            &:hover::after{background-color: $linkColor; height: 2px; }
             &:focus::after{background-color: $linkColor; bottom: 0;}
           }
 
-          // 第二層
           &>li{
             &>a{
-              padding-left: 2.4em; 
-              // &::before{ width: 6px;height: 6px; top: 1.2em;}
-              .numb{min-width: 2.4em;margin-left: -2.4em;}
+              padding-left: 2em; font-size: 1.125em;
+              .numb{ min-width: 2em; margin-left: -2.2em;}
             }
 
             // 第三層
-            &>ul>li>a{
-              padding-left: 3em;
-              .numb{ min-width: 3em; margin-left: -3em;}
+            &>ul{
+              &>li{
+                &>a{
+                  padding-left: 3em;
+                  .numb{ min-width: 3em; margin-left: -3.2em;}
+                }
+
+                // 第四層
+                &>ul{
+                  &>li{
+                    &>a{ padding-left: 4em;
+                      .numb { min-width: 4em; margin-left: -4.4em;}
+                    }
+                  }
+                }
+              }
             }
           }
 
-          ul{margin-left: 1em; margin-bottom: .8em;}
+          
         }
       }
     }
@@ -114,10 +132,17 @@
 
   @media screen and (min-width: $wwMedium){
     .cascading{
-      &>ul>li{
-        flex-basis:31%;
-        &:nth-child(n){ margin-left: 3.5%;}
-        &:nth-child(3n + 1){margin-left: 0;}
+      margin-top: 4em;
+
+      // 第二層
+      &>ul>li>ul{
+        display: flex; flex-flow: row wrap;
+        margin-left: 0;
+        &>li{
+          margin-right: 40px; margin-bottom: 1.5em;
+          flex: 0 0 calc(50% - 20px);
+          &:nth-child(2n) {margin-right: 0;}
+        }
       }
     }
   }
@@ -139,12 +164,20 @@
         }
       }
     }
+
+
     .cascading{
-      margin-top: 3em;
       &>ul>li{
-        flex-basis: 22%; 
-        &:nth-child(n){margin-left: 4%;}
-        &:nth-child(4n + 1){margin-left: 0;}
+
+        // 第二層
+        &>ul{
+          &>li{
+            flex: 0 0 calc(25% - 15px);
+            &:nth-child(n) {margin-right: 20px;}
+            &:nth-child(4n) {margin-right: 0;}
+          }
+        
+        }
       }
     }
   }

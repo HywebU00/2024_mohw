@@ -57,6 +57,9 @@
     }
   }
 }
+.main>.breadcrumb{
+  @extend %primSecWidth; margin-top: 32px; margin-bottom: 24px;
+}
 // ------------------------------------------------------ //
 
 

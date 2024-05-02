@@ -39,8 +39,14 @@ time {
 // --------------------------------------------------------------- //
 kbd {
   display: inline-block; vertical-align: middle; 
+  margin: 0 .1em; padding: 0 .4em; height: 1.7em; line-height: 1.6;
+  font-size: .938em; font-family: sans-serif; font-weight: bold; 
+  border: 1px solid $borderColor; border-radius: 3px; 
+  color: $fontColor; background: $fontInvert; 
+  box-shadow: $shadow1 0 2px 0 1px;
   i{font-weight: normal;}
 }
+
 
 
 // 跳至內容區 
