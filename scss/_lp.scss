@@ -197,10 +197,13 @@
         &:last-child{ border: none;}
         &.title{
           a, a:only-child{display: inline;}
+          &::before{font-weight: normal;}
         }
+        &.orderNum{ width: auto;}
         &::before {
           content: attr(data-th); display: inline-block; margin-right: .5em;
-          font-size: .92em; line-height: 1.7; height: 1.6em;
+          line-height: 1.7; height: 1.6em;
+          vertical-align: top;
           background-color: $grayLight;color: $fontColor;
           padding: 0 .6em 1px 5px; border-radius: 3px 1em 1em 3px
         }
@@ -215,8 +218,6 @@
           //   &:only-child{ margin: 2px; }
           // }
         }
-
-        .downloadFiles {display: inline; }
       }
     }
   

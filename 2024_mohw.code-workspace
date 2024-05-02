@@ -15,7 +15,7 @@
 		],
 		"liveSassCompile.settings.includeItems": [
 			"/scss/style.scss",
-			// "/scss/pageNotFound.scss"
+			"/scss/pageNotFound.scss"
 		],
 		"liveSassCompile.settings.showOutputWindowOn": "Warning",
 		"liveSassCompile.settings.autoprefix": [],
