@@ -19,16 +19,21 @@
     <h1 aria-label="衛生福利部"><a href="mp.html"><img src="publicData/h1.png" alt=""></a></h1>
 
     <nav class="headNav">
-      <ul class="text">
+      <ul>
         <li><a href="mp.html">回首頁</a></li>
         <li><a href="#">RSS</a></li>
         <li><a href="#">雙語詞彙</a></li>
         <li><a href="#">部長信箱</a></li>
         <li><a href="#">網站導覽</a></li>
-      </ul>
-      <ul class="disk">
-        <li><a href="#" aria-label="English Version">En</a></li>
-        <li><button type="button" aria-label="文字大小">Aa</button></li>
+        <li class="langEN"><a href="#" aria-label="English Version">En</a></li>
+        <li class="fontSize compound">
+          <button type="button" aria-label="文字大小">Aa</button>
+          <ul>
+            <li><button class="smallFont" type="button">小</button></li>
+            <li><button class="mediumFont" type="button">中</button></li>
+            <li><button class="largeFont" type="button">大</button></li>
+          </ul>
+        </li>
       </ul>
     </nav>
 
@@ -39,6 +44,7 @@
         <input type="text" placeholder="請輸入關鍵字">
         <input type="button" value="查詢">
       </form>
+      <a class="adv" href="#">進階</a>
       <div class="hotKeywords">
         <span class="label">熱門關鍵字</span>
         <ul>
@@ -49,7 +55,6 @@
         </ul>
       </div>
     </section>
-
 
     <nav class="menu">
       <ul>
@@ -111,7 +116,7 @@
             <li><a href="#">八仙樂園粉塵暴燃專區</a></li>
           </ul>
         </li>
-        <li><a href="#">本部各單位及所屬機關</a>
+        <li class="we"><a href="#">本部各單位及所屬機關</a>
           <ul>
             <li><a href="#">主任秘書室</a></li>
             <li><a href="#">社會保險司</a></li>
@@ -130,21 +135,21 @@
             <li><a href="#">統計處</a></li>
             <li><a href="#">資訊處</a></li>
             <li><a href="#">法規會</a></li>
-            <li><a href="#">附屬醫療及社會福利機構管理會</a></li>
+            <li class="sub"><a href="#">附屬醫療及社會福利機構管理會</a></li>
             <li><a href="#">全民健康保險會</a></li>
             <li><a href="#">全民健康保險爭議審議會</a></li>
-            <li><a href="#">衛生福利人員訓練中心</a></li>
+            <li class="sub"><a href="#">衛生福利人員訓練中心</a></li>
             <li><a href="#">國民年金監理會</a></li>
             <li><a href="#">國際合作組</a></li>
             <li><a href="#">公共關係室</a></li>
             <li><a href="#">科技發展組</a></li>
             <li><a href="#">國會聯絡組</a></li>
-            <li><a href="#">社會及家庭署</a></li>
-            <li><a href="#">疾病管制署</a></li>
-            <li><a href="#">食品藥物管理署</a></li>
-            <li><a href="#">國民健康署</a></li>
-            <li><a href="#">中央健康保險署</a></li>
-            <li><a href="#">中醫藥研究所</a></li>
+            <li class="sub"><a href="#">社會及家庭署</a></li>
+            <li class="sub"><a href="#">疾病管制署</a></li>
+            <li class="sub"><a href="#">食品藥物管理署</a></li>
+            <li class="sub"><a href="#">國民健康署</a></li>
+            <li class="sub"><a href="#">中央健康保險署</a></li>
+            <!-- <li class="sub"><a href="#">中醫藥研究所</a></li> -->
           </ul>
         </li>
       </ul>
@@ -310,7 +315,7 @@
 
     <div class="middle">
       <div class="logo">
-        <img src="publicData/footLogo.png" alt="">
+        <img src="publicData/logo.png" alt="logo">
       </div>
 
       <div class="contactInfo">
