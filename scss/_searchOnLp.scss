@@ -58,11 +58,10 @@
 
   @media screen and (min-width: $wwNormal){
     margin: 16px auto;
-
   }
 
-  @media screen and (min-width: $wwMaximum){
-  }
+}
 
-
+.main>.searchOnLp {
+  @extend %primSecWidth;
 }

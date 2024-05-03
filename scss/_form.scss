@@ -214,11 +214,11 @@ input[type="reset"] {
   &[disabled] { --btnBg: #{$btnDisBg}; --btnColor: #{$btnDisColor}; cursor: not-allowed;}
 }
 
-input[type="submit"]{ 
-  --btnBg: #{$btnBg2};
-  &:hover, &:focus { --btnBg: #{$btnBg2Hover}; }
-  &[disabled] { --btnBg: #{$btnDisBg}; --btnColor: #{$btnDisColor};}
-}
+// input[type="submit"]{ 
+//   --btnBg: #{$btnBg2};
+//   &:hover, &:focus { --btnBg: #{$btnBg2Hover}; }
+//   &[disabled] { --btnBg: #{$btnDisBg}; --btnColor: #{$btnDisColor};}
+// }
 // ------------------------------------------------------ //
 
 

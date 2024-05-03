@@ -356,10 +356,22 @@ button.skip{
 
 // a 或 span 模擬 button 元件樣式
 .button{
+  display: inline-block;margin: 3px auto;
+  text-align: center;
   &>a {
-    display: inline-block; text-decoration: none !important;
-
-    &:hover, &:focus {
+    display: block;
+    background-color: $secondaryColor;
+    height: 2.6em; line-height: 2.6;
+    padding: 0 .8em;
+    border-radius: 2em;
+    color: $white !important;
+    text-decoration: none !important;
+    outline: none !important;
+    &:hover{
+      box-shadow:transparent 0 0 0 0, $secondaryColor 0 0 0 2px;
+    }
+    &:focus {
+      box-shadow:$white 0 0 0 1px, $secondaryColor 0 0 0 4px;
     }
   }
 

@@ -1,65 +1,70 @@
-// 資料表格
-.meta{
-  padding:20px;
-  font-size: 1.1em;
-  box-shadow: 0 0 4px 0 $shadow1;
+// 資料表格：外部 section
+// ------------------------------------------------------ //
+.meta {
+  padding:30px 10px;
+  font-size: 1.2em;
+  box-shadow: 0 0 16px 0 $shadow1;
+  border-radius: $radius3;
 
-
-  @media screen and (max-width: $wwMedium){
-    padding:12px 8px;
+  @media screen and (max-width: calc($wwMedium - 1px)){
+    padding: 0; border-radius: 0; box-shadow: none;
   }
 }
 
+.main>.meta{
+  @extend %primSecWidth; 
+  margin-top: 15px; margin-bottom: 60px;
+}
+// ------------------------------------------------------ //
 
-// 資料表格
+
+
+// 資料表格：內部 table
+// ------------------------------------------------------ //
 table.metaTable{
   width: 100%; margin: 0 auto;
   border-collapse: collapse; line-height: 1.8;
-  th, td {padding: .7em 1em .6em;}
+  
+  th, td {padding: .7em .6em .55em;vertical-align: top;}
   tr{
     border-bottom: 1px solid $borderColor;
     transition: .25s;
-    &:last-child{border: none;}
-    &:hover{background-color: $hover;}
+    &:first-child {border-top: 1px solid $borderColor;}
+    &:nth-child(even) { background-color: $grayLight;}
+    &:hover{ background-color: $assistant1;}
   }
   th{ 
-    width: 22%; position: relative;
-    color: $primaryColor; vertical-align: top; text-align: right;
+    position: relative; width: 22%;
+    color: $fontColorDark; text-align: right;
     &::after{
-      content: ''; position: absolute; top: 3px; bottom: 3px; right: 0;
-      width: 3px; background-color: $borderColor;
+      content: ''; 
+      position: absolute; top: 3px; bottom: 3px; right: 0;
+      width: 1px; background-color: $borderColor;
     }
   }
   td{
+    word-break: break-all;
     ol, ul{ margin-top: 0; margin-bottom: 0;}
-    a{ color: $linkColor;
+    a{ 
+      color: $linkColor;
       &:hover, &:focus { text-decoration: none; outline: 1px solid $linkColor;}
     }
   }
 
-  @media screen and (max-width: $wwMedium){
+  @media screen and (max-width: calc($wwMedium - 1px)){
+
+    border: 1px solid $borderColor;
     tr{
-      display: block;
+      display: block; padding: .7em 2.5vw .55em;
+      &:first-child{ border-top: none;}
+      &:last-child {border-bottom: none;}
     }
-    th, td{ padding: .5em 0; display: inline-block;}
+    th, td{display: inline-block; padding: 0;}
     th{
-      display: inline-block; width: auto;
-      padding-left: 8px; padding-bottom: 0;
-      text-align: left; border-right: none;
-      &::after{
-        content: '：'; position: static; background: none;
-      }
+      width: auto; text-align: left;
+      &::after{content: '：'; position: static; background: none;}
     }
-    td{ padding-left: 8px; padding-right: 8px;}
-  
+ 
   }
-
 }
-
-
-.uploadFileList{
-  .fileName, .fileSize {
-    display: inline-block;
-  }
-  .fileSize{ margin-left: 1em;}
-}
+// ------------------------------------------------------ //

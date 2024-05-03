@@ -97,8 +97,7 @@
   // 固定表頭
   &.stickyHead {
     thead{ 
-      position: sticky; top: 96px; z-index: 9;
-      tr{ border-bottom: none;}
+      position: sticky; top: 78px; z-index: 9;
     }
   }
 
@@ -106,6 +105,7 @@
     tr{
       border-top: $borderColor 1px solid;
       transition: background-color .2s;
+      &:first-child{border: none;}
       &:nth-child(even) { background-color: $grayLight;}
       &:hover{ background-color: $assistant1;}
     }
@@ -119,16 +119,6 @@
       color: $linkColor; text-decoration: underline; transition: .2s;
       &:hover, &:focus{text-decoration: none;}
       &:focus{ outline: 1px dotted $linkColor;}
-      
-      // 檔案格式圖示
-      // &.fileType{ 
-      //   text-decoration: none !important; color: $white;
-      //   &:hover, &:focus {
-      //     box-shadow: var(--color) 0 0 0 1px inset, var(--bg) 0 0 0 2px;
-      //     color: $white;
-      //   }
-      //   &:only-child { margin: 0 auto;}
-      // }
     }
 
     &.aLeft{ text-align: left;}
@@ -162,7 +152,7 @@
 
   @media screen and (max-width: calc($wwNormal - 1px)){
     &.stickyHead {
-      thead{ top: 60px;}
+      thead{ top: 100px;}
     }
   }
 
@@ -225,97 +215,13 @@
 
 
 }
-// ------------------------------------------------------ //
-// ------------------------------------------------------ //
+.main>.listTb {
+  @extend %primSecWidth; margin-top: 12px;margin-bottom: 30px;
+
+  // @media screen and (max-width: calc($wwSlim - 1px)){
+  // }
+}
 
 
 // ------------------------------------------------------ //
-// .preface{
-
-//   @extend %primSecWidth; padding: 30px;
-//   line-height: 1.6;
-
-//   background: linear-gradient(180deg, #F6F6F6 0%, #F9F9F9 9.38%, #FFFFFF 100%);
-//   box-shadow: 0 0 4px 0 $shadow1;
-
-//   a{ text-decoration: underline; color: $linkColor;
-//     &:hover {text-decoration: none;}
-//     &:focus { text-decoration: none; outline: 1px solid $linkColor;}
-//   }
-
-//   strong{ color: $warning;}
-
-//   h3{margin-top: 0;}
-//   li+li{ margin-top: .5em;}
-
-//   .btnDv{ font-size: 1.1em;
-//     button:only-child{ min-width: 12em;}
-//   }
-// }
-
-
-// 條列上方節點
 // ------------------------------------------------------ //
-// .nodes{
-//   @extend %primSecWidth; 
-//   &>ul{
-//     list-style: none; margin: 0 -6px; padding: 0;
-//     font-size: 1.11em; line-height: 1.4;
-//     display: flex; flex-wrap: wrap;
-//     &>li{
-//       flex: 0 0 50%; padding: 6px;
-//       &>a {
-//         display: block; text-decoration: none;
-//         padding: .7em 16px .6em 22px; height: 100%;
-//         box-shadow: $borderColor 0 0 0 1px;
-//         color: $primaryColor;
-//         transition: .2s;
-//         &:hover, &:focus {
-//           box-shadow: $white 0 0 0 1px, $primaryColor 0 0 0 3px;
-//         }
-//       }
-
-//       &.here{
-//         a{
-//           position: relative;
-//           background-color: $primaryColor; color: $white;
-//           box-shadow: $primaryColor 0 0 0 1px;
-//           &:hover, &:focus {
-//             box-shadow: $white 0 0 0 1px, $primaryColor 0 0 0 4px;
-//           }
-
-//           &::before{
-//             content: ''; position: absolute; left: 1px;
-//             top: calc(50% - 14px);
-//             width: 0; height: 0;
-//             border-style: solid;
-//             border-width: 14px 0 14px 14px;
-//             border-color: transparent transparent transparent $assistant1;
-//           }
-  
-//         }
-//       }
-//     }
-//   }
-
-//   @media screen and (min-width: $wwNormal){
-//     margin-top: 40px; margin-bottom: 40px;
-//     &>ul{
-//       margin: 0 -10px; 
-//       &>li{
-//         padding: 10px;
-//         flex-basis: 33.33%;
-//       }
-//     }
-//   }
-
-//   @media screen and (min-width: $wwMaximum){
-//     // &>ul{
-//     //   &>li{
-//     //     flex-basis: 25%;
-//     //   }
-//     // }
-
-//   }
-
-// }
