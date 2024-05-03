@@ -1,0 +1,141 @@
+
+// 表格 table 條列
+// ------------------------------------------------------ //
+.listTb{
+  &>table { 
+    width: 100%; margin:20px auto;
+    line-height: 1.6; 
+    border-collapse: collapse; 
+    border-bottom: 3px solid $assistant3;
+    
+    caption{padding: 0 0 .4em;}
+    
+    thead{
+      background-color: $assistant3; color: $white;
+      th{ white-space: nowrap; font-weight: normal;font-size: 1.2em;}
+    }
+  
+    // 固定表頭
+    &.stickyHead {
+      thead{ position: sticky; top: 77px; z-index: 9;}
+    }
+  
+    tbody{
+      tr{
+        border-top: $borderColor 1px solid;
+        transition: background-color .2s;
+        &:first-child{border: none;}
+        &:nth-child(even) { background-color: $grayLight;}
+        &:hover{ background-color: $assistant1;}
+      }
+    }
+  
+    th, td{padding:16px 15px 15px;}
+  
+    td{
+      text-align: center;
+      a{
+        color: $linkColor; text-decoration: underline; transition: .2s;
+        &:hover, &:focus{text-decoration: none;}
+        &:focus{ outline: 1px solid $linkColor;}
+      }
+  
+      &.aLeft{ text-align: left;}
+      &.aRight{ text-align: right;}
+  
+      &.number{ text-align: right;}
+      &.orderNum{ text-align: right; width: 3em;}
+      &.title { 
+        text-align: left; font-weight: bold; font-size: 1.2em;
+        a{ 
+          position: relative; padding-left: 1em;
+          display: inline-block;
+          &::before { 
+            content: ''; position: absolute; left: .4em; top: .6em;
+            width: 4px;height: 4px; border-radius: 2px;
+            background-color: $fontColor;
+          }
+        }
+      }
+      time{ display: inline-block; white-space: nowrap; }
+  
+      ul.downloadFiles{
+        list-style: none; margin: 0 auto; padding: 0; line-height: 1; 
+        display: inline-block;overflow: hidden;
+        li{
+          float: left;padding: 0; margin: 2px;
+          a{ text-decoration: none; outline: none; display: block; padding: 0;}
+        }
+      }
+
+      .button>a{ white-space: nowrap;}
+    }
+  
+    @media screen and (max-width: calc($wwNormal - 1px)){
+      &.stickyHead {
+        thead{ top: 100px;}
+      }
+    }
+  
+    @media screen and (max-width: calc($wwMedium + 100px)){
+  
+      width: calc(100% - 10px); margin: 0 auto;
+  
+      &.rwdTable{
+        thead{ display: none;}
+        tbody{ border: none;
+          tr{
+            &:nth-child(even) { background-color: transparent;}
+            &:hover{ background-color: $assistant1;
+              td:before{ background-color: $white;}
+            }
+          }
+        }
+        tr, th, td{ display: block;}
+        tr{ 
+          position: relative; overflow: hidden;
+          padding: .5em 12px .4em; margin:0 0 10px;
+          border: none; box-shadow: $borderColor 0 0 0 1px;
+          transition: .2s;
+        }
+        th, td{
+          position: static; padding: 0;margin: 0; text-align: left;
+          border: none;
+        }
+        td{
+          padding:.35em 0; text-align: left;
+          border-bottom: 1px dotted $borderColor;
+          &:last-child{ border: none;}
+          &.title{
+            a, a:only-child{display: inline;}
+            &::before{font-weight: normal;}
+          }
+          &.orderNum{ width: auto;}
+          &::before {
+            content: attr(data-th); display: inline-block; margin-right: .5em;
+            line-height: 1.7; height: 1.6em;
+            vertical-align: top;
+            background-color: $grayLight;color: $fontColor;
+            padding: 0 .6em 1px 5px; border-radius: 3px 1em 1em 3px
+          }
+          &>a{ 
+            text-decoration: underline; text-underline-offset: 3px;
+            text-decoration-color: $linkColor;
+            &:hover{text-decoration: none; color: $linkColor;}
+          }
+        }
+      }
+    
+    }
+  
+  
+  }
+}
+
+
+.main>.listTb {
+  @extend %primSecWidth; margin-top: 15px;margin-bottom: 60px;
+}
+
+
+// ------------------------------------------------------ //

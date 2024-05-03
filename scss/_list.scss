@@ -1,0 +1,58 @@
+// 項目 ul 條列
+// ------------------------------------------------------ //
+.list {
+  &>ul{
+    list-style: none; margin: 0; padding: 0; 
+    line-height: 1.6;
+    border-top: 3px solid $assistant3;
+    border-bottom: 3px solid $assistant3;
+    
+    &>li{
+      margin: 0;padding: 0;
+      border-top: 1px solid $borderColor;
+      &:first-child {border: none;}
+      &:nth-child(even) {background-color: $grayLight;}
+      &>a {
+        display: block; padding: 1em 5px;
+        display: flex; flex-flow: row nowrap;
+        text-decoration: none; color: $linkColor;
+        &::after {content: '';display: block; clear: both;}
+        &:hover, &:focus {
+          background-color: $assistant1;
+          p{
+            text-decoration: underline;
+            &::before{ box-shadow: $assistant3 0 0 0 3px;}
+          }
+        }
+      }
+
+      p{
+        flex: 1 1 60%;
+        position: relative; font-size: 1.2em; margin: 0 1em 0 0; padding-left:32px;
+        &::before {
+          content: ''; position: absolute; left: 10px; top: .5em;
+          width: 8px; height: 8px; border-radius: 50%;
+          background-color: $assistant3;
+          transition: .2s;
+        }
+      }
+      time{ 
+        flex: 0 0 5.8em; white-space: nowrap;
+        margin-left: 5px; text-align: center;
+      }
+      .count{ 
+        flex: 0 1 auto;white-space: nowrap;
+        margin: 0 8px; padding: 0 .8em; 
+        height: 1.8em; line-height: 1.9; border-radius: 1.5em;
+        background-color: $assistant3; color: $white; 
+      }
+    }
+  
+  }
+
+
+  @media screen and (min-width: $wwNormal){
+  }
+
+}
+// ------------------------------------------------------ //
