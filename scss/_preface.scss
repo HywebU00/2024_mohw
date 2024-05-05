@@ -1,0 +1,23 @@
+// ------------------------------------------------------ //
+.preface{
+
+  @extend %primSecWidth; padding: 30px; margin-top: 15px; margin-bottom: 60px;
+  font-size: 1.2em;line-height: 1.6;
+
+  box-shadow: 0 0 16px 0 $shadow1;
+  border-radius: $radius3;
+
+  a{ text-decoration: underline; color: $linkColor;
+    &:hover {text-decoration: none;}
+    &:focus { text-decoration: none; outline: 1px solid $linkColor;}
+  }
+
+  strong{ color: $warning;}
+
+  h3{margin-top: 0;}
+  li+li{ margin-top: .5em;}
+
+  .btnDv{ font-size: 1.1em;
+    button:only-child{ min-width: 12em;}
+  }
+}

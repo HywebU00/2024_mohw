@@ -1,18 +1,19 @@
-// @import "_cpArticle"; // 一般內容頁
-// @import "_cpAnchors"; // 內文錨點
-// @import "_bigPhotos"; // 燈箱中的大圖 
+@import "_cpArticle"; // 一般內容頁
+@import "_cpAnchors"; // 內文錨點
+@import "_bigPhotos"; // 燈箱中的大圖 
 // @import "_figures.scss"; // 首長與經營團隊（人物介紹）
-// @import "_cpAttachments.scss"; // 相關連結、相關檔案
-// @import "_photoflow"; // 相關圖片（點擊左右箭頭滑動）
+@import "_cpAttachments.scss"; // 相關連結、相關檔案
+@import "_photoflow"; // 相關圖片（點擊左右箭頭滑動）
 @import "_metaTable.scss"; // 資料表格，一個 th 對應一個 td
 // @import "_bookDetails"; // 圖書內容頁
 // @import "_tags"; // 文章標籤
-// @import "_poInfo"; // cp頁張貼日期、瀏覽人次
+@import "_poInfo"; // cp頁張貼日期、瀏覽人次
 
 // ------------------------------------------------------ //
 .cp{
+}
+.main>.cp{
   @extend %primSecWidth;
-  
   @media screen and (min-width: $wwNormal){
     margin-top: 60px;
   }

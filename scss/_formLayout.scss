@@ -39,13 +39,14 @@ table.layout {
   // 表單中的 提示、警告、錯誤訊息；說明文字
   // -------------------------- //
   .msg{
-    --color-hint: #{$fontColor};
+    --color-hint: #{$primaryColor};
     --color-warning: #{$hilight};
     --color-error: #{$warning};
 
     display: none; position: relative;
     padding:5px 38px 5px 34px; margin: 6px 5px;
     font-size: .88em; line-height: 1.4;
+    border-radius: 4px;
     &::before{
       content: ''; position: absolute; left: 4px; top: 5px;
       width: 24px; height: 24px; border-radius: 50%;
@@ -56,7 +57,7 @@ table.layout {
 
     &.hint{
       color: var(--color-hint);
-      background-color: #cdeff3;
+      background-color: #ddf4fb;
       &::before{  
         background-image:url(../images/icon_msg_hint.svg);
         background-color:var(--color-hint);
@@ -80,17 +81,17 @@ table.layout {
     }
 
     button.closeThis{
-      --width:26px;
-      --bar-length:18px;
-      --bar-thick:3px;
+      --width:24px;
+      --bar-length:16px;
+      --bar-thick:2px;
 
       background-color: transparent;
     
       position: absolute; right: 4px; top: 4px;
-      border-radius: 0;
-      &::before, &::after { background-color: $primaryColor}
+      border-radius: 4px;
+      &::before, &::after { background-color: $grayDark}
       &:hover, &:focus { 
-        background-color: $primaryColor;
+        background-color: $grayDark;
         &::before, &::after { background-color: $white;}
       }
     }
@@ -113,6 +114,7 @@ table.layout {
     td{
       &:nth-child(odd){
         padding: .8em 6px 0; margin-bottom: -6px;
+        text-align: left;
       }
       &:nth-child(even){padding-right: 0; padding-bottom: 12px;}
     }

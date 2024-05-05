@@ -161,9 +161,10 @@ table.tbStyle1{
 
 // th 在第一列和第一行
 table.tbStyle2{
-  th, td{border: 2px solid $white;}
+  border: 3px solid $borderColor;
+  th, td{border: 1px solid $borderColor;}
   tbody{
-    background-color: var(--tdbg--tdbg);
+    // background-color: var(--tdbg);
     th:first-child, td:first-child{ background-color: $primaryColor; color: $white;}
     td{ vertical-align: top; }
   }

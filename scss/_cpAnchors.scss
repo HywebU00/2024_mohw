@@ -13,7 +13,7 @@
       border: 1px solid #e2e2e2;
       &:hover, &:focus {
         border-color: #B9E7E5;
-        @extend %gradient2;
+        // @extend %gradient2;
       }
     }
   }
