@@ -1,0 +1,55 @@
+// 左欄連結
+// ------------------------------------------------------ //
+.npShortcut{
+  &>ul{ 
+    list-style: none; margin: 0; padding: 0;
+    font-size: 1.1875em; line-height: 1.5;
+    &>li {
+      margin: 5px 0;
+      a {
+        display: block; position: relative;
+        padding: 15px 40px 13px 13px;
+        text-decoration: none;
+        color: $fontColor;
+        border: 1px solid $borderColorLight;
+        border-radius: $radius1;
+        transition: .2s;
+        &::before, &::after {
+          content: ''; position: absolute; right: 13px;
+        }
+        &::before{
+          top: calc(50% - 9px);
+          width: 17px;height: 17px; border-radius: 50%;
+          background-color: $gray;
+          transition: .2s;
+        }
+        &::after {
+          top: calc(50% - 4px); right: 19px;
+          width: 5px; height: 5px;
+          border: 2px solid $white; border-left: none; border-bottom: none;
+          border-radius: 2px;
+          transform: rotate(45deg);
+        }
+        &:hover, &:focus { 
+          border-color: $secondaryColor;
+          &::before{box-shadow: $gray 0 0 0 2px;}
+        }
+      }
+
+      &.here {
+        a{
+          background-color: $assistant1;
+          border-color: #cfe0a9;
+          color: $linkColor;
+          // box-shadow: $borderColor 0 0 0 2px inset;
+          &::before{background-color: #222;}
+
+          &:hover{ border-color: $secondaryColor; }
+        }
+      }
+    }
+  }
+
+
+
+}
