@@ -15,8 +15,8 @@
   }
 
   .aboutET{
-    padding: 16px 4vw; margin: 0;
-    line-height: 1.8; font-size: 1.2em;
+    padding: 28px 4vw 16px; margin: 0;
+    line-height: 2; font-size: 1.2em;
     border-top: 3px solid $primaryColor;
     background-color: #f5f5f5;
     p{ margin: 1em 0;}
@@ -76,15 +76,19 @@
           content: ''; position: absolute; top: 0;left: calc(50% - 59px);
           width: 118px; height: 118px; border-radius: 50%;
           background-image: linear-gradient(180deg, var(--gcolor1) 10%, var(--gcolor2) 90%);
+          transition: .2s;
         }
         &:hover, &:focus {
-          img{ background-color: $assistant1;}
+
+          img{ background-color: $assistant1;transform: scale(1.06);}
+          &::before{ transform: scale(1.06);}
         }
         img{
           position: relative; display: block;
           top: 17px; width: 84px; height: 84px;
           margin: 0 auto 40px; border-radius: 50%;
           background-color: $white;
+          transition: .2s;
         }
         span{
           display: block;margin: 0 8px;
@@ -105,17 +109,18 @@
 
   @media screen and (min-width: $wwNormal){
     .aboutET{
-      position: relative; padding: 36px 40px 36px 430px;
+      position: relative; padding: 36px 40px 16px 450px;
       min-height: 310px;
-      background:#f5f5f5 url(../images/etBox_group0.png) no-repeat left 10px bottom 5px;
+      background:#f5f5f5 url(../images/etBox_group0.png) no-repeat left 30px bottom 0;
       background-size: 400px auto;
+      form { width: 80%;}
       &::after {
-        content: ''; position: absolute; left: 405px; bottom: 20px;right: 40px;
+        content: ''; display: block; margin-top: 35px;
         height: 1px; background-color: $borderColorLight;
       }      
     }
     .top5{
-      position: relative;
+      position: relative; padding-top: 10px;
       h3{position: absolute; left: 0; top: 20px; width: 24%;}
       ul>li{ flex: 0 1 15%; margin: 10px 0; }
     }

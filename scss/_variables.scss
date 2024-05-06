@@ -40,7 +40,7 @@ $radius4: 64px;
   @media screen and (min-width: $wwNormal){
     width: $normalWidthP;
   }
-  @media screen and (min-width: $wwMaximum){
+  @media screen and (min-width: 1167px){
     width: $maximumWidth;
   }
 }
@@ -85,13 +85,5 @@ $grayDark: #5d6363;
   --deg : 90deg;
   background-image: linear-gradient(var(--deg), #005ea2 0%, #008480 100%);
 }
-// %gradient2 {
-//   background: linear-gradient(180deg, #C7F7F2 0%, #EAFFFD 100%)  right 0 top 0;
-// }
 
-// $btnBg1: $primaryColor;
-// $btnBg2: #01425c;
-
-// $footBg: $primaryColor;
-// $sidebarBg: $grayDark;
 // ---------------------------------------------------------------- //
