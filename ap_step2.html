@@ -227,7 +227,7 @@
             <td>
               <textarea name="" id="" placeholder="請輸入考試"></textarea>
               <p class="note">如：90年高考三級衛生環保技術職系XX科</p>
-              <p class="msg hint" style="display: block;">字數限200字以內。<button class="closeThis" type="button">隱藏</button></p>
+              <p class="msg warning" style="display: block;">字數限200字以內。<button class="closeThis" type="button">隱藏</button></p>
             </td>
           </tr>
           <tr>
@@ -245,7 +245,7 @@
             <td><abbr class="required" title="必填欄位">*</abbr>曾任職務</td>
             <td>
               <textarea name="" id="" placeholder="請輸入曾任職務"></textarea>
-              <p class="msg hint" style="display: block;">字數限200字以內。<button class="closeThis" type="button">隱藏</button></p>
+              <p class="msg warning" style="display: block;">字數限200字以內。<button class="closeThis" type="button">隱藏</button></p>
             </td>
           </tr>
           <tr>
@@ -265,8 +265,8 @@
           <tr>
             <td><abbr class="required" title="必填欄位">*</abbr>最近一年考績結果俸級</td>
             <td>
-              <input type="text" class="fullWidth" placeholder="最近一年考績結果俸級">
-              <p class="note">(如：荐任六職等本俸一級)</p>
+              <input type="text" class="fullWidth" placeholder="請輸入最近一年考績結果俸級">
+              <p class="note">如：荐任六職等本俸一級</p>
             </td>
           </tr>
           <tr>
@@ -303,15 +303,16 @@
                   </audio>
                 </div>
               </div>
-              <p class="note">如果無法使用語音，請<a href="/wSite/audioCaptcha.mp3" title="驗證碼語音檔">下載語音檔案</a>。</p>
+              <!-- <p class="note">如果無法使用語音，請<a href="/wSite/audioCaptcha.mp3" title="驗證碼語音檔">下載語音檔案</a>。</p> -->
+              <p class="msg hint" style="display: block;">如果無法使用語音，請<a href="/wSite/audioCaptcha.mp3" title="驗證碼語音檔">下載語音檔案</a>。<button class="closeThis" type="button">隱藏</button></p>
               <p class="msg error" style="display: block;">您輸入的驗證碼錯誤，請重新輸入。<button class="closeThis" type="button">隱藏</button></p>
             </td>
           </tr>
         </table>
         
         <div class="btnDv">
-          <button type="button">下一步</button>
-          <button type="reset" class="reset">清除重填</button>
+          <button type="button" class="submit">下一步</button>
+          <button type="reset">清除重填</button>
         </div>
       </form>
     </section>

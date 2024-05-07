@@ -195,18 +195,17 @@ input[type="reset"] {
   -webkit-appearance: none;
   -moz-appearance: none;
     
-  border: none;
+  height: var(--inputHeight); line-height: var(--inputHeight);
   padding:0 1em; margin:5px; border-radius: 1.5em;
   vertical-align: middle;
+  border: none;
   cursor: pointer; transition: .2s;
-
-  height: var(--inputHeight); line-height: var(--inputHeight);
 
   background-color: $primaryColor; color: $white;
 
   &:hover, &:focus {
-    background-color: $assistant1;
-    border-color: $primaryColor;
+    background-color: $assistant2;
+    border-color: $assistant2;
     color: $primaryColor;
   }
   &:focus{ box-shadow: $inputBdr 0 0 0 3px;}

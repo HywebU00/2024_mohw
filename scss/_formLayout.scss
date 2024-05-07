@@ -1,21 +1,37 @@
 .formA {
   @extend %primSecWidth;
   
-  padding: 24px 12px;
+  padding: 30px 0; margin-bottom: 60px; margin-top: 8px;
   box-shadow: $shadow1 0 0 15px;
+  border-radius: $radius3;
+
+  &>.note{width: 96%; margin-left: auto; margin-right: auto;}
 
   table.layout{ 
-    tr{border-bottom: 1px solid $borderColor;}
+    width: 96%;
+    tr{
+      border-bottom: 1px dotted $borderColor;
+      &:last-child{border-bottom: none;}
+    }
+    &+.btnDv {margin-top: 26px;}
+  }
+  .btnDv{
+    width: 96%; padding-top: 30px;
+    border-top: 1px solid $borderColor;
   }
 
-  h3{
-    border-bottom: 2px solid $borderColor;
-    padding-bottom: 5px; margin-bottom: 40px;
-  }
+  // h3{
+  //   border-bottom: 2px solid $borderColor;
+  //   padding-bottom: 5px; margin-bottom: 40px;
+  // }
+
 
   @media screen and (min-width: $wwNormal){
-    padding: 24px;
-    table.layout{ width: 96%;}
+
+    // padding: 24px 24px 40px;
+    // table.layout{ width: 96%;}
+    // .btnDv{padding-top: 40px;}
+
   }
 }
 
@@ -54,6 +70,9 @@ table.layout {
       background-position: center center;
       background-size: 20px;
     }
+    a{ color: inherit; text-decoration: underline; display: inline-block;
+      &:hover, &:focus{ text-decoration: none;outline: 1px solid $linkColor;}
+    }
 
     &.hint{
       color: var(--color-hint);
@@ -91,7 +110,7 @@ table.layout {
       border-radius: 4px;
       &::before, &::after { background-color: $grayDark}
       &:hover, &:focus { 
-        background-color: $grayDark;
+        background-color: $grayDark; box-shadow: none;
         &::before, &::after { background-color: $white;}
       }
     }
@@ -101,8 +120,10 @@ table.layout {
   p.note{
     margin:9px 5px 12px; line-height: inherit;
     font-size: .88em; color: $fontColorLight;
-    &::before {content: '❖'; margin-right: 6px; color: $fontColorDark;}
-    a{ color: $linkColor;
+    &::before {content: '（';}
+    &::after {content: '）';}
+    a{ 
+      color: $linkColor;
       &:hover, &:focus{outline: 1px solid $linkColor; text-decoration: none;}
     }
   }
@@ -134,28 +155,28 @@ table.layout {
   text-align: center; padding: 4px; margin: 0 auto;
 
   input[type="button"], input[type="submit"], input[type="reset"], button{
-    --bg1: #{$white};
-    --bg2: #{$secondaryColor};
+
+    --bg1: #{$gray};
 
     padding-left: 2em; padding-right: 2em; min-width: 8em;
     height: 3em; line-height: 3;
+    border: 1px solid transparent;
     border-radius: 1.5em;
-    background-color: var(--bg1);color: $fontColor;
+    background-color: var(--bg1);color: $white;
     box-shadow:transparent 0 0 0 0, rgb(0 0 0 / .25) 0 6px 8px -4px;
 
     &:hover{
       transform: translateY(-3px);
-      box-shadow:transparent 0 0 0 0, rgb(0 0 0 / .3) 0 16px 16px -8px;
+      box-shadow: transparent 0 0 0 0, rgb(0 0 0 / .3) 0 16px 16px -8px;
     }
     &:focus{
       transform: translateY(0);
-      box-shadow:var(--bg2) 0 0 0 3px, rgb(0 0 0 / .3) 0 6px 12px -4px;
+      box-shadow: var(--bg1) 0 0 0 3px, rgb(0 0 0 / .3) 0 6px 12px -4px;
+      border-color: $white;
     }
 
     &.submit {
-      --bg1: #{$secondaryColor};
-      --bg2: #{$white};
-      color: $white;
+      --bg1: #{$assistant3};
     }
   }
 }
@@ -163,8 +184,8 @@ table.layout {
 
 // 必填符號 *
 .required{
-  color: $warning; margin-right: 3px; text-decoration: none;
-  font-size: 1.2em;
+  color: $warning; margin-right: 3px; 
+  font-size: 1.2em;text-decoration: none;
 }
 
 
@@ -362,8 +383,8 @@ table.layout {
     padding: 0 .5em; margin: 5px;
     font-size: inherit; white-space: nowrap; text-align: center;
     height: var(--inputHeight); line-height: var(--inputLineHeight);
-    border: 1px solid $primaryColor;
-    color: $white; background-color: $primaryColor;
+    border: 1px solid $assistant3;
+    color: $white; background-color: $assistant3;
     text-decoration: none;
     &::before{
       content: ''; display: inline-block;
@@ -373,13 +394,10 @@ table.layout {
       background-repeat: no-repeat;
       background-position: center center;
       background-size: 100%;
-      filter: brightness(15);
+      filter: brightness(20);
     }
-    &:hover, &:focus{
-      background-color: $assistant1;
-      color: $primaryColor;
-      &::before{filter: none;}
-    }
+    &:hover { box-shadow: $assistant3 0 0 0 2px; }
+    &:focus{ border-color: $white; box-shadow: $assistant3 0 0 0 3px; }
   }
   .refresh::before{background-image: url(../images/icon_refresh.png);}
   .play::before{background-image: url(../images/icon_voice.png);}

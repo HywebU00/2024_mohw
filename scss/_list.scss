@@ -17,10 +17,16 @@
         display: flex; flex-flow: row nowrap;
         text-decoration: none; color: $linkColor;
         &::after {content: '';display: block; clear: both;}
-        &:hover, &:focus {
+        &:hover {
           background-color: $assistant1;
           p{
             text-decoration: underline;
+            &::before{ box-shadow: $assistant3 0 0 0 3px;}
+          }
+        }
+        &:focus{
+          p{ 
+            outline: 1px solid $linkColor; text-decoration:none;
             &::before{ box-shadow: $assistant3 0 0 0 3px;}
           }
         }
