@@ -3,7 +3,7 @@
 // webFooter 內的元件、模組
 // --------------------------------------------------------------- //
 // 開關
-.fatFootCtrl{
+button.fatFootCtrl{
   --ting: #fff;
   --bg: transparent;
   --size: 44px;
@@ -33,6 +33,7 @@
 
   &:hover, &:focus {
     --bg:#{$assistant1};
+
     box-shadow: none; 
     &::before{ border-color: $primaryColor;}
   }
@@ -123,9 +124,11 @@
   color: $white;
   @extend %gradient1;
 
+  --bgc: #dae4e6;
+
   // logo 圖
   .logo {
-    position: absolute; left: $mgDocMP; top: 30px;
+    position: absolute; left: $mgDocMP; top: 38px;
     margin: 0 15px 5px 0; width: 82px; height: 82px;
     img{ display: block; width: 100%; height: 100%;}
   }
@@ -183,24 +186,18 @@
   }
 
   // 瀏覽人次
-  .visiters{
-    margin: 20px 0 0; text-align: center;
-  }
+  .visiters{margin: 20px 0 0; text-align: center;}
 
 
   // 排版div
+
+  .middle, .base {background-color: var(--bgc); color: $fontColorDark;}
   .middle{
-    position: relative; padding: 40px $mgDocMP 10px;
-    background-color: #ddd; color: #000;
-    // border: 2px dotted red;
+    position: relative; padding: 50px $mgDocMP 10px;
   }
-
-
   .base {
     padding: 10px $mgDocMP 30px;
-    background-color: #ddd; color: #000;
     ul{ list-style: none; margin: 0; padding: 0; line-height: 1; }
-
   }
   
  
