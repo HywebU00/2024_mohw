@@ -36,12 +36,10 @@ body{
 // ------------------------------------------------------ //
 .mainRow{
   width: $mobileWidthP;margin: 0 auto;
-  // .columnRight, .columnLeft{ outline: 1px dashed red;}
   .columnLeft { 
     display: none;
     &>.head { @extend %gradient1; color: $white; }
   }
-  // .columnRight { }
   
   @media screen and (min-width: $wwNormal){
     padding: 32px 0;

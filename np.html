@@ -27,7 +27,7 @@
         <li><a href="#">網站導覽</a></li>
         <li class="langEN"><a href="#" aria-label="English Version">En</a></li>
         <li class="fontSize compound">
-          <button type="button" aria-label="文字大小">Aa</button>
+          <button type="button" aria-label="文字大小" aria-expanded="false">Aa</button>
           <ul>
             <li><button class="smallFont" type="button">小</button></li>
             <li><button class="mediumFont" type="button">中</button></li>
@@ -38,7 +38,7 @@
     </nav>
 
     <button type="button" class="sidebarCtrl" aria-label="開啟側欄"></button>
-    <button type="button" class="searchCtrl" aria-label="開啟查詢區"></button>
+    <button type="button" class="searchCtrl" aria-label="簡易查詢" aria-expanded="false"></button>
     <section class="search">
       <form action="">
         <input type="text" placeholder="請輸入關鍵字">
@@ -163,6 +163,7 @@
   <main class="main">
     <a class="accesskey" href="#aC" id="aC" accesskey="C" title="主要內容區">:::</a>
 
+    <!-- 內頁左右兩欄排版 -->
     <div class="mainRow">
 
       <!-- 內頁左欄 Left Left Left -->
@@ -176,7 +177,7 @@
             <li><a href="#">人民線上申辦服務專區</a></li>
             <li><a href="#">表單下載</a></li>
             <li><a href="#">諮詢服務專線</a></li>
-            <li><a href="#">政府出版品</a></li>
+            <li class="here"><a href="#">政府出版品</a></li>
             <li><a href="#">電子報訂閱</a></li>
             <li><a href="#">相關問題Q&A</a></li>
             <li><a href="#">衛生福利e寶箱</a></li>
@@ -202,7 +203,7 @@
             <ul>
               <li class="print"><button type="button" aria-label="列印"></button></li>
               <li class="share compound">
-                <button type="button" aria-label="分享"></button>
+                <button type="button" aria-label="分享" aria-expanded="false"></button>
                 <ul>
                   <li><a target="_blank" aria-label="分享到 Facebook（開新視窗）" href="https://www.facebook.com/"><img src="images/icon_fb.png" alt="Facebook"></a></li>
                   <li><a target="_blank" aria-label="分享到 X（開新視窗）" href="https://twitter.com/"><img src="images/icon_X.png" alt="X"></a></li>
@@ -243,7 +244,7 @@
 
     
     <div class="fatFooter">
-      <button type="button" class="fatFootCtrl" data-altText="開啟">收合</button>
+      <button type="button" class="fatFootCtrl">頁腳選單</button>
       <nav class="siteTree">
         <ul>
           <li><a href="#">本部簡介</a>

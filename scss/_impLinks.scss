@@ -18,9 +18,13 @@
       padding: 18px 30px 15px 74px;
       border-radius: 60px 0 0 60px;
       color: $white;
-      background-image: linear-gradient(90deg, rgb(7 64 101) 60%, rgb(7 64 101 / 0) 100%);
-
-      &:hover, &:focus {
+      background-image: linear-gradient(90deg, rgb(7 64 101) 50%, rgb(7 64 101 / 0) 100%);
+      transition: .2s;
+      &:hover {
+        box-shadow: rgb(28 255 206 / .3) 0 0 0 1px inset, rgb(7 64 101) 0 0 0 3px;
+      }
+      &:focus {
+        box-shadow: rgb(28 255 206 / 1) 0 0 0 1px inset, rgb(7 64 101) 0 0 0 4px;
       }
     }
     img{

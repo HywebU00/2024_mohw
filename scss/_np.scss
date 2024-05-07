@@ -19,15 +19,19 @@
         color: $linkColor;
         border: 1px solid $borderColor; border-radius: 10px;
         transition: .2s;
-        &::before {content: ''; position: absolute;}
         &::before {
+          content: ''; position: absolute;
           left: 10px; top: 25px;
-          width: 20px;height: 12px; transform: rotate(1350deg);
+          width: 20px;height: 12px;
           background: url(../images/twoDisks.svg) no-repeat 0 0;
           background-size: contain;
+          rotate: .75turn;
+          transition: 1s;
         }
 
-        &:hover, &:focus {background-color: $assistant1;}
+        &:hover, &:focus {background-color: $assistant1;
+          &::before{rotate: 2turn;}
+        }
         &:focus{border-color: transparent;box-shadow: $primaryColor 0 0 0 2px;}
       }
     }

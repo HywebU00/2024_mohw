@@ -76,7 +76,8 @@
   .skip{background: none;}
 
   @media screen and (min-width: $wwNormal){
-    left: auto; right: 16px; top:88px; z-index: 888;
+
+    left: auto; right: 16px; top:96px; z-index: 888;
     width: auto; min-width: 34em;
     padding:36px; border-radius: 24px;
     box-shadow: rgb(0 0 0 / .5) 0 5px 30px;
@@ -88,8 +89,8 @@
     .hotKeywords{ margin: 6px 0 0;}
   }
 
-  @media screen and (min-width: $wwMaximum){
-    right: calc(50% - $wwMaximum*.5 + 16px);
+  @media screen and (min-width: 1198px){
+    right: calc(50% - 583px );
   }
 
 
