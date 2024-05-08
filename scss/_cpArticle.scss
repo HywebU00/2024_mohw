@@ -2,7 +2,7 @@
 // ------------------------------------------------------ //
 .cpArticle{
   padding: 0 0 50px;
-  line-height: 1.8; font-size: 1.11em;
+  line-height: 1.8; font-size: 1.2em;
 
   a {
     color: $linkColor; text-decoration: underline;
@@ -15,14 +15,24 @@
   }
 
   // 內文標題
+  h3, h4 {margin: 2em 0 .8em; line-height: 1.4;font-weight: bold;color: $fontColorDark;}
+  h3{
+    font-size: 1.5em;
+    padding: 0;
+    color: $assistant3;
+    border-bottom: 3px solid $borderColor;
+  }
+  
   h4{
-    font-weight: bold; font-size: 1.3em; line-height: 1.4;
-    margin: 2em 0 .8em; padding: 25px 0 0 24px;
+    font-size: 1.3em; line-height: 1.4;
+    font-weight: bold; 
+    padding: 0 0 0 24px;
     position: relative;
     &::before{
-      content: ''; position: absolute; left: 0; top: 30px;
-      width: 9px; height: 1em;
-      background-color: $primaryColor;
+      content: ''; position: absolute; left: 0; top: .5em;
+      width: 20px; height: 11px;
+      background: url(../images/twoDisks.svg) no-repeat 0 0;
+      background-size: contain;
     }
 
     &+.tbStyle1, &+.tbStyle2{
@@ -54,6 +64,9 @@
       background-color: $primaryColor;
     }
   }
+
+  em{ font-style: normal; color: $hilight;}
+  strong{ font-weight: bold; color: $hilight; font-size: 1.2em;}
 
 
   @media screen and (min-width: $wwNormal){

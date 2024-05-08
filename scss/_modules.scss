@@ -66,9 +66,10 @@
 // 內頁標題 //
 // ------------------------------------------------------ //
 .pageHeader{
-  position: relative;margin-top: 40px;
+  position: relative;padding-top: 10px;
   h2 {
-    padding: 0 0 0 30px;margin: 0; line-height: 1.3;
+    position: relative;
+    padding: 0 0 0 30px;margin:10px 0 0; line-height: 1.3;
     font-size: 2.18em; color: $assistant2;
     &::before {
       content: ''; position: absolute; left: -2px; top: 13px;
@@ -76,20 +77,18 @@
       background: url(../images/twoDisks.svg) no-repeat 0 0;
       background-size: contain;
       transform: rotate(-90deg);
-
-    
     }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    h2 {margin-top: 30px;}
   }
 
 }
 .main > .pageHeader {
   @extend %primSecWidth;
 }
-// .columnRight .pageHeader {
-  
-//   @media screen and (min-width: $wwNormal){
-//   }
-// }
+
 // ------------------------------------------------------ //
 
 

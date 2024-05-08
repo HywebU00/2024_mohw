@@ -136,7 +136,7 @@ $(function(){
     $(this).siblings().removeClass('here').children('ul').hide();
     $(this).addClass('here').children('ul').stop().fadeIn(mmSpeed);
   }).on( 'mouseleave', function(){
-    $(this).removeClass('here').children('ul').stop().fadeOut( 200 );
+    $(this).removeClass('here').children('ul').stop().fadeOut( 120 );
   })
 
   // 鍵盤焦點 / tab focus
@@ -165,18 +165,20 @@ $(function(){
   // 固定版頭 
   // --------------------------------------------------------------- //
   var fixHeadThreshold;
-  var hh = _webHeader.innerHeight();
+  var offsetTop;
 
   if ( ww >= wwNormal) {
-    fixHeadThreshold = hh;
+    fixHeadThreshold =  _webHeader.innerHeight();
+    offsetTop = _webHeader.innerHeight();
   } else {
     fixHeadThreshold = 0;
+    offsetTop = _webHeader.innerHeight();
   }
 
   _window.scroll(function(){
     if (_window.scrollTop() > fixHeadThreshold ) {
       _webHeader.addClass('fixed');
-      _body.offset({top: hh});
+      _body.offset({top:  offsetTop });
       $('.goCenter').trigger('blur');
     } else {
       _webHeader.removeClass('fixed');
@@ -856,19 +858,24 @@ $(function(){
         _body.removeAttr('style');
         _webHeader.removeClass('fixed');
         _search.removeClass('reveal').removeAttr('style')
-        hh = _webHeader.outerHeight();
-        fixHeadThreshold =  hh - _menu.innerHeight();
+        // hh = _webHeader.outerHeight();
+        // fixHeadThreshold =  hh - _menu.innerHeight();
+        // fixHeadThreshold = _webHeader.innerHeight() - _menu.innerHeight();
+        fixHeadThreshold =  _webHeader.innerHeight();
+        offsetTop = _webHeader.innerHeight();
+            
         _window.trigger('scroll');
       }
 
       // 由寬螢幕到小螢幕
       if( ww >= wwNormal && wwNew < wwNormal ){
-        hh = _webHeader.outerHeight();
+        // hh = _webHeader.outerHeight();
         fixHeadThreshold = 0;
+        offsetTop = _webHeader.innerHeight();
         _body.removeAttr('style');
-        if ( ! _webHeader.hasClass('mp') ) {
-          _window.trigger('scroll');
-        }
+        // if ( ! _webHeader.hasClass('mp') ) {
+        //   _window.trigger('scroll');
+        // }
       }
       ww = wwNew;
     }, 200);

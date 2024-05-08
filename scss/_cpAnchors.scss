@@ -1,25 +1,46 @@
 // 內文錨點
 .cpAnchors{
-  margin: 0 0 30px;
-  font-size: 1.11em;
-  ul, ol{ list-style: none; overflow: hidden; margin: 0 -8px;padding: 0;}
+  margin: 0 0 30px; padding: 8px;
+  font-size: 1.2em;
+  // background-color: $primaryColor; 
+  // @extend %gradient1;
+  background: $grayLight;
+  box-shadow: rgb(0 0 0 / .25) 0 1px 6px inset;
+  border-radius: $radius2;
+  ul, ol{ 
+    list-style: none; margin: 0;padding: 0;
+    &::after{
+      content: ''; display: block; clear: both;
+    }
+  }
   li{
-    float: left; line-height: 1; margin:5px;
+    float: left; line-height: 1; margin:4px 6px;padding: 0;
     a{
-      display: block;padding: 1em 1.2em;
+      display: block;padding: .7em 1.2em;margin: 0;
       text-decoration: none;
-      @extend %gradient1;
+      background-color: $white;
       color: $fontColor; font-weight: bold;
-      border: 1px solid #e2e2e2;
+      border-radius: $radius1;
+      border-radius: 2em;
+      box-shadow: rgb(0 0 0 / .25) 0 1px 6px;
+      transition: .2s;
+      // border: 1px solid #e2e2e2;
       &:hover, &:focus {
-        border-color: #B9E7E5;
-        // @extend %gradient2;
+        box-shadow: $assistant3 0 0 0 2px;
+      }
+      &:focus{color: $white; background-color: $assistant3; }
+    }
+
+    &.now{
+      a{
+        color: $white; background-color: $assistant3;
+        box-shadow: $assistant3 0 0 0 3px;
       }
     }
   }
 
   @media screen and (min-width: $wwNormal){
     margin-bottom: 50px;
-    li{ margin:10px;}
+    // li{ margin:8px;}
   }
 }

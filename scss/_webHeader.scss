@@ -49,7 +49,8 @@
     &.fixed {
       z-index: 980;
       position: fixed;left: 0; right: 0; top: 0;
-      animation: fixHeadAni .5s 1 ease-out;
+      // transform: translateY(-100%);
+      animation: fixHeadAni .6s 1 ease-out;
       h1, .searchCtrl, .headNav { display: none; }
       .menu{ 
         &>ul{
