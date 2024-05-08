@@ -607,6 +607,8 @@ $(function(){
     let j;
     let _dots = '';
 
+    _btnLeft.prependTo(_floxBox);
+
     // 產生 indicator 和 自訂屬性 data-index
     _floxBox.append('<div class="flowNav"><ul></ul></div>');
     let _indicator = _this.find(".flowNav>ul");
@@ -620,15 +622,21 @@ $(function(){
     _floxBox.clone().insertBefore(_skipToClose);
 
     let _indicatItem = _indicator.find('li');
-    _indicatItem.eq(i).addClass(actClassName);
-    _indicatItem.eq((i + 1) % slideCount).addClass(actClassName);
+    // _indicatItem.eq(i).addClass(actClassName);
+    // _indicatItem.eq((i + 1) % slideCount).addClass(actClassName);
 
 
     // 依據可視的 slide 項目，決定 indicator 樣式
     indicatReady();
     function indicatReady() {
       _indicatItem.removeClass(actClassName);
+      _flowItem.children('a').attr('tabindex', -1);
+      // _indicatItem.eq(i).addClass(actClassName);
       _indicatItem.eq(i).addClass(actClassName);
+      _flowItem.eq(i).children('a').attr('tabindex', 0);
+
+      // _indicatItem.eq((i + 1) % slideCount).addClass(actClassName);
+
       if (www < wwSlim) {
         if (slideCount > 1) {
           flownavShow();
@@ -643,6 +651,7 @@ $(function(){
         } else {
           flownavShow();
           _indicatItem.eq((i + 1) % slideCount).addClass(actClassName);
+          _flowItem.eq((i + 1) % slideCount).children('a').attr('tabindex', 0);
         }
       }
 
@@ -653,6 +662,10 @@ $(function(){
           flownavShow();
           _indicatItem.eq((i + 1) % slideCount).addClass(actClassName);
           _indicatItem.eq((i + 2) % slideCount).addClass(actClassName);
+
+          _flowItem.eq((i + 1) % slideCount).children('a').attr('tabindex', 0);
+          _flowItem.eq((i + 2) % slideCount).children('a').attr('tabindex', 0);
+
         }
       }
 
@@ -682,12 +695,17 @@ $(function(){
         _flowItem.eq(i).appendTo(_flowList);
         _indicatItem.eq(i).removeClass(actClassName);
         _indicatItem.eq(j).addClass(actClassName);
+        _flowItem.eq(i).children('a').attr('tabindex', -1);
+        _flowItem.eq(j).children('a').attr('tabindex', 0);
+
         _flowList.css('margin-left', 0);
         if (ww >= wwSlim) {
           _indicatItem.eq((j + 1) % slideCount).addClass(actClassName);
+          _flowItem.eq((j + 1) % slideCount).children('a').attr('tabindex', 0);
         }
         if (ww >= wwMedium) {
           _indicatItem.eq((j + 2) % slideCount).addClass(actClassName);
+          _flowItem.eq((j + 2) % slideCount).children('a').attr('tabindex', 0);
         }
         // if (ww >= wwNormal) {
         //   _indicatItem.eq((j + 3) % slideCount).addClass(actClassName);
@@ -701,18 +719,24 @@ $(function(){
       _flowList.css("margin-left", -1 * slideDistance);
 
       _flowList.stop(true, false).animate({ "margin-left": 0 }, speed, function () {
-          _indicatItem.eq(j).addClass(actClassName);
-          if (ww >= wwNormal) {
-            _indicatItem.eq((i + 2) % slideCount).removeClass(actClassName);
-          } else if (ww >= wwMedium) {
-            _indicatItem.eq((i + 2) % slideCount).removeClass(actClassName);
-          } else if (ww >= wwSlim) {
-            _indicatItem.eq((i + 1) % slideCount).removeClass(actClassName);
-          } else {
-            _indicatItem.eq(i).removeClass(actClassName);
-          }
-          i = j;
-        });
+        _indicatItem.eq(j).addClass(actClassName);
+        _flowItem.eq(j).children('a').attr('tabindex', 0);
+
+        if (ww >= wwNormal) {
+          _indicatItem.eq((i + 2) % slideCount).removeClass(actClassName);
+          _flowItem.eq((i + 2) % slideCount).children('a').attr('tabindex', -1);
+        } else if (ww >= wwMedium) {
+          _indicatItem.eq((i + 2) % slideCount).removeClass(actClassName);
+          _flowItem.eq((i + 2) % slideCount).children('a').attr('tabindex', -1);
+        } else if (ww >= wwSlim) {
+          _indicatItem.eq((i + 1) % slideCount).removeClass(actClassName);
+          _flowItem.eq((i + 1) % slideCount).children('a').attr('tabindex', -1);
+        } else {
+          _indicatItem.eq(i).removeClass(actClassName);
+          _flowItem.eq(i).children('a').attr('tabindex', -1);
+        }
+        i = j;
+      });
     }
 
     // 點擊向右箭頭
