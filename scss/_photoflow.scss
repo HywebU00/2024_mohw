@@ -4,8 +4,8 @@
 // 左右箭頭 button
 button.arrowBtn {
   --diameter: 56px; // 直徑、長寬等值
-  --color: #{$white};
-  --btnBg: #{$shadow1};
+  --color: #fff;
+  --btnBg: rgb(60 90 120 / .3);
 
   position: absolute;top: 50%; z-index: 9;
   transform: translateY(-50%);
@@ -39,8 +39,8 @@ button.arrowBtn {
   }
 
   &:hover, &:focus{
-    --btnBg: #{$assistant1};
-    --color: #{$primaryColor};
+    --color: #{$white};
+    --btnBg: #{$primaryColor};
     box-shadow: var(--btnBg) 0 0 0 4px;
   }
 
@@ -127,13 +127,13 @@ button.arrowBtn {
           position: absolute; left: 0; right: 0; top: 0; bottom: 0;
           box-shadow: $borderColor 0 0 0 1px inset; 
         }
-        &:hover, &:focus {
-          p{ transform:  translateY(0); }
-          img{ transform: scale(1.1);}
+        &:hover , &:focus{
+          p{ transform:  translateY(110%); }
+          &::before{box-shadow: $borderColorDark 0 0 0 1px inset; }
         }
         &:focus {
-          p{ transition: none;}
-          &::before{ box-shadow: $primaryColor 0 0 0 2px inset;}
+          p{ transition: none; }
+          &::before{ box-shadow: $borderColorDark 0 0 0 2px inset;}
         }
       }
       img{
@@ -143,10 +143,9 @@ button.arrowBtn {
       }
       p{
         position: absolute; left: 0; right: 0; bottom: 0;
-        padding:90px 10px 8px; margin: 0;
-        color: $white; 
-        background-image: linear-gradient(0deg, rgb(0 0 0 / .9) .6em, rgb(0 0 0 / .7) 40%, rgb(0 0 0 / 0) 100%);
-        transform: translateY(110%); transition: .5s;
+        padding:10px; margin: 0;
+        color: $white; background-color: rgb(0 0 0 / .7);
+        transition: .5s;
       }
     }
   }
@@ -155,8 +154,6 @@ button.arrowBtn {
   // 左右箭頭
   .arrowBtn{
     top: $mobileWidthV*.5; z-index: 99;
-    &.prev{ left: -8px;}
-    &.next { right: -8px;}
   }
 
   @media screen and (min-width: $wwSlim){
@@ -166,13 +163,12 @@ button.arrowBtn {
         height: calc( $mobileWidthV/2 - 5px );
       }
     }
-
-    .arrowBtn{top: calc( #{$mobileWidthV}/4 - 3px );}
+    .arrowBtn{ top: calc( #{$mobileWidthV}/4 - 3px );}
   }
 
   @media screen and (min-width: $wwMedium){
     .flowList{
-      // 顯示三張
+      // 顯示3張
       &>li{
         margin-right:9px;
         flex-basis: calc($mobileWidthV/3 - 6px);
@@ -187,22 +183,30 @@ button.arrowBtn {
 
   }
 
+
   @media screen and (min-width: $wwNormal){
     .flowList{
-      // 顯示四張
+      // 顯示4張
       &>li{
         margin-right: 12px; 
         flex-basis: calc($normalWidthV/4 - 9px);
         height: calc($normalWidthV/4 - 9px);
+        img{transform: scale(1.1);}
+        &>a{
+          &:hover, &:focus {
+            img{ transform: scale(1);}
+          }
+        }
       }
     }
 
     .flowNav{ margin-left: 0;margin-right: 0;}
 
     // 左右箭頭 button
-    .arrowBtn{ top: calc($mobileWidthV/8 - 5px); 
-      &.prev{ left: -28px;}
-      &.next { right: -28px;}  
+    .arrowBtn{ 
+      top: calc($mobileWidthV/8 - 5px); 
+      &.prev{ left: -16px;}
+      &.next { right: -16px;}  
     }
 
   }
@@ -218,5 +222,35 @@ button.arrowBtn {
       top:calc($maximumWidth/8 - 5px);
     }
   }
+
+}
+
+
+// --------------------------------------------------------------- //
+// --------------------------------------------------------------- //
+// --------------------------------------------------------------- //
+
+// 有左欄，.photoflow 在右欄
+// --------------------------------------------------------------- //
+.mainRow .columnRight .photoflow{
+
+  @media screen and (min-width: $wwNormal){
+    .flowList{
+      // 顯示3張
+      &>li{
+        margin-right: 12px; 
+        flex-basis: calc(var(--colRWidth)/3 - 8px);
+        height: calc(var(--colRWidth)/3 - 8px);
+      }
+    }
+    .arrowBtn{ top: calc(--colRWidth/6 - 4px);}
+  }
+
+  @media screen and (min-width: 1167px){
+    --colRWidth: 820px;
+    .arrowBtn{ top: 133px;}
+
+  }
+
 
 }

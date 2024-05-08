@@ -15,19 +15,32 @@
   }
 
   // 內文標題
-  h3, h4 {margin: 2em 0 .8em; line-height: 1.4;font-weight: bold;color: $fontColorDark;}
+  h3, h4 {
+    position: relative;
+    margin: 2em 0 .8em; line-height: 1.4;
+    font-weight: bold;color: $fontColorDark;
+    &.style1 {
+      background-color: $primaryColor; color: $white;
+      padding:.5em 20px .45em;
+      border-radius: $radius;
+      &::before{ display: none; }
+    }
+  }
   h3{
-    font-size: 1.5em;
     padding: 0;
-    color: $assistant3;
-    border-bottom: 3px solid $borderColor;
+    font-size: 1.5em;
+    color: $primaryColor;
+    padding-left: 24px;
+    &::before{
+      content: ''; position: absolute; left: 0; top: 7px;
+      width: 12px; height: 26px; border-radius: 6px;
+      background-color: $primaryColor;
+    }
   }
   
   h4{
-    font-size: 1.3em; line-height: 1.4;
-    font-weight: bold; 
     padding: 0 0 0 24px;
-    position: relative;
+    font-size: 1.25em; line-height: 1.4;
     &::before{
       content: ''; position: absolute; left: 0; top: .5em;
       width: 20px; height: 11px;
@@ -55,13 +68,38 @@
   // 引言
   blockquote{
     position: relative;
-    margin:50px 0; padding: 30px 30px 30px 40px;
-    background: linear-gradient(180deg, rgba(196, 216, 219, 0.34) 0%, rgba(196, 216, 219, 0.28) 100%);
+    border-radius:0 $radius2 $radius2 0; overflow: hidden;
+    margin:50px 0; padding: 24px 24px 24px 32px;
+    border: 1px solid $primaryColor;
+    // background-color: $grayLight;
     &::before{
       content: ''; 
       position: absolute; left: 0; top: 0; bottom: 0;
-      width: 9px;
+      width: 12px;
       background-color: $primaryColor;
+    }
+  }
+
+  .button{
+    width: 100%; text-align: left; margin: .5em 0 1.5em;
+    &>a{ 
+      display: inline-block; 
+      padding-left: 1.5em; padding-right: 1.5em; text-align: center;
+      text-decoration: none; background-color: $secondaryColor;
+      box-shadow:rgb(0 0 0 / .4) 0 4px 12px -2px;
+      transition: .2s;
+      &:hover {
+        background-color: $assistant3;
+        transform: translateY(4px);
+        box-shadow:rgb(0 0 0 / .6) 0 1px 4px 0;
+      }
+      &:focus {
+        background-color: $assistant3;
+        box-shadow: $white 0 0 0 1px, $assistant3 0 0 0 4px;
+      }
+    }
+    &.center{
+      text-align: center;
     }
   }
 
@@ -84,12 +122,12 @@
   margin: 50px auto;
   figure{
     margin: 0;padding: 0; display: block;
-    background-color: #767676;
+    background-color: $grayLight;
     img{display: block; width: 100%;}
   }
   figcaption{
-    color: $white; padding: 24px;
-    line-height: 1.4;
+    display: block; width: 100%;padding:16px 20px;
+    line-height: 1.5; color: $fontColor; 
     p{
       margin: 1em 0;
       &:first-child{ font-size: 1.35em; margin-top: 0;}
@@ -104,31 +142,21 @@
     }
   }
 
-  &.col2, &.col2a, &.col2b {
+  &.col2 {
     figure:last-child{ margin-top: 20px;}
   }
 
 
   @media screen and (min-width: $wwMedium){
-    margin: 70px auto; max-width: 1000px;
-    &.col2, &.col2a, &.col2b {
+    margin: 70px auto;
+    &.col2 {
       display: flex; justify-content: space-between;
-      max-width: 1250px;
-      figure:last-child{ margin-top: 0;}
-    }
-    &.col2{
-      figure{flex: 0 0 49%;}
-    }
-    &.col2a{
       figure{
-        &:first-child{flex: 0 0 56%;}
-        &:last-child{ flex: 0 0 42%;}
-      }
-    }
-    &.col2b{
-      figure{
-        &:first-child{flex: 0 0 42%;}
-        &:last-child{ flex: 0 0 56%;}
+        flex: 0 0 49%; 
+
+        display: flex; flex-flow: row wrap; 
+        &:last-child{ margin-top: 0;}
+        figcaption{align-self: flex-end;}
       }
     }
   }
@@ -179,6 +207,7 @@ table.tbStyle2{
   tbody{
     // background-color: var(--tdbg);
     th:first-child, td:first-child{ background-color: $primaryColor; color: $white;}
+    th:first-child{ width: 7em;}
     td{ vertical-align: top; }
   }
 }

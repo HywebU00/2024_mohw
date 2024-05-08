@@ -309,13 +309,17 @@ button.closeThis{
   --width:48px;
   --bar-length:28px;
   --bar-thick:4px;
+  --tinge: #fff;
+  --bgc: rgb(48 48 48/ .6);
 
   position: relative;
   height: var(--width); width:  var(--width); padding: 0; margin: 0;
   text-indent: -20em; overflow: hidden;
+  background-color: var(--bgc);
 
   &::before, &::after{
     content: ''; position: absolute; 
+    background-color: var(--tinge);
     left: calc( (var(--width) - var(--bar-length))/2 );
     top:  calc( (var(--width) - var(--bar-thick))/2 );
     width: var(--bar-length); height: var(--bar-thick);
@@ -324,7 +328,9 @@ button.closeThis{
   &::after{transform: rotate(-45deg);}
 
   &:hover, &:focus { 
-    &::before, &::after{ }
+    --bgc: #333;
+    background-color: var(--bgc);
+    box-shadow: var(--bgc) 0 0 0 3px;
   }
 }
 

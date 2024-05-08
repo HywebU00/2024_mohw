@@ -12,7 +12,12 @@
   &.bigPhotos{ background-color: $black;}
 
   button.closeThis{
-    position: absolute; right:0; top: 0; z-index:99;
+    --width:56px;
+  
+    position: absolute; right:3px; top: 3px; z-index:99;
+    border-radius: 4px;
+    &::before, &::after{ border-radius: 2px;}
+    &:hover, &:focus { --bgc: #a00;}
   }
 
   .header {

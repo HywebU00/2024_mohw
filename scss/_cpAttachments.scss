@@ -1,12 +1,12 @@
 // 相關檔案, 相關連結 , 相關圖檔 共用區塊標題樣式
 .photoflow, .fileDownload, .seeAlso{
   h3{
-    position: relative;padding:0 0 6px 24px; margin: 0;
+    position: relative;padding:0 0 3px 20px; margin: 0;
     font-size: 1.3em;  line-height: 1.2;
     border-bottom: 3px solid $primaryColor;
     &::before {
-      content: '';position: absolute; left: 0; top: 4px;
-      width: 9px; height: 1em;
+      content: '';position: absolute; left: 0; top: 2px;
+      width: 10px; height: 1em; border-radius: 5px;
       background-color: $primaryColor;
     }
   }
@@ -29,21 +29,6 @@
     margin: 90px 0;
   }
 }
-
-// h4{
-//   font-weight: bold; font-size: 1.3em; line-height: 1.4;
-//   margin: 2.5em 0 .8em; padding: 0 0 0 24px;
-//   position: relative;
-//   &::before{
-//     content: ''; position: absolute; left: 0; top: .15em;
-//     width: 9px; height: 1em;
-//     background-color: $primaryColor;
-//   }
-
-//   &+.tbStyle1, &+.tbStyle2{
-//     margin-top: 0;
-//   }
-// }
 // ------------------------------------------------------ //
 
 

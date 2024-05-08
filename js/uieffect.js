@@ -656,16 +656,16 @@ $(function(){
         }
       }
 
-      if (www >= wwNormal) {
-        if (slideCount <= 4) {
-          flownavHide();
-        } else {
-          flownavShow();
-          _indicatItem.eq((i + 1) % slideCount).addClass(actClassName);
-          _indicatItem.eq((i + 2) % slideCount).addClass(actClassName);
-          _indicatItem.eq((i + 3) % slideCount).addClass(actClassName);
-        }
-      }
+      // if (www >= wwNormal) {
+      //   if (slideCount <= 3) {
+      //     flownavHide();
+      //   } else {
+      //     flownavShow();
+      //     _indicatItem.eq((i + 1) % slideCount).addClass(actClassName);
+      //     _indicatItem.eq((i + 2) % slideCount).addClass(actClassName);
+      //     _indicatItem.eq((i + 3) % slideCount).addClass(actClassName);
+      //   }
+      // }
     }
 
     function flownavShow(){
@@ -689,9 +689,9 @@ $(function(){
         if (ww >= wwMedium) {
           _indicatItem.eq((j + 2) % slideCount).addClass(actClassName);
         }
-        if (ww >= wwNormal) {
-          _indicatItem.eq((j + 3) % slideCount).addClass(actClassName);
-        }
+        // if (ww >= wwNormal) {
+        //   _indicatItem.eq((j + 3) % slideCount).addClass(actClassName);
+        // }
         i = j;
       });
     }
@@ -703,7 +703,7 @@ $(function(){
       _flowList.stop(true, false).animate({ "margin-left": 0 }, speed, function () {
           _indicatItem.eq(j).addClass(actClassName);
           if (ww >= wwNormal) {
-            _indicatItem.eq((i + 3) % slideCount).removeClass(actClassName);
+            _indicatItem.eq((i + 2) % slideCount).removeClass(actClassName);
           } else if (ww >= wwMedium) {
             _indicatItem.eq((i + 2) % slideCount).removeClass(actClassName);
           } else if (ww >= wwSlim) {
@@ -858,9 +858,6 @@ $(function(){
         _body.removeAttr('style');
         _webHeader.removeClass('fixed');
         _search.removeClass('reveal').removeAttr('style')
-        // hh = _webHeader.outerHeight();
-        // fixHeadThreshold =  hh - _menu.innerHeight();
-        // fixHeadThreshold = _webHeader.innerHeight() - _menu.innerHeight();
         fixHeadThreshold =  _webHeader.innerHeight();
         offsetTop = _webHeader.innerHeight();
             
@@ -869,13 +866,9 @@ $(function(){
 
       // 由寬螢幕到小螢幕
       if( ww >= wwNormal && wwNew < wwNormal ){
-        // hh = _webHeader.outerHeight();
         fixHeadThreshold = 0;
         offsetTop = _webHeader.innerHeight();
         _body.removeAttr('style');
-        // if ( ! _webHeader.hasClass('mp') ) {
-        //   _window.trigger('scroll');
-        // }
       }
       ww = wwNew;
     }, 200);

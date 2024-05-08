@@ -14,19 +14,18 @@
     }
   }
   li{
-    float: left; line-height: 1; margin:4px 6px;padding: 0;
+    float: left; line-height: 1; margin:4px;padding: 0;
     a{
-      display: block;padding: .7em 1.2em;margin: 0;
+      display: block;padding: .7em .5em;margin: 0;
       text-decoration: none;
       background-color: $white;
       color: $fontColor; font-weight: bold;
       border-radius: $radius1;
-      border-radius: 2em;
       box-shadow: rgb(0 0 0 / .25) 0 1px 6px;
       transition: .2s;
-      // border: 1px solid #e2e2e2;
       &:hover, &:focus {
         box-shadow: $assistant3 0 0 0 2px;
+        // padding-left: 0.7em; padding-right: 0.7em;
       }
       &:focus{color: $white; background-color: $assistant3; }
     }
