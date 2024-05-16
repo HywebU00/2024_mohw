@@ -3,34 +3,40 @@
 
   .webHeader, .sidebar, .webFooter, .mainRow .columnLeft, 
   .funcBar, .cpAnchors, .goTop, .goTop.show,
-  .searchOnLp { display: none; }
+  .searchOnLp, .sidebarMask { display: none; }
 
   .mainRow{ max-width: none;}
 
+  // --------------------------------------------------------------- //
+
+  .breadcrumb { padding-left: 0; background: none;}
   .pageHeader{
     border-bottom: 4px solid $borderColor;
-    padding: 5px 0; margin: 0 auto 20px !important;
+    padding: 5px 0; margin: 0 auto 10px !important;
     h2{ 
-      padding-left: 0;
+      padding: 0; margin: 0; color: #000;
       &::before {display: none;}
     } 
   }
 
+
   // --------------------------------------------------------------- //
+  // ----------------------------- cp ------------------------------ //
   // --------------------------------------------------------------- //
-  // cp
+  .cp{margin-top: 15px;}
+
   .poInfo{
-    ul{ display: block;}
-    li{ display: inline-block;}
-    li:last-child{ display: none;}
-    padding:5px 10px;
+    padding:5px 10px; margin: 5px 0 50px;
     border: 1px dashed $borderColor;
     background: none;
+    ul{ display: block;}
+    li{ display: inline-block;}
   }
 
   .cpArticle{
     h3, h4 {
       background: none; padding-left: 0;
+      color: #000;
       &::before { display: none;}
       &.style1 { 
         color: #000; background-color: #fff; padding: 0 0 5px;
@@ -64,34 +70,42 @@
   
   }
 
+  .seeAlso, .photoflow, .fileDownload {
+    h3{
+      padding-left: 0;
+      &::before {display: none;}
+    }
+  }
+
   // 相關圖片
   .photoflow {
-    button.arrowBtn { display: none;}
-  
+    .flowNav, button.arrowBtn{ display: none !important;}
+
     .flowList{
       display: block;
       &>li{ 
-        display: inline-block; vertical-align: top;
-        width: 31%; height: auto !important;
-        margin: 0 8px 8px 0 !important;
-        a{ height: auto !important;}
-        img{ height: auto !important; margin-bottom: 10px;}
+        display: block; width: 100%; height: auto ; margin: 0 0 12px;
+        &>a{ 
+          height: auto !important;
+          &::before{
+            box-shadow: $borderColorDark 0 0 0 1px inset; 
+          }
+        }
+        img{ width: 100%; height: auto !important; transform: none; }
         p{
           position: static; display: block;
           background: none; color: $fontColor;
+          transform: none;
         }
       
       }
     }
-
-    .flowNav{ display: none;}
-  
   }
 
 
   // --------------------------------------------------------------- //
+  // ------------------------------- lp ---------------------------- //
   // --------------------------------------------------------------- //
-  // lp
   .listTb>table.stickyHead thead {
     position: static !important;
   }
@@ -100,5 +114,107 @@
 
 
 
+// --------------------------------------------------------------- //
+// --------------------------------------------------------------- //
+// --------------------------------------------------------------- //
+// ------------------------- fp 版型 ----------------------------- //
+// --------------------------------------------------------------- //
 
+.main.print{
+  width: 92%; margin: 0 auto;
+
+  .breadcrumb, .pageHeader, .cp{ width: 100%;}
+
+  .breadcrumb { padding-left: 0; background: none;}
+
+  .pageHeader{
+    border-bottom: 4px solid $borderColor;
+    padding: 5px 0; margin: 0 auto 10px !important;
+    h2{ 
+      padding: 0; margin: 0; color: #000;
+      &::before {display: none;}
+    } 
+  }
+
+  .cp{margin-top: 15px;}
+
+
+  .poInfo{
+    padding:5px 10px; margin: 5px 0 50px;
+    border: 1px dashed $borderColor;
+    background: none;
+    ul{ display: block;}
+    li{ display: inline-block;}
+  }
+
+  .cpArticle{
+    h3, h4 {
+      background: none; padding-left: 0;
+      color: #000;
+      &::before { display: none;}
+      &.style1 { 
+        color: #000; background-color: #fff; padding: 0 0 5px;
+        border-radius: 0;
+        border-bottom: 2px dotted $borderColorDark;
+      }
+    }
+  
+    .button a{
+      background-color: #fff; color: $fontColor !important;
+      border: 1px solid $borderColorDark;
+      height: 2.7em;
+    }
+  
+    blockquote{
+      border-radius: 16px; border-left-width: 12px; border-right-width: 12px;
+      &::before {display: none;}
+    }
+  
+    figure {
+      border: 1px solid $borderColor; background-color: #fff;
+    }
+  
+    table{
+      &.tbStyle1, &.tbStyle2 {
+        tbody, thead{
+          th{ background-color: #ddd; color: #000;}
+        }
+      }
+    }
+  
+  }
+
+  .seeAlso, .photoflow, .fileDownload {
+    h3{
+      padding-left: 0;
+      &::before {display: none;}
+    }
+  }
+
+  // 相關圖片
+  .photoflow {
+    .flowNav, button.arrowBtn{ display: none !important;}
+
+    .flowList{
+      display: block;
+      &>li{ 
+        display: block; width: 100%; height: auto ; margin: 0 0 12px;
+        &>a{ 
+          height: auto !important;
+          &::before{
+            box-shadow: $borderColorDark 0 0 0 1px inset; 
+          }
+        }
+        img{ width: 100%; height: auto !important; transform: none; }
+        p{
+          position: static; display: block;
+          background: none; color: $fontColor;
+          transform: none;
+        }
+      }
+    }
+  }
+
+
+}
   
