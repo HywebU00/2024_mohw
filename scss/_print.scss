@@ -1,0 +1,104 @@
+@media print {
+  body{ background: none; position: static !important;}
+
+  .webHeader, .sidebar, .webFooter, .mainRow .columnLeft, 
+  .funcBar, .cpAnchors, .goTop, .goTop.show,
+  .searchOnLp { display: none; }
+
+  .mainRow{ max-width: none;}
+
+  .pageHeader{
+    border-bottom: 4px solid $borderColor;
+    padding: 5px 0; margin: 0 auto 20px !important;
+    h2{ 
+      padding-left: 0;
+      &::before {display: none;}
+    } 
+  }
+
+  // --------------------------------------------------------------- //
+  // --------------------------------------------------------------- //
+  // cp
+  .poInfo{
+    ul{ display: block;}
+    li{ display: inline-block;}
+    li:last-child{ display: none;}
+    padding:5px 10px;
+    border: 1px dashed $borderColor;
+    background: none;
+  }
+
+  .cpArticle{
+    h3, h4 {
+      background: none; padding-left: 0;
+      &::before { display: none;}
+      &.style1 { 
+        color: #000; background-color: #fff; padding: 0 0 5px;
+        border-radius: 0;
+        border-bottom: 2px dotted $borderColorDark;
+      }
+    }
+  
+    .button a{
+      background-color: #fff; color: $fontColor !important;
+      border: 1px solid $borderColorDark;
+      height: 2.7em;
+    }
+  
+    blockquote{
+      border-radius: 16px; border-left-width: 12px; border-right-width: 12px;
+      &::before {display: none;}
+    }
+  
+    figure {
+      border: 1px solid $borderColor; background-color: #fff;
+    }
+  
+    table{
+      &.tbStyle1, &.tbStyle2 {
+        tbody, thead{
+          th{ background-color: #ddd; color: #000;}
+        }
+      }
+    }
+  
+  }
+
+  // 相關圖片
+  .photoflow {
+    button.arrowBtn { display: none;}
+  
+    .flowList{
+      display: block;
+      &>li{ 
+        display: inline-block; vertical-align: top;
+        width: 31%; height: auto !important;
+        margin: 0 8px 8px 0 !important;
+        a{ height: auto !important;}
+        img{ height: auto !important; margin-bottom: 10px;}
+        p{
+          position: static; display: block;
+          background: none; color: $fontColor;
+        }
+      
+      }
+    }
+
+    .flowNav{ display: none;}
+  
+  }
+
+
+  // --------------------------------------------------------------- //
+  // --------------------------------------------------------------- //
+  // lp
+  .listTb>table.stickyHead thead {
+    position: static !important;
+  }
+  
+}
+
+
+
+
+  

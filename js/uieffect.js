@@ -631,7 +631,6 @@ $(function(){
     function indicatReady() {
       _indicatItem.removeClass(actClassName);
       _flowItem.children('a').attr('tabindex', -1);
-      // _indicatItem.eq(i).addClass(actClassName);
       _indicatItem.eq(i).addClass(actClassName);
       _flowItem.eq(i).children('a').attr('tabindex', 0);
 
@@ -670,13 +669,16 @@ $(function(){
       }
 
       // if (www >= wwNormal) {
-      //   if (slideCount <= 3) {
+      //   if (slideCount <= 4) {
       //     flownavHide();
       //   } else {
       //     flownavShow();
       //     _indicatItem.eq((i + 1) % slideCount).addClass(actClassName);
       //     _indicatItem.eq((i + 2) % slideCount).addClass(actClassName);
       //     _indicatItem.eq((i + 3) % slideCount).addClass(actClassName);
+      //     _flowItem.eq((i + 1) % slideCount).children('a').attr('tabindex', 0);
+      //     _flowItem.eq((i + 2) % slideCount).children('a').attr('tabindex', 0);
+      //     _flowItem.eq((i + 3) % slideCount).children('a').attr('tabindex', 0);
       //   }
       // }
     }
