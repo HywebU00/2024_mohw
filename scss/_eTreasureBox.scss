@@ -100,14 +100,14 @@
           left: 160px; top: 220px;
           width: 24px; height: 30px;
           background: url(../images/heart1.svg) no-repeat 0 0;
-          background-size: 100% auto;
+          background-size: contain;
           animation: heart1 infinite linear 2.8s;
         }
         &::after {
           left: 324px; top: 255px;
           width: 36px; height: 34px;
           background: url(../images/heart2.svg) no-repeat 0 0;
-          background-size: 100% auto;
+          background-size: contain;
           animation: heart2 infinite linear 3.1s;
         }
       }
