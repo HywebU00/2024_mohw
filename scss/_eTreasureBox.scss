@@ -91,17 +91,24 @@
     .group1{
       .groupName{
         top: -100px; left: -50px;
-        background: url(../images/etBox_group1.png) no-repeat center center;
-        outline: 1px dashed red;
+        background: url(../images/etBox_group1.jpg) no-repeat center center;
+        outline-offset: -1px;
         &::before, &::after{
           content: ''; position: absolute; 
         }
         &::before {
-          outline: 1px dashed pink;
-          left: 80px; top: 50px;
+          left: 160px; top: 220px;
           width: 24px; height: 30px;
           background: url(../images/heart1.svg) no-repeat 0 0;
-          background-size: contain;
+          background-size: 100% auto;
+          animation: heart1 infinite linear 2.8s;
+        }
+        &::after {
+          left: 324px; top: 255px;
+          width: 36px; height: 34px;
+          background: url(../images/heart2.svg) no-repeat 0 0;
+          background-size: 100% auto;
+          animation: heart2 infinite linear 3.1s;
         }
       }
       &>ul{ margin-left: 30%;}
@@ -110,7 +117,7 @@
       margin-top: 20px;
       .groupName{
         bottom: -100px; right: -65px; 
-        background: url(../images/etBox_group2.png) no-repeat center center;
+        background: url(../images/etBox_group2.jpg) no-repeat center center;
 
         &::before{
           content: ''; position: absolute; 
@@ -178,24 +185,34 @@
     .group2 .groupName{ right: -50px;background-position: center center;}
   }
 
-}
 
 
 
-@keyframes followpath {
-  to {
-    offset-distance: 100%;
+  // animation -------
+  @keyframes followpath {
+    to {offset-distance: 100%;}
+  }
+  
+  @keyframes flap {
+    0% { transform: scaleX(1);}
+    50% { transform: scaleX(.1);}
+    100% { transform: scaleX(1);}
+  }
+  
+  @keyframes heart1 {
+    0% { scale:.5; opacity: 0;}
+    20% { opacity: 1;}
+    75% { scale: 1; opacity: 1;}
+    99% { scale:1.1; translate:-80px -80px; rotate:20deg; opacity: 0;}
+    100% { scale:.5; translate:0 0; opacity: 0;}
+  }
+  @keyframes heart2 {
+    0% { scale: .3; opacity: 0;}
+    15%{ opacity: 1;}
+    55%{ scale: 1; opacity: 1;}
+    75%{ scale: 1; opacity: 0; translate: 40px -80px;}
+    100%{ scale: .3; opacity: 0; translate: 0 0; }
   }
 }
 
-@keyframes flap {
-  0% { transform: scaleX(1);}
-  50% { transform: scaleX(.1);}
-  100% { transform: scaleX(1);}
-}
 
-@keyframes heart1 {
-  0% { transform: scaleX(.5); opacity: .5;}
-  50% { transform: scaleX(1); opacity: 1;}
-  90% { transform: scaleX(1.2); opacity: 0;}
-}
