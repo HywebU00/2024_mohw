@@ -91,7 +91,18 @@
     .group1{
       .groupName{
         top: -100px; left: -50px;
-        background: url(../publicData/etBox_group1.png) no-repeat center center;
+        background: url(../images/etBox_group1.png) no-repeat center center;
+        outline: 1px dashed red;
+        &::before, &::after{
+          content: ''; position: absolute; 
+        }
+        &::before {
+          outline: 1px dashed pink;
+          left: 80px; top: 50px;
+          width: 24px; height: 30px;
+          background: url(../images/heart1.svg) no-repeat 0 0;
+          background-size: contain;
+        }
       }
       &>ul{ margin-left: 30%;}
     }
@@ -99,7 +110,25 @@
       margin-top: 20px;
       .groupName{
         bottom: -100px; right: -65px; 
-        background: url(../publicData/etBox_group2.png) no-repeat center center;
+        background: url(../images/etBox_group2.png) no-repeat center center;
+
+        &::before{
+          content: ''; position: absolute; 
+          left: -20px; top: 50px;
+          width: 32px; height: 32px;
+          background: url(../images/buttery.svg) no-repeat center center;
+          background-size: 100%;
+          
+          offset-path: path(
+            "M5.08,314.36c187.53-56.93,253.81,133.4,386.79,70.33,97.67-46.33,85.95-140.65,6.14-193.12-81.62-53.66-50.79-245.02,73.12-175.57,76.96,43.14-3.35,151.57-102.7,70.09-42.72-35.04-139.87-49.24-175.81-41.3C68.71,72.12,83.22,131.85,.61,196.03"
+          );
+          offset-rotate: 90deg auto;
+
+          animation-name: flap, followpath;
+          animation-duration: .5s, 20s;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+        }
       }
       &>ul{ margin-right: 30%; }
     }
@@ -110,7 +139,6 @@
       li{
         flex: 1 1 22%;
         margin: 10px auto; height: 156px;
-        // outline: 1px dashed #0003;
         &:nth-child(5){ margin-left: 12.5%;}
         &:nth-child(7){ margin-right: 12.5%; display: block;}
         &:nth-child(5),&:nth-child(6),&:nth-child(7) {
@@ -125,7 +153,6 @@
     }
 
     .more{ margin-top: 50px;}
-
   }
 
   @media screen and (min-width: 1150px){
@@ -151,4 +178,24 @@
     .group2 .groupName{ right: -50px;background-position: center center;}
   }
 
+}
+
+
+
+@keyframes followpath {
+  to {
+    offset-distance: 100%;
+  }
+}
+
+@keyframes flap {
+  0% { transform: scaleX(1);}
+  50% { transform: scaleX(.1);}
+  100% { transform: scaleX(1);}
+}
+
+@keyframes heart1 {
+  0% { transform: scaleX(.5); opacity: .5;}
+  50% { transform: scaleX(1); opacity: 1;}
+  90% { transform: scaleX(1.2); opacity: 0;}
 }
