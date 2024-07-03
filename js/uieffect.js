@@ -664,7 +664,6 @@ $(function(){
 
           _flowItem.eq((i + 1) % slideCount).children('a').attr('tabindex', 0);
           _flowItem.eq((i + 2) % slideCount).children('a').attr('tabindex', 0);
-
         }
       }
 
@@ -914,7 +913,7 @@ $(function(){
   _bigBanner.slick({
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 5000,
     speed: 880,
     arrows: true,

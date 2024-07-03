@@ -6,7 +6,7 @@
   &::before{@extend %gradient1;}
 
   .banner{
-    padding: 0 0 10px;
+    padding: 0 0 15px;
     a{ 
       display: block; color: $fontColor; text-decoration: none;
       position: relative;
@@ -24,29 +24,32 @@
     article{
       position: relative;
       background: $white; border-radius: $radius2;
-      margin: -20px 4vw 0; padding: 3.5em 4vw 2em;
-      height: calc(21em + 30px); overflow: hidden;
+      margin: -20px 4vw 0; padding: 1.6em 4vw 1.8em;
+      overflow: hidden;
       box-shadow: rgb(0 0 0 / 0.15) 0 0 12px;
+      &:has(time){padding-top: 3.2em;}
+      &::after{
+        content: ''; display: block; left: 4vw; top: auto;
+        width: 72px; height: 6px; margin-top: 16px;
+        @extend %gradient1;
+      }
       p{
         margin: 0;
         display: -webkit-box; -webkit-box-orient: vertical;
         overflow: hidden;
         &.title{
-          line-height: 1.5; 
-          -webkit-line-clamp: 4;
-          margin: 0 0 24px; max-height: 6.2em;
-          font-size: 1.5em; font-weight: bold;
-          color: $assistant2;
+          -webkit-line-clamp: 2;height: 2.9em;overflow: hidden;
+          font-size: 1.5em; line-height: 1.5; 
+          font-weight: bold; color: $assistant2;
         }
         &.description{
-          margin: 0;
-          -webkit-line-clamp: 3; height: calc(5em + 30px);
+          -webkit-line-clamp: 3; height: calc(5em + 28px);
           line-height: 1.6; font-size: 1.125em;
-          &::before{
-            content: ''; display: block; left: 4vw; top: auto;
-            width: 72px; height: 6px; margin-bottom: 24px;
-            @extend %gradient1;
-          }
+          // &::before{
+          //   content: ''; display: block; left: 4vw; top: auto;
+          //   width: 72px; height: 6px; margin-bottom: 24px;
+          //   @extend %gradient1;
+          // }
         }
       }
       time{
@@ -101,12 +104,16 @@
         position: absolute; left: 68.16vw; right: 0; top: 0; bottom: 0;
         // width: 29vw;height: 35vw;
         width: 27.84vw; height: 34.08vw;
-        margin: 0;padding:50px 30px 40px;
+        margin: 0;padding:40px 30px 40px;
         border-radius: $radius2;
-
+        &::after{margin-top: 24px;}
         p{
-          &.title{ }
-          &.description {}
+          &.title{
+            -webkit-line-clamp: 6; height: auto;
+            
+            // outline: 1px dashed #f008;
+            // outline-offset: -1px;
+          }
         }
         time{left: 30px;}
       }
@@ -127,7 +134,9 @@
     }
     .banner{
       img{ width: 800px; height: 400px;}
-      article{ width: 320px; left: 800px; height: 400px; }
+      article{ width: 320px; left: 800px; height: 400px; 
+        p.title{ -webkit-line-clamp: 7;}
+      }
     }
   }
 
