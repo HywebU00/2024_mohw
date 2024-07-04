@@ -2,11 +2,10 @@
 // .main>section:not(.bigBanner) { display: none;}
 
 .bigBanner{
-  margin: 0 auto 10px;padding: 0 0 20px;
+  margin: 0 auto 10px;padding: 0;
   &::before{@extend %gradient1;}
 
   .banner{
-    padding: 0 0 15px;
     a{ 
       display: block; color: $fontColor; text-decoration: none;
       position: relative;
@@ -20,47 +19,6 @@
       display: block; margin: 0;
       width: 100vw; height: 50vw;
     }
-
-    article{
-      position: relative;
-      background: $white; border-radius: $radius2;
-      margin: -20px 4vw 0; padding: 1.6em 4vw 1.8em;
-      overflow: hidden;
-      box-shadow: rgb(0 0 0 / 0.15) 0 0 12px;
-      &:has(time){padding-top: 3.2em;}
-      &::after{
-        content: ''; display: block; left: 4vw; top: auto;
-        width: 72px; height: 6px; margin-top: 16px;
-        @extend %gradient1;
-      }
-      p{
-        margin: 0;
-        display: -webkit-box; -webkit-box-orient: vertical;
-        overflow: hidden;
-        &.title{
-          -webkit-line-clamp: 2;height: 2.9em;overflow: hidden;
-          font-size: 1.5em; line-height: 1.5; 
-          font-weight: bold; color: $assistant2;
-        }
-        &.description{
-          -webkit-line-clamp: 3; height: calc(5em + 28px);
-          line-height: 1.6; font-size: 1.125em;
-          // &::before{
-          //   content: ''; display: block; left: 4vw; top: auto;
-          //   width: 72px; height: 6px; margin-bottom: 24px;
-          //   @extend %gradient1;
-          // }
-        }
-      }
-      time{
-        position: absolute; top: 0; left: 4vw;
-        padding: 0 20px; height: 2.2em; line-height: 2.1;
-        font-weight: bold;
-        background: $assistant2; color: $white;
-        border-radius: 0 0  12px 12px;
-        box-shadow: 0 0 15px rgb(0 0 0 / .2);
-      }
-    }
   }
 
   .slickBox{ 
@@ -69,24 +27,17 @@
       --gap: 8px;
       top: 25vw;
     }
+    .slick-dots{margin-top: 12px;}
   }
 
   @media screen and (min-width: $wwNormal){
     width: 96%; max-width: 1120px;
+    .slick-list {
+      border-radius: $radius2; overflow: hidden;
+    }
     &::before{
       content: '';
       position: absolute; left: 0; right: 0;height: 80px; 
-    }
-    .slickBox{
-      &::after{
-        // 雙圓餅裝飾圖
-        content: ''; position: absolute; bottom: -6px; right: 30px;
-        width: 120px; height: 90px;
-        background: url(../images/twoDisks.svg) no-repeat right 0  bottom 0,
-        url(../images/twoDisks.svg) no-repeat right 43px bottom 43px ;
-        background-size: auto 46px;
-        transform: rotate(135deg);
-      }
     }
 
     .banner{
@@ -95,34 +46,11 @@
         border-radius: $radius2;
         &::before {border-radius: $radius2;}
       }
-      img{
-        width: 68.16vw; height:34.08vw;
-        border-radius: $radius2;
-      }
-
-      article{
-        position: absolute; left: 68.16vw; right: 0; top: 0; bottom: 0;
-        // width: 29vw;height: 35vw;
-        width: 27.84vw; height: 34.08vw;
-        margin: 0;padding:40px 30px 40px;
-        border-radius: $radius2;
-        &::after{margin-top: 24px;}
-        p{
-          &.title{
-            -webkit-line-clamp: 6; height: auto;
-            
-            // outline: 1px dashed #f008;
-            // outline-offset: -1px;
-          }
-        }
-        time{left: 30px;}
-      }
-
-      
+      img{width: 100%; height:48vw;max-height: 560px;}
     }
 
     .slickBox{ 
-      .slick-arrow {top: 17.04vw;}
+      .slick-arrow {top: 24vw;}
     }
   
   }
@@ -130,13 +58,7 @@
   @media screen and (min-width: 1167px){
     .slickBox{ 
       width: 1120px; 
-      .slick-arrow {top: 200px;}
-    }
-    .banner{
-      img{ width: 800px; height: 400px;}
-      article{ width: 320px; left: 800px; height: 400px; 
-        p.title{ -webkit-line-clamp: 7;}
-      }
+      .slick-arrow { top: 280px;}
     }
   }
 
@@ -146,10 +68,7 @@
         --tinge: #{$assistant2};
         --gap: -76px;
         &::before{filter: none;}
-
-        // &:hover{ --bg: rgb(255 255 255); }
         &:focus{ --tinge: #fff }
-    
       }
     }
   }
