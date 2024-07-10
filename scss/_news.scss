@@ -79,15 +79,16 @@
     position: relative;
     padding-bottom: 90px;
 
-    &::after{
-      // 雙圓餅裝飾圖
-      content: ''; position: absolute; bottom: 0; left: 6%;
-      width: 120px; height: 90px;
-      background: url(../images/twoDisks.svg) no-repeat right 0  bottom 0,
-      url(../images/twoDisks.svg) no-repeat right 43px bottom 43px ;
-      background-size: auto 46px;
-      transform: rotate(135deg);
-    }
+    // 雙圓餅裝飾圖
+    // &::after{
+    //   content: ''; position: absolute; bottom: 0; left: 6%;
+    //   width: 120px; height: 90px;
+    //   background: url(../images/twoDisks.svg) no-repeat right 0  bottom 0,
+    //   url(../images/twoDisks.svg) no-repeat right 43px bottom 43px ;
+    //   background-size: auto 46px;
+    //   transform: rotate(135deg);
+    // }
+    // 20240710 客戶要求移除
 
     .tabItems{ width: 90%; margin: 0 auto 20px;}
     .tabContent{width: 90%; margin: 0 auto;}
