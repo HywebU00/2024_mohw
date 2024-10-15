@@ -5,7 +5,7 @@
 		}
 	],
 	"settings": {
-		"liveServer.settings.port": 5504,
+		"liveServer.settings.port": 5505,
 		"liveSassCompile.settings.formats": [
 			{
 				"format": "compressed",

@@ -1,6 +1,6 @@
 //  首頁：重要政策
 .policies{
-  --imgWidth: 60vw;
+  --imgWidth: 36vw;
 
   .item{
     padding: 20px 0 5px;
@@ -46,24 +46,25 @@
     li.slick-active{--tinge: rgb(255 255 255 / 1);}
   }
   .slick-arrow {
-    --gap:5vw;
+    --gap:2vw;
     top: calc(70px + var(--imgWidth)*.5);
   }
 
   @media screen and (min-width: $wwMedium){
-    --imgWidth: 36vw;
+    --imgWidth: 25vw;
     .slick-arrow {--gap:2vw;}
   }
 
   @media screen and (min-width: $wwNormal){
-    --imgWidth: 25vw;
-    .slickBox{padding-left: 6vw; padding-right: 6vw;}
+    --imgWidth: 19vw;
+    .slickBox{padding-left: 60px; padding-right: 60px;}
     .slick-arrow {--gap:8px;}
   }
 
   @media screen and (min-width: 1120px){
     --imgWidth: 220px;
     .slickBox{padding-left: 60px; padding-right: 60px;}
+    .slick-arrow {--gap:20px;}
     .slick-list{ width: 1000px; margin: 0 auto;}
   }
   

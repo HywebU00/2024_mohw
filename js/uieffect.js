@@ -932,7 +932,7 @@ $(function(){
   // 重要政策
   // --------------------------------------------------------------- //
   $('.policies').find('.slickBox').slick({
-    slidesToShow: 1,
+    slidesToShow: 2,
     slidesToScroll: 1,
     autoplaySpeed: 5000,
     speed: 800,
@@ -942,26 +942,26 @@ $(function(){
     fade: false,
     infinite: true,
     centerMode: true,
-    centerPadding: '15vw',
+    centerPadding: '10vw',
     mobileFirst: true,
 
     responsive: [
       {
-        breakpoint: wwMedium,
+        breakpoint: 699,
         settings: {
-          slidesToShow: 2,
-          centerPadding: '10vw'
+          slidesToShow: 3,
+          centerPadding: '8vw'
         }
       },
       {
-        breakpoint: wwNormal,
+        breakpoint: 999,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
           centerMode: false
         }
       },
       {
-        breakpoint: 1120,
+        breakpoint: 1119,
         settings: {
           slidesToShow: 4,
           centerMode: false
