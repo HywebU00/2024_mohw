@@ -3,7 +3,7 @@
   --imgWidth: 36vw;
 
   .item{
-    padding: 20px 0 5px;
+    padding: 20px 0;
     a {
       display: block; 
       margin: 0;text-decoration: none;outline: none;
@@ -25,10 +25,11 @@
       transition: .2s;
     }
     p {
-      margin: 24px auto 0;width: var(--imgWidth);
-      line-height: 1.2;text-align: center;
-      font-size: 1.375em; font-weight: bold;
-      color: $white;
+      display: none;
+      // margin: 24px auto 0;width: var(--imgWidth);
+      // line-height: 1.2;text-align: center;
+      // font-size: 1.375em; font-weight: bold;
+      // color: $white;
     }
 
   }
@@ -37,17 +38,17 @@
   .slickBox{
     --deg: 270deg;
     @extend %gradient1;
-    padding:50px 0; margin: 0;
+    padding:10px 0 15px; margin: 0;
   }
   .slick-dots { 
     --tinge: rgb(255 255 255 / .2);
 
-    margin-top: 20px;
+    margin-top: 0;
     li.slick-active{--tinge: rgb(255 255 255 / 1);}
   }
   .slick-arrow {
     --gap:2vw;
-    top: calc(70px + var(--imgWidth)*.5);
+    top: calc(50% - 12px);
   }
 
   @media screen and (min-width: $wwMedium){
@@ -57,8 +58,17 @@
 
   @media screen and (min-width: $wwNormal){
     --imgWidth: 19vw;
-    .slickBox{padding-left: 60px; padding-right: 60px;}
-    .slick-arrow {--gap:8px;}
+    .item{
+      p {
+        display: block;
+        margin: 24px auto 0;width: var(--imgWidth);
+        line-height: 1.2;text-align: center;
+        font-size: 1.375em; font-weight: bold;
+        color: $white;
+      }
+    }
+    .slickBox{padding:50px 60px 40px;}
+    .slick-arrow {--gap:8px; top: calc(50% - 42px);}
   }
 
   @media screen and (min-width: 1120px){
