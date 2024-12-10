@@ -923,9 +923,19 @@ $(function(){
     zIndex:8
   });
   
-
-
   // --------------------------------------------------------------- //
+  var _marqee = $('.marqee');
+  _marqee.slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 6000,
+    speed: 1200,
+    arrows: false,
+    dots: false,
+    fade: false,
+    infinite: true
+  });
 
 
 
