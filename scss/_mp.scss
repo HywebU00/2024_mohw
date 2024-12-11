@@ -70,12 +70,12 @@
 // 跑馬燈 20241209
 .marqee{
   width: 94%; margin: 15px auto; 
-  border-radius: $radius3;
+  border-radius: $radius4;
   @extend %gradient1; color: $white;
   .slick-track{display: flex; align-items: center;}
   .bulletin {
-    margin: 0 24px;padding: 12px 0; text-align: center;
-    font-size: 1.125em; line-height: 1.6;
+    margin: 0 28px;padding: 12px 0; text-align: center;
+    font-size: 1.25em; line-height: 1.5;
     p{margin: 0; display: inline-block; text-align: left; }
   }
   @media screen and (min-width: $wwNormal){
