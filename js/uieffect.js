@@ -542,7 +542,7 @@ $(function(){
   });
   // --------------------------------------------------------------- //
 
-    // 燈箱 
+  // 燈箱 
   // --------------------------------------------------------------- //
   var _lightbox = $('.lightbox');
   var _hideLightbox = _lightbox.find('.closeThis');
@@ -578,6 +578,13 @@ $(function(){
         _cpBigPhoto.find('.flowList').find('li').hide();
       }
     );
+  })
+
+  // 按 [esc 鍵] 關燈箱
+  _lightbox.on('keydown', function(e){
+    if ( e.keyCode == 27 ) {
+      _hideLightbox.trigger('click');
+    }
   })
   // --------------------------------------------------------------- //
 
