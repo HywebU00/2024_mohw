@@ -203,22 +203,16 @@ $(function(){
   // --------------------------------------------------------------- //
   var _searchCtrl = $('.searchCtrl');
   var _search = $('.search');
-  // _search.append('<button class="skip" type="button">回到控制開關</button>');
-  // var _skipSearch = _search.find('.skip');
   const srSpeed = 310;
 
   _searchCtrl.on( 'click', function(){
-    if( _search.hasClass('reveal')) {
-      _search.slideUp(srSpeed, function(){
-        _search.removeClass('reveal');
-      })
+    if( _search.is(':visible')) {
       _searchCtrl.removeClass('closeIt').attr('aria-expanded', false);
-      setTimeout(function(){_search.hide()}, srSpeed);
+      _search.slideUp(srSpeed);
     } else {
       _search.slideDown(srSpeed, function(){
         _searchCtrl.addClass('closeIt').attr('aria-expanded', true);
-        _search.addClass('reveal').find('input[type="text"]').trigger('focus');
-        // setTimeout (function(){_search.find('input[type="text"]').trigger('focus')}, srSpeed);
+        _search.find('input[type="text"]').trigger('focus');
       });
     }
   })
@@ -229,22 +223,22 @@ $(function(){
         _searchCtrl.addClass('closeIt').attr('aria-expanded', true);
         _search.addClass('reveal').find('input[type="text"]').trigger('focus');
       });
-
     }
   })
 
   _search.on('keydown', function(e){
     if( e.code == 'Escape' ) {
-      _search.slideUp(srSpeed, function(){
-        _search.removeClass('reveal');
-      })
+      _search.slideUp(srSpeed);
     }
   })
 
-  // skip, 回到查詢控制開關
-  // _skipSearch.on( 'focus', function(){
-  //   _searchCtrl.trigger('focus');
-  // })
+  // 焦點離開 _search 後隱藏 _search
+  $('*').not(_searchCtrl).focus(function(){
+    if( !$(this).parents().is(_search) && _search.is(':visible')){
+      _search.slideUp(srSpeed);
+    }
+  })
+
   // --------------------------------------------------------------- //
 
 
