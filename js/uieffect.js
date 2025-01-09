@@ -203,9 +203,9 @@ $(function(){
   // --------------------------------------------------------------- //
   var _searchCtrl = $('.searchCtrl');
   var _search = $('.search');
-  _search.append('<button class="skip" type="button">回到控制開關</button>');
-  var _skipSearch = _search.find('.skip');
-  const srSpeed = 320;
+  // _search.append('<button class="skip" type="button">回到控制開關</button>');
+  // var _skipSearch = _search.find('.skip');
+  const srSpeed = 310;
 
   _searchCtrl.on( 'click', function(){
     if( _search.hasClass('reveal')) {
@@ -216,17 +216,35 @@ $(function(){
       setTimeout(function(){_search.hide()}, srSpeed);
     } else {
       _search.slideDown(srSpeed, function(){
-        _search.addClass('reveal');
         _searchCtrl.addClass('closeIt').attr('aria-expanded', true);
-        setTimeout (function(){_search.find('input[type="text"]').trigger('focus')}, srSpeed);
+        _search.addClass('reveal').find('input[type="text"]').trigger('focus');
+        // setTimeout (function(){_search.find('input[type="text"]').trigger('focus')}, srSpeed);
       });
     }
   })
 
-  // skip, 回到查詢控制開關
-  _skipSearch.on( 'focus', function(){
-    _searchCtrl.trigger('focus');
+  _body.on('keydown', function(e){
+    if( e.code == 'KeyS' && e.altKey && _search.is(':hidden') ) {
+      _search.slideDown(srSpeed, function(){
+        _searchCtrl.addClass('closeIt').attr('aria-expanded', true);
+        _search.addClass('reveal').find('input[type="text"]').trigger('focus');
+      });
+
+    }
   })
+
+  _search.on('keydown', function(e){
+    if( e.code == 'Escape' ) {
+      _search.slideUp(srSpeed, function(){
+        _search.removeClass('reveal');
+      })
+    }
+  })
+
+  // skip, 回到查詢控制開關
+  // _skipSearch.on( 'focus', function(){
+  //   _searchCtrl.trigger('focus');
+  // })
   // --------------------------------------------------------------- //
 
 

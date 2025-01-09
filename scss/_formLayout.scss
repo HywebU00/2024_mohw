@@ -41,16 +41,14 @@
 table.layout {
   width: 100%; margin: 0 auto; border-collapse: collapse;
   font-size: 1.11em; line-height: 1.3;
-  // background-color: #fee;
-  td {
-    padding:4px 0; vertical-align: top;
+  td, th{ padding:4px 0; vertical-align: top;
     &:nth-child(odd) {
       width: 4.5em;
       padding: 1.2em 5px 4px 1.5em; 
       white-space: nowrap;text-align: right; font-weight: bold;
     }
-    &:nth-child(even){ padding-right: 1.5em;}
   }
+  td :nth-child(even){ padding-right: 1.5em;}
 
   // 表單中的 提示、警告、錯誤訊息；說明文字
   // -------------------------- //
