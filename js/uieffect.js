@@ -65,14 +65,17 @@ $(function(){
     }
   )
 
+  _sidebar.hide();
   _sidebarCtrl.click(function(){
     if (_sidebar.hasClass('reveal')) {
       _sidebar.removeClass('reveal');
       _sidebarCtrl.removeClass('closeIt');
-      _sidebarMask.fadeOut(400);
+      _sidebarMask.fadeOut(400, function(){
+        _sidebar.hide();
+      });
       _body.removeClass('noScroll');
     } else {
-      _sidebar.addClass('reveal');
+      _sidebar.show().addClass('reveal');
       _sidebarCtrl.addClass('closeIt');
       _sidebarMask.fadeIn(400);
       _body.addClass('noScroll')
@@ -82,13 +85,11 @@ $(function(){
     _sidebar.removeClass('reveal');
     _sidebarCtrl.removeClass('closeIt');
     _body.removeClass('noScroll');
-    $(this).fadeOut(400);
+    $(this).fadeOut(400, function(){
+      _sidebar.hide();
+    });
   })
 
-  // _skipToSidebarCtrl.focus(function (){
-  //   _sidebarCtrl.focus();
-  // })
-  
 
 
   // 鍵盤操作
@@ -97,24 +98,22 @@ $(function(){
   var _sidebarA_last = _sidebarA.eq(_sidebarA.length - 1); // 最後一個可 focus 元件
   
   // 離開最後一個可 focus 元件，焦點回到 _sidebarCtrl
-  _sidebarA_last.on('blur', function(){ 
-    _body.one('keyup', function(e){
-      if (!e.shiftKey) {
-        _sidebarCtrl.trigger('focus');
-      }
-    })
+  _sidebarA_last.on('keydown', function(e){ 
+    e.preventDefault();
+    if ( e.code=='Tab' && !e.shiftKey){
+      _sidebarCtrl.trigger('focus');
+    }
   })
 
-  _sidebarA_first.on('blur', function(){
-    _body.one('keyup', function(e){
-      if (e.shiftKey) {
-        _sidebarCtrl.trigger('focus');
-      }
-    })
+  _sidebarA_first.on('keydown', function(e){
+    if ( e.code=='Tab' && e.shiftKey) {
+      e.preventDefault();
+      _sidebarCtrl.trigger('focus');
+    }
   })
 
   _sidebarCtrl.on('blur', function(){
-    if ($(this).hasClass('closeIt')) {
+    if (_sidebar.is(':visible')) {
       _sidebarA_first.trigger('focus');
     }
   })

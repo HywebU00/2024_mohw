@@ -409,7 +409,7 @@ button.skip{
   }
 
   &.paused {
-    background-color: #be002e;
+    background-color: $warning;
     &::before {display: none;}
     &::after {display: block;}
   }

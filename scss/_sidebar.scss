@@ -14,7 +14,7 @@
   position: fixed; z-index: 998;
   width: $sideBarWidth; height: 100vh;
   top: 100px; left: $sideBarWidth * (-1); overflow: auto;
-  transition: .5s;
+  transition:left .4s;
 
   &.reveal{ left:0; }
 
