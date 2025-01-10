@@ -69,12 +69,18 @@
 
 // 跑馬燈 20241209
 .marqee{
-  width: 94%; margin: 15px auto; 
+  position: relative;
+  width: 94%; margin: 15px auto; padding-right: 60px; padding-left: 30px;
   border-radius: $radius4;
   @extend %gradient1; color: $white;
+
+  .playPause{
+    top:calc(50% - 22px); right: 10px;
+  }
+
   .slick-track{display: flex; align-items: center;}
   .bulletin {
-    margin: 0 28px;padding: 12px 0; text-align: center;
+    margin: 0 6px;padding: 12px 0; text-align: center;
     font-size: 1.25em; line-height: 1.5;
     p{margin: 0; display: inline-block; text-align: left; }
   }

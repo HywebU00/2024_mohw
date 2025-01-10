@@ -881,45 +881,6 @@ $(function(){
   // --------------------------------------------------------------- //
 
 
-  // 改變瀏覽器寬度 window resize 
-  // --------------------------------------------------------------- //
-  var winResizeTimer;
-  _window.resize(function () {
-    clearTimeout(winResizeTimer);
-    winResizeTimer = setTimeout( function () {
-
-      wwNew = _window.width();
-      
-      // 由小螢幕到寬螢幕
-      if( ww < wwNormal && wwNew >= wwNormal ) {
-        if (_sidebar.hasClass('reveal')) {
-          _sidebar.removeClass('reveal');
-          _sidebarCtrl.removeClass('closeIt');
-          _sidebarMask.hide();
-          _body.removeClass('noScroll');
-        }
-
-        _body.removeAttr('style');
-        _webHeader.removeClass('fixed');
-        _search.removeClass('reveal').removeAttr('style')
-        fixHeadThreshold =  _webHeader.innerHeight();
-        offsetTop = _webHeader.innerHeight();
-            
-        _window.trigger('scroll');
-      }
-
-      // 由寬螢幕到小螢幕
-      if( ww >= wwNormal && wwNew < wwNormal ){
-        fixHeadThreshold = 0;
-        offsetTop = _webHeader.innerHeight();
-        _body.removeAttr('style');
-      }
-      ww = wwNew;
-    }, 200);
-  });
-  // window resize  end -------------------------------------------- //
-  
-
 
   // --------------------------------------------------------------- //
   // ----------------- 外掛套件 slick 參數設定 --------------------- //
@@ -941,9 +902,11 @@ $(function(){
     infinite: true,
     zIndex:8
   });
+
+
   
   // --------------------------------------------------------------- //
-  var _marqee = $('.marqee');
+  var _marqee = $('.marqee').find('.slickBox');
   _marqee.slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -960,7 +923,8 @@ $(function(){
 
   // 重要政策
   // --------------------------------------------------------------- //
-  $('.policies').find('.slickBox').slick({
+  var _policiesSlick = $('.policies').find('.slickBox');
+  _policiesSlick.slick({
     slidesToShow: 2,
     slidesToScroll: 1,
     autoplaySpeed: 5000,
@@ -973,7 +937,6 @@ $(function(){
     centerMode: true,
     centerPadding: '10vw',
     mobileFirst: true,
-
     responsive: [
       {
         breakpoint: 699,
@@ -988,25 +951,17 @@ $(function(){
           slidesToShow: 4,
           centerMode: false
         }
-      },
-      {
-        breakpoint: 1119,
-        settings: {
-          slidesToShow: 4,
-          centerMode: false
-        }
       }
     ]
   });
-
   // --------------------------------------------------------------- //
 
 
 
   // 宣傳訊息
   // --------------------------------------------------------------- //
-  
-  $('.adBanners').find('.slickBox').slick({
+  var _adBanners = $('.adBanners').find('.slickBox');
+  _adBanners.slick({
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplaySpeed: 5000,
@@ -1093,8 +1048,41 @@ $(function(){
   })
 
   _photoShow.append('<div class="total">' + phsLength +'</div>');
+  // --------------------------------------------------------------- //
 
+
+
+  // 無障礙修改 20250109
+  // --------------------------------------------------------------- //
+
+  // 移除輪播的點點 button
+  function removeSlickdotsButton(){
+    $('.slickBox').find('.slick-dots').children('li').off('click').find('button').attr('tabindex', '-1').attr('aria-hidden', true);
+  }
+  removeSlickdotsButton();
   
+  // 暫停按鈕
+  var _playPause = $('.playPause');
+  _playPause.each( function(){
+    let _thisPP = $(this);
+    const buttonText0 = _thisPP.attr('aria-label');
+    const buttonText1 = _thisPP.attr('data-altLabel');
+    _thisPP.on('click', function(){
+      if ( _thisPP.hasClass('paused') ){
+        _thisPP.removeClass('paused').attr('aria-label', buttonText0);
+        _thisPP.next().slick('slickPlay');
+      } else {
+        _thisPP.addClass('paused').attr('aria-label', buttonText1);
+        _thisPP.next().slick('slickPause');
+      }
+    })
+  })
+
+  // --------------------------------------------------------------- //
+
+
+
+
   // --------------------------------------------------------------- //
   // --------------- 外掛套件 slick 參數設定 END ------------------- //
   // --------------------------------------------------------------- //
@@ -1119,4 +1107,64 @@ $(function(){
 			}
 		})
 	})
+
+
+
+  // 改變瀏覽器寬度 window resize 
+  // --------------------------------------------------------------- //
+  var winResizeTimer;
+  _window.resize(function () {
+    clearTimeout(winResizeTimer);
+    winResizeTimer = setTimeout( function () {
+  
+      wwNew = _window.width();
+      // 由小螢幕到寬螢幕
+      if( ww < wwNormal && wwNew >= wwNormal ) {
+        if (_sidebar.hasClass('reveal')) {
+          _sidebar.removeClass('reveal');
+          _sidebarCtrl.removeClass('closeIt');
+          _sidebarMask.hide();
+          _body.removeClass('noScroll');
+        }
+  
+        _body.removeAttr('style');
+        _webHeader.removeClass('fixed');
+        _search.removeClass('reveal').removeAttr('style')
+        fixHeadThreshold =  _webHeader.innerHeight();
+        offsetTop = _webHeader.innerHeight();
+            
+        _window.trigger('scroll');
+        // _playPause.removeClass('paused').attr('aria-label', '停止輪播');
+        
+      }
+  
+      // 由寬螢幕到小螢幕
+      if( ww >= wwNormal && wwNew < wwNormal ){
+        fixHeadThreshold = 0;
+        offsetTop = _webHeader.innerHeight();
+        _body.removeAttr('style');
+        // _playPause.removeClass('paused').attr('aria-label', '停止輪播');
+      }
+  
+      // 由中螢幕到小螢幕
+      if( ww >= wwMedium && wwNew < wwMedium ){
+        // _playPause.removeClass('paused').attr('aria-label', '停止輪播');
+      }
+      // 由小螢幕到中螢幕
+      if( ww < wwMedium && wwNew >= wwMedium ){
+        // _playPause.removeClass('paused').attr('aria-label', '停止輪播');
+      }
+      removeSlickdotsButton();
+
+      ww = wwNew;
+    }, 200);
+  });
+  // window resize  end -------------------------------------------- //
+
+
 })
+
+
+
+
+  

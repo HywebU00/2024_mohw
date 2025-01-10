@@ -1,6 +1,9 @@
 //  首頁：重要政策
 .policies{
   --imgWidth: 36vw;
+  position: relative;
+
+  .playPause {right: calc(10vw - 22px); top: 8px;}
 
   .item{
     padding: 20px 0;
@@ -34,11 +37,10 @@
 
   }
   
-
   .slickBox{
     --deg: 270deg;
     @extend %gradient1;
-    padding:10px 0 15px; margin: 0;
+    padding:25px 0 15px; margin: 0;
   }
   .slick-dots { 
     --tinge: rgb(255 255 255 / .2);
@@ -48,16 +50,20 @@
   }
   .slick-arrow {
     --gap:2vw;
-    top: calc(50% - 12px);
+    top: 50%;
   }
 
   @media screen and (min-width: $wwMedium){
     --imgWidth: 25vw;
+    .playPause { right: calc(8vw - 22px);}
     .slick-arrow {--gap:2vw;}
+
   }
 
   @media screen and (min-width: $wwNormal){
     --imgWidth: 19vw;
+    .playPause{top: 24px; right: 22px;}
+
     .item{
       p {
         display: block;
@@ -69,6 +75,7 @@
     }
     .slickBox{padding:50px 60px 40px;}
     .slick-arrow {--gap:8px; top: calc(50% - 42px);}
+    .slick-dots { margin: 0 auto; width: 96%;}
   }
 
   @media screen and (min-width: 1120px){
@@ -79,10 +86,12 @@
   }
   
   @media screen and (min-width: $wwMaximum){
+    .playPause{right: calc(50% - 566px);}
     .slick-arrow{
       &.slick-prev{ left: calc(50% - 580px);}
       &.slick-next{ right: calc(50% - 580px);}
     }
+    .slick-dots { width: $maximumWidth - 160px;}
   }
 
 }

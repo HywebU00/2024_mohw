@@ -2,8 +2,12 @@
 // .main>section:not(.bigBanner) { display: none;}
 
 .bigBanner{
+  // position: relative;
   margin: 0 auto 10px;padding: 0;
   &::before{@extend %gradient1;}
+
+  // 暫停按鈕
+  .playPause {right: 8px; top: 8px;}
 
   .banner{
     a{ 
@@ -41,8 +45,10 @@
     .slick-dots{margin-top: 12px;}
   }
 
+
   @media screen and (min-width: $wwNormal){
     width: 96%; max-width: 1120px;
+    .playPause{ right: calc(2% + 8px);}
     .slick-list {
       border-radius: $radius2; overflow: hidden;
     }
@@ -69,6 +75,7 @@
   }
 
   @media screen and (min-width: 1167px){
+    .playPause{ right: calc(50% - 560px + 8px);}
     .slickBox{ 
       width: 1120px; 
       .slick-arrow { top: 280px;}
@@ -76,6 +83,7 @@
   }
 
   @media screen and (min-width: $wwMaximum){
+
     .slickBox{ 
       .slick-arrow {
         --tinge: #{$assistant2};

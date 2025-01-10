@@ -2,13 +2,30 @@
 .statistic{
   margin: 0 auto;
 
+  &>a{
+    display: block;
+    color: $fontColor; text-decoration: none;
+    &:hover{
+      figure{
+        background-color: rgb(255 255 255 / 1);
+        box-shadow:$white 0 0 0 3px, rgb(0 0 0 / .3) 0 0 24px;
+      }
+    }
+    &:focus {
+      figure{
+        background-color: rgb(255 255 255 / 1);
+        box-shadow:$primaryColor 0 0 0 3px, rgb(0 0 0 / .3) 0 0 24px;
+      }
+    }
+  }
   figure{
     display: block; padding: 30px 0;
     margin: 0 auto 30px;
     text-align: center;
     border-radius: 20px;
     background-color: rgb(255 255 255 / .8);
-    box-shadow: rgb(0 0 0 / .1) 0 0 20px;
+    box-shadow:#fff 0 0 0 0, rgb(0 0 0 / .1) 0 0 20px;
+    transition: .2s;
 
     img{
       display: block; margin: 0 auto; width: 90%;

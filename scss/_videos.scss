@@ -2,16 +2,26 @@
 .videos{
   margin: 0 auto;
   .screenshot{
-    padding: 30px 0; margin: 0 auto 30px;
+    margin: 0 auto 30px;
     text-align: center;
-    border-radius: 20px;
-    background-color: rgb(255 255 255 / .8);
-    box-shadow: rgb(0 0 0 / .1) 0 0 20px;
-
-    img{
-      display: block; margin: 0 auto; width: 90%;
-      box-shadow: rgb(0 0 0 / .1) 0 0 20px;
+    &>a{
+      display: block; padding: 30px 0; 
+      color: $fontColor; text-decoration: none;
+      background-color: rgb(255 255 255 / .8);
+      box-shadow:#fff 0 0 0, rgb(0 0 0 / .1) 0 0 20px;
+      border-radius: 20px;
+      transition: .2s;
+      &:hover{
+        background-color: rgb(255 255 255 / 1);
+        box-shadow:#fff 0 0 0 3px, rgb(0 0 0 / .3) 0 0 24px;
+      }
+      &:focus {
+        background-color: rgb(255 255 255 / 1);
+        box-shadow:$primaryColor 0 0 0 3px, rgb(0 0 0 / .3) 0 0 24px;
+      }
     }
+  
+    img{display: block; margin: 0 auto; width: 90%;}
 
     .title{
       display: block; margin: 15px auto 0;width: 90%;

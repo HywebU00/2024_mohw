@@ -166,6 +166,7 @@ a:hover, a:focus{
     li { 
       display: inline-block; margin: 2px 6px;
       button { 
+        display: none;
         width: 8px; height: 8px; border-radius: 4px;
         font-size: 0;
         background-color: var(--tinge);
@@ -179,6 +180,12 @@ a:hover, a:focus{
           &:focus{ box-shadow:$gray 0 0 0 1px,  var(--tinge) 0 0 0 3px; }
         }
       }
+
+      // 20250110 無障礙修改
+      width: 8px; height: 8px; border-radius: 4px;
+      background-color: var(--tinge);
+      transition: .3s;
+      &.slick-active{width: 36px;}
 
     }
   }

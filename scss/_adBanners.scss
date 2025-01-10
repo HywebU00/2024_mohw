@@ -2,8 +2,15 @@
 // .main>*:not(.adBanners){display: none;}
 
 .adBanners{
+  position: relative;
   margin: 0 auto; padding: 25px 0 50px;
   background: #fff;
+
+  // 暫停按鈕
+  .playPause { 
+    right: 5vw; top: 100px;
+    &:hover, &:focus{box-shadow: #fff 0 0 0 1px, $primaryColor 0 0 0 4px;}
+  }
 
   .sbanner {
     margin:0; padding: 20px 0;
@@ -47,6 +54,8 @@
   }
 
   @media screen and (min-width: $wwMedium){
+
+    .playPause{ right: 3vw;}
     
     .sbanner{
       a{ width: 35vw; }
@@ -57,7 +66,7 @@
   }
 
   @media screen and (min-width: $wwNormal){
-
+    .playPause{ right:2vw;}
     .slickBox{ margin-top: -10px;}
     .sbanner{
       a{ width: 20vw; box-shadow: rgb(0 0 0 / .3) 0 1px 6px;
@@ -69,6 +78,7 @@
   }
 
   @media screen and (min-width: $wwMaximum){
+    .playPause{ right:calc( 50vw - $wwMaximum*.48);}
     .sbanner{
       a{ width: 250px; }
       img{ height: 100px;}

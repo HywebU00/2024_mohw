@@ -386,6 +386,34 @@ button.skip{
 
 }
 
+// 暫停按鈕
+.playPause {
+  position: absolute; z-index: 9;
+  width: 44px; height: 44px; border-radius: 50%;
+  margin: 0; box-shadow: rgb(255 255 255 / .6) 0 0 0 2px;
+  transition:all .2s, right 0s, left 0s;
+  &:hover, &:focus{ box-shadow: rgb(255 255 255 / .6) 0 0 0 3px;}
+  &:focus-visible {box-shadow:#fff 0 0 0 4px;}
+  &::before, &::after {content: '';position: absolute;}
+  &::before {
+    width: 4px; height: 12px; top: 16px; left: 16px;
+    border-radius: 1px;
+    background-color: #fff;
+    box-shadow: #fff 8px 0 0;
+  }
+  &::after {
+    display: none;
+    width: 0;height: 0; top: 15px; left: 20px;
+    border-style: solid; border-width: 7px 0 7px 9px;
+    border-color: transparent transparent transparent #fff;
+  }
+
+  &.paused {
+    background-color: #be002e;
+    &::before {display: none;}
+    &::after {display: block;}
+  }
+}
 
 
 // 暫時寄放

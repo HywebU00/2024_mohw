@@ -48,7 +48,7 @@ table.layout {
       white-space: nowrap;text-align: right; font-weight: bold;
     }
   }
-  td :nth-child(even){ padding-right: 1.5em;}
+  td:nth-child(even){ padding-right: 1.5em;}
 
   // 表單中的 提示、警告、錯誤訊息；說明文字
   // -------------------------- //
@@ -130,13 +130,13 @@ table.layout {
 
   @media screen and (max-width: $wwMedium){
     tr, td {display: block;}
-    td{
+    td, th{
       &:nth-child(odd){
         padding: .8em 6px 0; margin-bottom: -6px;
         text-align: left;
       }
-      &:nth-child(even){padding-right: 0; padding-bottom: 12px;}
     }
+    td:nth-child(even){padding-right: 0; padding-bottom: 12px;}
   }
 
   @media screen and (min-width: $wwNormal){
@@ -180,10 +180,12 @@ table.layout {
 }
 
 
-// 必填符號 *
+// 必填符號 * （改為直接顯示文字「必填」，NVDA 無法判讀 title 屬性）
 .required{
-  color: $warning; margin-right: 3px; 
-  font-size: 1.2em;text-decoration: none;
+  display: inline-block; line-height: 1; vertical-align: top;
+  color: $warning; margin:3px 4px 0 0; 
+  font-size: .75em; font-weight: normal;text-decoration: none;
+  outline: 1px solid $warning; outline-offset: 1px;
 }
 
 
