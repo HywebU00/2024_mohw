@@ -225,9 +225,11 @@ $(function(){
     }
   })
 
+  //  點擊 [Escape] 鍵隱藏 _search
   _search.on('keydown', function(e){
     if( e.code == 'Escape' ) {
       _search.slideUp(srSpeed);
+      _searchCtrl.removeClass('closeIt');
     }
   })
 
@@ -235,6 +237,7 @@ $(function(){
   $('*').not(_searchCtrl).focus(function(){
     if( !$(this).parents().is(_search) && _search.is(':visible')){
       _search.slideUp(srSpeed);
+      _searchCtrl.removeClass('closeIt');
     }
   })
 
